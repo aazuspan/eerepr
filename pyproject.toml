@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "eerepr"
+version = "0.0.1"
+description = "Code Editor-style HTML reprs for Earth Engine data in a Jupyter notebook."
+authors = ["Aaron Zuspan <aa.zuspan@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+earthengine-api = "^0.1.329"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+isort = "^5.10.1"
+pytest = "^7.2.0"
+ipykernel = "^6.17.0"
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
