@@ -1,9 +1,12 @@
 [tool.poetry]
 name = "eerepr"
 version = "0.0.1"
-description = "Code Editor-style HTML reprs for Earth Engine data in a Jupyter notebook."
+description = "Code Editor-style reprs for Earth Engine data in a Jupyter notebook."
+license = "MIT"
 authors = ["Aaron Zuspan <aa.zuspan@gmail.com>"]
 readme = "README.md"
+repository = "https://github.com/aazuspan/eerepr"
+keywords = ["earthengine", "gee", "jupyter", "notebook", "repr"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
