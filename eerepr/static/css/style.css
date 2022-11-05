@@ -21,9 +21,10 @@ body.vscode-dark {
 }
 
 .eerepr {
-  line-height: 1.6;
+  padding: 1em;
+  line-height: 1.5em;
   min-width: 300px;
-  max-width: 800px;
+  max-width: 1200px;
   overflow-y: scroll;
   max-height: 600px;
   border: 1px solid var(--border-color);
@@ -35,12 +36,19 @@ body.vscode-dark {
 }
 
 .eerepr ul {
-  padding-left: 1.5em;
+  padding-left: 1.5em !important;
+  margin: 0;
+}
+
+/* Prevent indenting on the root node */
+.eerepr > ul {
+  padding-left: 0 !important;
 }
 
 .eerepr-header {
   color: var(--font-color-secondary);
   cursor: pointer;
+  margin: 0;
 }
 
 .eerepr-header:hover {
