@@ -4,8 +4,18 @@ from functools import singledispatch
 from itertools import chain
 from typing import Any
 
+# Max number of characters to display for a list before truncating to "List (n elements)""
 MAX_INLINE_LENGTH = 50
-
+# Sorting priority for Earth Engine properties
+PROPERTY_PRIORITY = [
+    "type",
+    "id",
+    "version",
+    "bands",
+    "columns",
+    "geometry",
+    "properties",
+]
 
 @singledispatch
 def convert_to_html(obj: Any, key=None) -> str:
@@ -37,20 +47,20 @@ def list_to_html(obj: list, key=None) -> str:
     header += f"List ({n} {noun})" if len(contents) > MAX_INLINE_LENGTH else contents
     children = [convert_to_html(item, key=i) for i, item in enumerate(obj)]
 
-    return make_collapsible_li(header, children)
+    return _make_collapsible_li(header, children)
 
 
 @convert_to_html.register(dict)
 def dict_to_html(obj: dict, key=None) -> str:
     """Convert a Python dictionary to an HTML <li> element."""
     obj = _sort_dict(obj)
-    label = build_object_label(obj)
+    label = _build_object_label(obj)
 
     header = f"{key}: " if key is not None else ""
     header += label
     children = [convert_to_html(value, key=key) for key, value in obj.items()]
 
-    return make_collapsible_li(header, children)
+    return _make_collapsible_li(header, children)
 
 
 def _sort_dict(obj: dict) -> dict:
@@ -59,23 +69,13 @@ def _sort_dict(obj: dict) -> dict:
     This follows the Code Editor standard where priority keys are sorted first and the rest are
     returned in alphabetical order.
     """
-    prop_priority = [
-        "type",
-        "id",
-        "version",
-        "bands",
-        "columns",
-        "geometry",
-        "properties",
-    ]
-
-    priority_keys = [k for k in prop_priority if k in obj]
+    priority_keys = [k for k in PROPERTY_PRIORITY if k in obj]
     start = {k: obj[k] for k in priority_keys}
     end = {k: obj[k] for k in sorted(obj)}
     return {**start, **end}
 
 
-def make_collapsible_li(header, children) -> str:
+def _make_collapsible_li(header, children) -> str:
     """Package a header and children into a collapsible list element"""
     data_id = "section-" + str(uuid.uuid4())
 
@@ -88,7 +88,7 @@ def make_collapsible_li(header, children) -> str:
     )
 
 
-def build_image_label(obj: dict) -> str:
+def _build_image_label(obj: dict) -> str:
     obj_id = obj.get("id")
     id_label = f" {obj_id}" if obj_id else ""
     n = len(obj.get("bands", []))
@@ -96,7 +96,7 @@ def build_image_label(obj: dict) -> str:
     return f"Image{id_label} ({n} {noun})"
 
 
-def build_imagecollection_label(obj: dict) -> str:
+def _build_imagecollection_label(obj: dict) -> str:
     obj_id = obj.get("id")
     id_label = f" {obj_id} " if obj_id else ""
     n = len(obj.get("features", []))
@@ -104,12 +104,12 @@ def build_imagecollection_label(obj: dict) -> str:
     return f"ImageCollection{id_label} ({n} {noun})"
 
 
-def build_date_label(obj: dict) -> str:
+def _build_date_label(obj: dict) -> str:
     dt = datetime.datetime.utcfromtimestamp(obj.get("value", 0) / 1000)
     return f"Date ({dt})"
 
 
-def build_feature_label(obj: dict) -> str:
+def _build_feature_label(obj: dict) -> str:
     n = len(obj.get("properties", []))
     geom_type = obj.get("geometry", {}).get("type")
     type_label = f"{geom_type}, " if geom_type is not None else ""
@@ -117,7 +117,7 @@ def build_feature_label(obj: dict) -> str:
     return f"Feature ({type_label}{n} {noun})"
 
 
-def build_featurecollection_label(obj: dict) -> str:
+def _build_featurecollection_label(obj: dict) -> str:
     obj_id = obj.get("id")
     id_label = f" {obj_id} " if obj_id else ""
     ncols = len(obj.get("columns", []))
@@ -127,20 +127,20 @@ def build_featurecollection_label(obj: dict) -> str:
     return f"FeatureCollection{id_label} ({nfeats} {feat_noun}, {ncols} {col_noun})"
 
 
-def build_point_label(obj: dict) -> str:
+def _build_point_label(obj: dict) -> str:
     x, y = obj.get("coordinates", [None, None])
     xstr = f"{x:.2f}" if isinstance(x, (int, float)) else "NaN"
     ystr = f"{y:.2f}" if isinstance(x, (int, float)) else "NaN"
     return f"Point ({xstr}, {ystr})"
 
 
-def build_polygon_label(obj: dict) -> str:
+def _build_polygon_label(obj: dict) -> str:
     n = len(obj.get("coordinates", [[]])[0])
     noun = "vertex" if n == 1 else "vertices"
     return f"Polygon ({n} {noun})"
 
 
-def build_multipolygon_label(obj: dict) -> str:
+def _build_multipolygon_label(obj: dict) -> str:
     coords = obj.get("coordinates", [])[0]
     flat = list(chain.from_iterable(coords))
     n = len(flat)
@@ -148,7 +148,7 @@ def build_multipolygon_label(obj: dict) -> str:
     return f"MultiPolygon ({n} {noun})"
 
 
-def build_multipoint_label(obj: dict) -> str:
+def _build_multipoint_label(obj: dict) -> str:
     """This also works for LineString and LinearRing."""
     obj_type = obj.get("type")
     n = len(obj.get("coordinates", []))
@@ -156,7 +156,7 @@ def build_multipoint_label(obj: dict) -> str:
     return f"{obj_type} ({n} {noun})"
 
 
-def build_pixeltype_label(obj: dict) -> str:
+def _build_pixeltype_label(obj: dict) -> str:
     prec = obj.get("precision", "")
     minimum = str(obj.get("min", ""))
     maximum = str(obj.get("max", ""))
@@ -180,11 +180,11 @@ def build_pixeltype_label(obj: dict) -> str:
         return f"{prec} ∈ {range}"
 
 
-def build_band_label(obj: dict) -> str:
+def _build_band_label(obj: dict) -> str:
     band_id = obj.get("id", "")
     if band_id:
         band_id = f'"{band_id}"'
-    dtype = build_pixeltype_label(obj.get("data_type", {}))
+    dtype = _build_pixeltype_label(obj.get("data_type", {}))
     dims = obj.get("dimensions")
     dimensions = f"{dims[0]}x{dims[1]} px" if dims else ""
     crs = obj.get("crs", "")
@@ -193,14 +193,14 @@ def build_band_label(obj: dict) -> str:
     return ", ".join(parts)
 
 
-def build_daterange_label(obj: dict) -> str:
+def _build_daterange_label(obj: dict) -> str:
     start, end = obj.get("dates", [0, 0])
     dt_start = datetime.datetime.utcfromtimestamp(start / 1000)
     dt_end = datetime.datetime.utcfromtimestamp(end / 1000)
     return f"DateRange [{dt_start}, {dt_end}]"
 
 
-def build_object_label(obj: dict) -> str:
+def _build_object_label(obj: dict) -> str:
     """Take an info dictionary from Earth Engine and return a header label.
 
     These labels attempt to be consistent with outputs from the Code Editor.
@@ -208,34 +208,34 @@ def build_object_label(obj: dict) -> str:
     obj_type = obj.get("type", "")
 
     if obj_type == "Image":
-        return build_image_label(obj)
+        return _build_image_label(obj)
     if obj_type == "ImageCollection":
-        return build_imagecollection_label(obj)
+        return _build_imagecollection_label(obj)
     if obj_type == "Date":
-        return build_date_label(obj)
+        return _build_date_label(obj)
     if obj_type == "FeatureCollection":
-        return build_featurecollection_label(obj)
+        return _build_featurecollection_label(obj)
     if obj_type == "Feature":
-        return build_feature_label(obj)
+        return _build_feature_label(obj)
     if obj_type == "Point":
-        return build_point_label(obj)
+        return _build_point_label(obj)
     if obj_type in ("MultiPoint", "LineString", "LinearRing"):
-        return build_multipoint_label(obj)
+        return _build_multipoint_label(obj)
     if obj_type == "Polygon":
-        return build_polygon_label(obj)
+        return _build_polygon_label(obj)
     if obj_type == "MultiPolygon":
-        return build_multipolygon_label(obj)
+        return _build_multipolygon_label(obj)
     if obj_type == "PixelType":
-        return build_pixeltype_label(obj)
+        return _build_pixeltype_label(obj)
     if obj_type == "DateRange":
-        return build_daterange_label(obj)
+        return _build_daterange_label(obj)
     if obj_type:
         obj_id = obj.get("id", "")
         id_label = f" {obj_id} " if obj_id else ""
         return f"{obj_type}{id_label}"
     # Band objects don't have a `type` property, so this is how the Code Editor matches them.
     if "data_type" in obj.keys() and "id" in obj.keys():
-        return build_band_label(obj)
+        return _build_band_label(obj)
 
     n = len(obj.keys())
     noun = "property" if n == 1 else "properties"
