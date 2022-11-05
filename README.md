@@ -1,5 +1,7 @@
 # eerepr
 
+[![Earth Engine Python](https://img.shields.io/badge/Earth%20Engine%20API-Python-green)](https://developers.google.com/earth-engine/tutorials/community/intro-to-python-api)
+
 `eerepr` is an experimental project to add interactive, Code Editor-style HTML reprs to Earth Engine objects in a Jupyter environment.
 
 ![An HTML repr showing the details for an ee.Image in a Jupyter notebook](https://user-images.githubusercontent.com/50475791/200094168-324658b7-c97e-451b-b490-2ff580ac81ab.png)
