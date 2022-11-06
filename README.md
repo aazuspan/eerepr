@@ -12,10 +12,10 @@
 ## Setup
 
 ```bash
-pip install git+https://github.com/aazuspan/eerepr
+pip install eerepr
 ```
 
-Installs through `PyPI` and `conda-forge` will be added soon.
+Coming soon to `conda-forge`!
 
 ## Usage
 
