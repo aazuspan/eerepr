@@ -17,6 +17,7 @@ PROPERTY_PRIORITY = [
     "properties",
 ]
 
+
 @singledispatch
 def convert_to_html(obj: Any, key=None) -> str:
     """Converts a Python object (not list or dict) to an HTML <li> element.
@@ -54,7 +55,7 @@ def list_to_html(obj: list, key=None) -> str:
 def dict_to_html(obj: dict, key=None) -> str:
     """Convert a Python dictionary to an HTML <li> element."""
     obj = _sort_dict(obj)
-    label = _build_object_label(obj)
+    label = _build_label(obj)
 
     header = f"{key}: " if key is not None else ""
     header += label
@@ -201,42 +202,50 @@ def _build_daterange_label(obj: dict) -> str:
 
 
 def _build_object_label(obj: dict) -> str:
+    """Build a label for a generic JS object."""
+    n = len(obj.keys())
+    noun = "property" if n == 1 else "properties"
+    return f"Object ({n} {noun})"
+
+
+def _build_typed_label(obj: dict) -> str:
+    """Build a label for an object with an unrecognized type."""
+    obj_type = obj.get("type")
+    obj_id = obj.get("id", "")
+    id_label = f" {obj_id} " if obj_id else ""
+    return f"{obj_type}{id_label}"
+
+
+def _build_label(obj: dict) -> str:
     """Take an info dictionary from Earth Engine and return a header label.
 
     These labels attempt to be consistent with outputs from the Code Editor.
     """
+    labelers = {
+        # Explicit types
+        "Image": _build_image_label,
+        "ImageCollection": _build_imagecollection_label,
+        "Date": _build_date_label,
+        "Feature": _build_feature_label,
+        "FeatureCollection": _build_featurecollection_label,
+        "Point": _build_point_label,
+        "MultiPoint": _build_multipoint_label,
+        "LineString": _build_multipoint_label,
+        "LinearRing": _build_multipoint_label,
+        "Polygon": _build_polygon_label,
+        "MultiPolygon": _build_multipolygon_label,
+        "PixelType": _build_pixeltype_label,
+        "DateRange": _build_daterange_label,
+        # Inferred types
+        "_Band": _build_band_label,
+        "_Object": _build_object_label,
+        "_Typed": _build_typed_label,
+    }
+
     obj_type = obj.get("type", "")
+    if not obj_type:
+        obj_type = "_Band" if "id" in obj and "data_type" in obj else "_Object"
+    if obj_type not in labelers:
+        obj_type = "_Typed"
 
-    if obj_type == "Image":
-        return _build_image_label(obj)
-    if obj_type == "ImageCollection":
-        return _build_imagecollection_label(obj)
-    if obj_type == "Date":
-        return _build_date_label(obj)
-    if obj_type == "FeatureCollection":
-        return _build_featurecollection_label(obj)
-    if obj_type == "Feature":
-        return _build_feature_label(obj)
-    if obj_type == "Point":
-        return _build_point_label(obj)
-    if obj_type in ("MultiPoint", "LineString", "LinearRing"):
-        return _build_multipoint_label(obj)
-    if obj_type == "Polygon":
-        return _build_polygon_label(obj)
-    if obj_type == "MultiPolygon":
-        return _build_multipolygon_label(obj)
-    if obj_type == "PixelType":
-        return _build_pixeltype_label(obj)
-    if obj_type == "DateRange":
-        return _build_daterange_label(obj)
-    if obj_type:
-        obj_id = obj.get("id", "")
-        id_label = f" {obj_id} " if obj_id else ""
-        return f"{obj_type}{id_label}"
-    # Band objects don't have a `type` property, so this is how the Code Editor matches them.
-    if "data_type" in obj.keys() and "id" in obj.keys():
-        return _build_band_label(obj)
-
-    n = len(obj.keys())
-    noun = "property" if n == 1 else "properties"
-    return f"Object ({n} {noun})"
+    return labelers[obj_type](obj)
