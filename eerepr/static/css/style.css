@@ -1,3 +1,10 @@
+/* 
+This file was modified from the xarray stylesheet, which is licensed under the
+Apache License, Version 2.0 (the "License").
+
+https://github.com/pydata/xarray/blob/main/xarray/static/css/style.css
+*/
+
 :root {
   --font-color-primary: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
   --font-color-secondary: var(--jp-content-font-color2, rgba(0, 0, 0, 0.6));
