@@ -32,7 +32,4 @@ Importing `eerepr` in a Jupyter notebook adds an HTML repr method to all Earth E
 
 `eerepr` uses caching to improve performance. Server data will only be requested once for each unique Earth Engine object, and all subsequent requests will be retrieved from the cache until the Jupyter session is restarted.
 
-When you import `eerepr`, it is automatically initialized with an unlimited cache size. You can manually set the number of unique objects to cache using `eerepr.initialize(max_cache_size=n)`. A value of `None` sets an unlimited cache while a value of `0` disables caching. You can also clear out the cache contents to free memory with `eerepr.clear_cache()`.
-
-> **Warning**
-> There is a known bug when calling `ee.List.shuffle(seed=False)`. Because the method returns non-deterministic results from the same seed value, the incorrect cached result will be displayed if called multiple times. All other random methods use deterministic seeds and should work as expected.
+When you import `eerepr`, it is automatically initialized with an unlimited cache size. You can manually set the number of unique objects to cache using `eerepr.initialize(max_cache_size=n)`. A value of `None` sets an unlimited cache while a value of `0` disables caching.
