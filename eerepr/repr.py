@@ -50,10 +50,10 @@ def _ee_repr(obj: Union[ee.Element, ee.ComputedObject]) -> str:
     return (
         "<div>"
         f"<style>{css}</style>"
-        f"<script>{js}</script>"
         f"<div class='eerepr'>"
         f"<ul>{body}</ul>"
         "</div>"
+        f"<script>{js}</script>"
         "</div>"
     )
 
