@@ -1,6 +1,6 @@
 import ee
 
-from eerepr.repr import clear_cache, initialize
+from eerepr.repr import initialize
 
 __version__ = '0.0.1'
 __all__ = ['clear_cache', 'initialize']

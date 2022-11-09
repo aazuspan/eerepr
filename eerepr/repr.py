@@ -3,6 +3,7 @@ from html import escape
 from importlib.resources import read_text
 from typing import Callable, Type, Union
 from warnings import warn
+import uuid
 
 import ee
 
@@ -34,7 +35,19 @@ def _attach_html_repr(cls: Type, repr: Callable) -> None:
         setattr(cls, REPR_HTML, repr)
 
 
-def _ee_repr(obj: Union[ee.Element, ee.ComputedObject]) -> str:
+def _is_nondeterministic(obj):
+    """Check if an object returns nondeterministic results which would break caching.
+    
+    Currently, this only tests for the case of `ee.List.shuffle(seed=False)`.
+    """
+    invocation = obj.serialize()
+    shuffled = "List.shuffle" in invocation
+    false_seed = '"seed": {"constantValue": false}' in invocation
+    return shuffled and false_seed
+
+
+@lru_cache(maxsize=None)
+def _repr_html_(obj: Union[ee.Element, ee.ComputedObject]) -> str:
     """Generate an HTML representation of an EE object."""
     try:
         info = obj.getInfo()
@@ -58,8 +71,18 @@ def _ee_repr(obj: Union[ee.Element, ee.ComputedObject]) -> str:
     )
 
 
-def initialize(max_cache_size=None) -> _lru_cache_wrapper:
-    """Attach HTML repr methods to EE objects.
+def _ee_repr(obj: Union[ee.Element, ee.ComputedObject]) -> str:
+    """Wrapper around _repr_html_ to prevent cache hits on nondeterministic objects."""
+    if _is_nondeterministic(obj):
+        # We don't want to cache nondeterministic objects, so we'll add add a unique attribute
+        # that causes ee.ComputedObject.__eq__ to return False, preventing a cache hit.
+        setattr(obj, "_eerepr_id", uuid.uuid4())
+
+    return _repr_html_(obj)
+
+
+def initialize(max_cache_size=None) -> None:
+    """Attach HTML repr methods to EE objects and set the cache size.
 
     Re-running this function will reset the cache.
 
@@ -68,25 +91,13 @@ def initialize(max_cache_size=None) -> _lru_cache_wrapper:
     max_cache_size : int, optional
         The maximum number of EE objects to cache. If None, the cache size is unlimited. Set to 0
         to disable caching.
-
-    Returns
-    -------
-    _lru_cache_wrapper
-        The cache wrapper which can be used to inspect and clear the cache.
     """
-    rep = (
-        lru_cache(maxsize=max_cache_size)(_ee_repr) if max_cache_size != 0 else _ee_repr
-    )
+    global _repr_html_
+    if isinstance(_repr_html_, _lru_cache_wrapper):
+        _repr_html_ = _repr_html_.__wrapped__
+    
+    if max_cache_size != 0:
+        _repr_html_ = lru_cache(maxsize=max_cache_size)(_repr_html_)
 
     for cls in [ee.Element, ee.ComputedObject]:
-        _attach_html_repr(cls, rep)
-
-    return rep
-
-
-def clear_cache() -> None:
-    """Reset the cache."""
-    try:
-        ee.Element._repr_html_.cache_clear()
-    except AttributeError:
-        pass
+        _attach_html_repr(cls, _ee_repr)
