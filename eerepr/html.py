@@ -1,6 +1,4 @@
 import datetime
-import uuid
-from functools import singledispatch
 from itertools import chain
 from typing import Any
 
@@ -18,7 +16,6 @@ PROPERTY_PRIORITY = [
 ]
 
 
-@singledispatch
 def convert_to_html(obj: Any, key=None) -> str:
     """Converts a Python object (not list or dict) to an HTML <li> element.
 
@@ -29,6 +26,11 @@ def convert_to_html(obj: Any, key=None) -> str:
     key : str, optional
         The key to prepend to the object value, in the case of a dictionary value or list element.
     """
+    if isinstance(obj, list):
+        return list_to_html(obj, key)
+    elif isinstance(obj, dict):
+        return dict_to_html(obj, key)
+
     key_html = f"<span class='eerepr-key'>{key}:</span>" if key is not None else ""
     return (
         "<li class='eerepr-terminal'>"
@@ -38,7 +40,6 @@ def convert_to_html(obj: Any, key=None) -> str:
     )
 
 
-@convert_to_html.register(list)
 def list_to_html(obj: list, key=None) -> str:
     """Convert a Python list to an HTML <li> element."""
     contents = str(obj)
@@ -51,7 +52,6 @@ def list_to_html(obj: list, key=None) -> str:
     return _make_collapsible_li(header, children)
 
 
-@convert_to_html.register(dict)
 def dict_to_html(obj: dict, key=None) -> str:
     """Convert a Python dictionary to an HTML <li> element."""
     obj = _sort_dict(obj)
@@ -78,12 +78,10 @@ def _sort_dict(obj: dict) -> dict:
 
 def _make_collapsible_li(header, children) -> str:
     """Package a header and children into a collapsible list element"""
-    data_id = "section-" + str(uuid.uuid4())
-
     return (
         "<li>"
-        f"<input id='{data_id}' type='checkbox' class='eerepr-collapser'>"
-        f"<label for='{data_id}' class='eerepr-header'>{header}</label>"
+        f"<label class='eerepr-header-closed'>{header}"
+        f"<input type='checkbox' class='eerepr-collapser'></label>"
         f"<ul class='eerepr-list'>{''.join(children)}</ul>"
         "</li>"
     )
