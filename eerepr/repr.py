@@ -8,6 +8,8 @@ import uuid
 import ee
 
 from eerepr.html import convert_to_html
+from eerepr.config import options
+
 
 REPR_HTML = "_repr_html_"
 # Track which html reprs have been set so we can overwrite them if needed.
@@ -78,7 +80,17 @@ def _ee_repr(obj: Union[ee.Element, ee.ComputedObject]) -> str:
         # that causes ee.ComputedObject.__eq__ to return False, preventing a cache hit.
         setattr(obj, "_eerepr_id", uuid.uuid4())
 
-    return _repr_html_(obj)
+    rep = _repr_html_(obj)
+    mbs = len(rep) / 1e6
+    if mbs > options.max_repr_mbs:
+        warn(message=(
+            f"HTML repr size ({mbs:.0f}mB) exceeds maximum ({options.max_repr_mbs:.0f}mB), falling" 
+            " back to string repr. You can set `eerepr.options.max_repr_mbs` to print larger"
+            " objects, but this may cause performance issues."
+        ))
+        return f"<pre>{escape(repr(obj))}</pre>"
+
+    return rep
 
 
 def initialize(max_cache_size=None) -> None:

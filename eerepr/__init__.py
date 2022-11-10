@@ -1,10 +1,9 @@
 import ee
 
 from eerepr.repr import initialize
+from eerepr.config import options
 
 __version__ = '0.0.1'
-__all__ = ['clear_cache', 'initialize']
+__all__ = ['clear_cache', 'initialize', 'options']
 
-MAX_CACHE_SIZE = None
-
-initialize(max_cache_size=MAX_CACHE_SIZE)
+initialize(max_cache_size=options.max_cache_size)
