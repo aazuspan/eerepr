@@ -1,15 +1,14 @@
+import uuid
 from functools import _lru_cache_wrapper, lru_cache
 from html import escape
 from importlib.resources import read_text
 from typing import Callable, Type, Union
 from warnings import warn
-import uuid
 
 import ee
 
-from eerepr.html import convert_to_html
 from eerepr.config import options
-
+from eerepr.html import convert_to_html
 
 REPR_HTML = "_repr_html_"
 # Track which html reprs have been set so we can overwrite them if needed.
@@ -39,7 +38,7 @@ def _attach_html_repr(cls: Type, repr: Callable) -> None:
 
 def _is_nondeterministic(obj):
     """Check if an object returns nondeterministic results which would break caching.
-    
+
     Currently, this only tests for the case of `ee.List.shuffle(seed=False)`.
     """
     invocation = obj.serialize()
@@ -83,11 +82,13 @@ def _ee_repr(obj: Union[ee.Element, ee.ComputedObject]) -> str:
     rep = _repr_html_(obj)
     mbs = len(rep) / 1e6
     if mbs > options.max_repr_mbs:
-        warn(message=(
-            f"HTML repr size ({mbs:.0f}mB) exceeds maximum ({options.max_repr_mbs:.0f}mB), falling" 
-            " back to string repr. You can set `eerepr.options.max_repr_mbs` to print larger"
-            " objects, but this may cause performance issues."
-        ))
+        warn(
+            message=(
+                f"HTML repr size ({mbs:.0f}mB) exceeds maximum ({options.max_repr_mbs:.0f}mB), falling"
+                " back to string repr. You can set `eerepr.options.max_repr_mbs` to print larger"
+                " objects, but this may cause performance issues."
+            )
+        )
         return f"<pre>{escape(repr(obj))}</pre>"
 
     return rep
@@ -107,7 +108,7 @@ def initialize(max_cache_size=None) -> None:
     global _repr_html_
     if isinstance(_repr_html_, _lru_cache_wrapper):
         _repr_html_ = _repr_html_.__wrapped__
-    
+
     if max_cache_size != 0:
         _repr_html_ = lru_cache(maxsize=max_cache_size)(_repr_html_)
 
