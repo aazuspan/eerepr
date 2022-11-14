@@ -64,7 +64,7 @@ def _repr_html_(obj: Union[ee.Element, ee.ComputedObject]) -> str:
     return (
         "<div>"
         f"<style>{css}</style>"
-        f"<div class='eerepr'>"
+        f"<div class='ee'>"
         f"<ul>{body}</ul>"
         "</div>"
         f"<script>{js}</script>"
