@@ -31,11 +31,11 @@ def convert_to_html(obj: Any, key=None) -> str:
     elif isinstance(obj, dict):
         return dict_to_html(obj, key)
 
-    key_html = f"<span class='eerepr-key'>{key}:</span>" if key is not None else ""
+    key_html = f"<span class='ee-k'>{key}:</span>" if key is not None else ""
     return (
-        "<li class='eerepr-terminal'>"
+        "<li>"
         f"{key_html}"
-        f"<span class='eerepr-val'>{obj}</span>"
+        f"<span class='ee-v'>{obj}</span>"
         "</li>"
     )
 
@@ -80,9 +80,9 @@ def _make_collapsible_li(header, children) -> str:
     """Package a header and children into a collapsible list element"""
     return (
         "<li>"
-        f"<label class='eerepr-header-closed'>{header}"
-        f"<input type='checkbox' class='eerepr-collapser'></label>"
-        f"<ul class='eerepr-list'>{''.join(children)}</ul>"
+        f"<label class='ee-shut'>{header}"
+        f"<input type='checkbox' class='ee-toggle'></label>"
+        f"<ul>{''.join(children)}</ul>"
         "</li>"
     )
 
