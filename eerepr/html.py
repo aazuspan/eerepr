@@ -110,7 +110,11 @@ def _build_date_label(obj: dict) -> str:
 
 def _build_feature_label(obj: dict) -> str:
     n = len(obj.get("properties", []))
-    geom_type = obj.get("geometry", {}).get("type")
+    try:
+        geom_type = obj["geometry"]["type"]
+    except (TypeError, KeyError):
+        geom_type = None
+
     type_label = f"{geom_type}, " if geom_type is not None else ""
     noun = "property" if n == 1 else "properties"
     return f"Feature ({type_label}{n} {noun})"
