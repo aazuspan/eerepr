@@ -35,6 +35,9 @@ def test_feature():
 
     assert "Feature (Point, 1 property)" in rep
 
+def test_empty_feature():
+    rep = ee.Feature(None)._repr_html_()
+    assert "Feature (0 properties)" in rep
 
 def test_featurecollection():
     feat = ee.Feature(geom=ee.Geometry.Point([0, 0]), opt_properties={"foo": "bar"})
