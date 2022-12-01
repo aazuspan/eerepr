@@ -1,3 +1,70 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "eerepr"
+dynamic = ["version"]
+description = "Code Editor-style reprs for Earth Engine data in a Jupyter notebook."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+authors = [{ name = "Aaron Zuspan" }]
+keywords = [
+    "earthengine",
+    "gee",
+    "html",
+    "jupyter",
+    "notebook",
+    "reprs",
+]
+dependencies = [
+    "earthengine-api",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "ipykernel",
+    "isort",
+    "jupyterlab",
+    "pytest",
+    "pytest-cov",
+    "hatch",
+]
+
+[project.urls]
+Homepage = "https://github.com/aazuspan/eerepr"
+
+[tool.hatch.version]
+path = "eerepr/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["/eerepr"]
+
+[tool.hatch.envs.test]
+dependencies = [
+    "earthengine-api",
+    "pytest",
+    "pytest-cov",
+    "tox",
+]
+
+[tool.hatch.envs.test.scripts]
+tests = "pytest ."
+cov = "pytest . --cov=eerepr --cov-report=html"
+view-cov = "open htmlcov/index.html"
+ci = "tox"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = python3.7,python3.8,python3.9,python3.10
+[testenv]
+deps = 
+    pytest
+    pytest-cov
+    earthengine-api
+commands = pytest
+isolated_build = True
+"""
