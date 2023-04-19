@@ -1,6 +1,12 @@
+/* Prevent white widget background in VSCode dark mode */
+.cell-output-ipywidget-background {
+  background-color: transparent !important;
+}
+
 :root {
   --font-color-primary: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
   --font-color-secondary: var(--jp-content-font-color2, rgba(0, 0, 0, 0.6));
+  --font-color-tertiary: var(--jp-content-font-color3, rgba(0, 0, 0, 0.15));
   --font-color-accent: rgba(123, 31, 162, 1);
   --border-color: var(--jp-border-color2, #e0e0e0);
   --background-color: var(--jp-layout-color0, white);
@@ -13,6 +19,7 @@ body[data-theme="dark"],
 body.vscode-dark {
   --font-color-primary: rgba(255, 255, 255, 1);
   --font-color-secondary: rgba(255, 255, 255, 0.6);
+  --font-color-tertiary: rgba(255, 255, 255, 0.15);
   --font-color-accent: rgb(173, 132, 190);
   --border-color: #2e2e2e;
   --background-color: #111111;
@@ -29,6 +36,14 @@ body.vscode-dark {
   max-height: 600px;
   border: 1px solid var(--border-color);
   font-family: monospace;
+  cursor: auto;
+}
+
+.ee-error {
+  color: rgb(255, 255, 255);
+  background-color: rgb(187, 0, 0);
+  padding: 1em;
+  border-radius: 0.6em;
 }
 
 .ee li {
@@ -77,18 +92,48 @@ body.vscode-dark {
   display: block;
 }
 
-.ee-shut::before {
+.ee-shut::before,
+.ee-open::before {
   display: inline-block;
   content: "▼";
-  margin-right: 6px;
-  transform: rotate(-90deg);
+  margin-right: 18px;
   transition: transform 0.2s;
+}
+
+.ee-shut::before {
+  transform: rotate(-90deg);
 }
 
 .ee-open::before {
   transform: rotate(0deg);
+}
+
+.ee-loading {
+  display: flex;
+  color: var(--font-color-secondary);
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ee-spinner {
+  align-self: center;
+  display: flex;
+}
+
+.ee-spinner:before {
+  content: "";
+  box-sizing: border-box;
   display: inline-block;
-  content: "▼";
-  margin-right: 6px;
-  transition: transform 0.2s;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  margin-right: 18px;
+  border-radius: 50%;
+  border-top: 3px solid var(--font-color-secondary);
+  border-right: 3px solid transparent;
+  animation: spinner 0.6s linear infinite;
 }
