@@ -1,16 +1,17 @@
-import os
 import json
+import os
+
 import ee
+
 from eerepr.html import convert_to_html
 
 
 def load_info(obj):
-    """
-    Load client-side info for an Earth Engine object.
+    """Load client-side info for an Earth Engine object.
 
-    Info is retrieved (if available) from a local JSON file using the serialized object
-    as the key. If the data does not exist locally, it is loaded from Earth Engine servers
-    and stored for future use.
+    Info is retrieved (if available) from a local JSON file using the serialized
+    object as the key. If the data does not exist locally, it is loaded from Earth
+    Engine servers and stored for future use.
     """
     serialized = obj.serialize()
 
@@ -18,15 +19,15 @@ def load_info(obj):
         os.mkdir("./tests/data")
 
     try:
-        with open("./tests/data/data.json", "r") as src:
+        with open("./tests/data/data.json") as src:
             existing_data = json.load(src)
-    
+
     # File is missing or unreadable
     except (FileNotFoundError, json.JSONDecodeError):
         existing_data = {}
         with open("./tests/data/data.json", "w") as dst:
             json.dump(existing_data, dst)
-    
+
     # File exists, but info does not
     if serialized not in existing_data:
         with open("./tests/data/data.json", "w") as dst:
@@ -46,15 +47,12 @@ def test_image():
 
 
 def test_imagecollection():
-    obj = (
-        ee.ImageCollection(
-            [
-                ee.Image.constant(0),
-                ee.Image.constant(1),
-            ]
-        )
-        .set("test_prop", 42)
-    )
+    obj = ee.ImageCollection(
+        [
+            ee.Image.constant(0),
+            ee.Image.constant(1),
+        ]
+    ).set("test_prop", 42)
     info = load_info(obj)
     rep = convert_to_html(info)
 
@@ -64,20 +62,20 @@ def test_imagecollection():
 
 
 def test_feature():
-    obj = ee.Feature(
-        geom=ee.Geometry.Point([0, 0]), opt_properties={"foo": "bar"}
-    )
+    obj = ee.Feature(geom=ee.Geometry.Point([0, 0]), opt_properties={"foo": "bar"})
     info = load_info(obj)
     rep = convert_to_html(info)
 
     assert "Feature (Point, 1 property)" in rep
 
+
 def test_empty_feature():
     obj = ee.Feature(None)
     info = load_info(obj)
     rep = convert_to_html(info)
-    
+
     assert "Feature (0 properties)" in rep
+
 
 def test_featurecollection():
     feat = ee.Feature(geom=ee.Geometry.Point([0, 0]), opt_properties={"foo": "bar"})
@@ -95,7 +93,6 @@ def test_date():
 
     assert "Date" in rep
     assert "2021-03-27 14:01:07" in rep
-
 
 
 def test_filter():
@@ -181,6 +178,7 @@ def test_polygon():
 
     assert "Polygon (4 vertices)" in rep
 
+
 def test_multipolygon():
     obj = ee.Geometry.MultiPolygon(
         [
@@ -201,6 +199,7 @@ def test_linearring():
 
     assert "LinearRing (4 vertices)" in rep
 
+
 def test_daterange():
     obj = ee.DateRange("2020-01-01T21:01:10", "2022-03-01T14:32:11")
     info = load_info(obj)
@@ -216,6 +215,7 @@ def test_typed_obj():
 
     assert "Foo bar" in rep
 
+
 def test_band():
     band_id = "B1"
     data_type = {"type": "PixelType", "precision": "int", "min": 0, "max": 65535}
@@ -223,23 +223,23 @@ def test_band():
     crs = "EPSG:32610"
 
     band1 = ee.Dictionary(
-            {
-                "id": band_id,
-                "data_type": data_type,
-                "dimensions": dimensions,
-                "crs": crs,
-            }
-        )
+        {
+            "id": band_id,
+            "data_type": data_type,
+            "dimensions": dimensions,
+            "crs": crs,
+        }
+    )
     band1_info = load_info(band1)
     band1_rep = convert_to_html(band1_info)
     assert '"B1", unsigned int16, EPSG:32610, 1830x1830 px' in band1_rep
 
     band2 = ee.Dictionary(
-            {
-                "id": band_id,
-                "data_type": data_type,
-            }
-        )
+        {
+            "id": band_id,
+            "data_type": data_type,
+        }
+    )
     band2_info = load_info(band2)
     band2_rep = convert_to_html(band2_info)
     assert '"B1", unsigned int16' in band2_rep

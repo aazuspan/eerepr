@@ -1,8 +1,10 @@
+from __future__ import annotations
+
 import json
 
 
 class Config:
-    def __init__(self, max_cache_size, max_repr_mbs):
+    def __init__(self, max_cache_size: int | None, max_repr_mbs: int):
         self.max_cache_size = max_cache_size
         self.max_repr_mbs = max_repr_mbs
 

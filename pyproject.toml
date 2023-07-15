@@ -22,17 +22,6 @@ dependencies = [
     "earthengine-api",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "black",
-    "ipykernel",
-    "isort",
-    "jupyterlab",
-    "pytest",
-    "pytest-cov",
-    "hatch",
-]
-
 [project.urls]
 Homepage = "https://github.com/aazuspan/eerepr"
 
@@ -41,6 +30,9 @@ path = "eerepr/__init__.py"
 
 [tool.hatch.build.targets.sdist]
 include = ["/eerepr"]
+
+[tool.hatch.envs.default]
+dependencies = ["pre-commit"]
 
 [tool.hatch.envs.test]
 dependencies = [
@@ -52,3 +44,7 @@ dependencies = [
 all = "pytest . {args}"
 cov = "pytest . --cov=eerepr {args}"
 
+[tool.ruff]
+select = ["E", "I", "F", "B", "FA", "UP", "ISC", "PT", "Q", "RET", "SIM", "PERF"]
+fix = true
+show-fixes = true
