@@ -9,3 +9,5 @@ htmlcov/
 dist/
 *.egg-info/
 .tox/
+
+tests/data/
