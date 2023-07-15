@@ -1,8 +1,22 @@
 # Contributing to eeprepr
 
+Contributions are always welcome! Bugs and feature requests can be opened in the [Issues](https://github.com/aazuspan/eerepr/issues). Questions and comments can be posted in the [Discussions](https://github.com/aazuspan/eerepr/discussions). To contribute code, please open an issue to discuss implementation, then follow the guide below to get started!
+
 ## Setup
 
-`eeprepr` uses [Hatch](https://hatch.pypa.io/latest/) for package and environment management.
+`eeprepr` uses [Hatch](https://hatch.pypa.io/latest/) for package and environment management. To set up a development environment, first fork and clone `eerepr`, then install `hatch` in your environment.
+
+```bash
+pip install hatch
+```
+
+This will install all required dependencies for development. You can enter the environment using:
+
+```bash
+hatch shell
+```
+
+and exit by typing `quit` or `CTRL + D`.
 
 ## Pre-commit Hooks
 
@@ -36,7 +50,7 @@ To measure test coverage, run:
 hatch run test:cov
 ```
 
-Additional arguments can be passed to `pytest` after the scrirpt name, e.g.:
+Additional arguments can be passed to `pytest` after the script name, e.g.:
 
 ```bash
 hatch run test:all -k feature
