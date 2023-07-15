@@ -12,7 +12,8 @@ def test_disabled_cache():
 
 
 def test_nondeterministic_caching():
-    """ee.List.shuffle(seed=False) is nondeterministic. Make sure it misses the cache."""
+    """ee.List.shuffle(seed=False) is nondeterministic. Make sure it misses the cache.
+    """
     eerepr.initialize(max_cache_size=None)
     cache = eerepr.repr._repr_html_
 

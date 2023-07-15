@@ -1,5 +1,3 @@
-import ee
-
 from eerepr.config import options
 from eerepr.repr import initialize
 

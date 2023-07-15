@@ -1,8 +1,10 @@
+from __future__ import annotations
+
 import datetime
 from itertools import chain
-from typing import Any
+from typing import Any, Hashable
 
-# Max number of characters to display for a list before truncating to "List (n elements)""
+# Max characters to display for a list before truncating to "List (n elements)"
 MAX_INLINE_LENGTH = 50
 # Sorting priority for Earth Engine properties
 PROPERTY_PRIORITY = [
@@ -16,7 +18,7 @@ PROPERTY_PRIORITY = [
 ]
 
 
-def convert_to_html(obj: Any, key=None) -> str:
+def convert_to_html(obj: Any, key: Hashable | None = None) -> str:
     """Converts a Python object (not list or dict) to an HTML <li> element.
 
     Parameters
@@ -24,23 +26,19 @@ def convert_to_html(obj: Any, key=None) -> str:
     obj : Any
         The object to convert to HTML.
     key : str, optional
-        The key to prepend to the object value, in the case of a dictionary value or list element.
+        The key to prepend to the object value, in the case of a dictionary value or
+        list element.
     """
     if isinstance(obj, list):
         return list_to_html(obj, key)
-    elif isinstance(obj, dict):
+    if isinstance(obj, dict):
         return dict_to_html(obj, key)
 
     key_html = f"<span class='ee-k'>{key}:</span>" if key is not None else ""
-    return (
-        "<li>"
-        f"{key_html}"
-        f"<span class='ee-v'>{obj}</span>"
-        "</li>"
-    )
+    return f"<li>{key_html}<span class='ee-v'>{obj}</span></li>"
 
 
-def list_to_html(obj: list, key=None) -> str:
+def list_to_html(obj: list, key: Hashable | None = None) -> str:
     """Convert a Python list to an HTML <li> element."""
     contents = str(obj)
     n = len(obj)
@@ -52,7 +50,7 @@ def list_to_html(obj: list, key=None) -> str:
     return _make_collapsible_li(header, children)
 
 
-def dict_to_html(obj: dict, key=None) -> str:
+def dict_to_html(obj: dict, key: Hashable | None = None) -> str:
     """Convert a Python dictionary to an HTML <li> element."""
     obj = _sort_dict(obj)
     label = _build_label(obj)
@@ -67,8 +65,8 @@ def dict_to_html(obj: dict, key=None) -> str:
 def _sort_dict(obj: dict) -> dict:
     """Sort the properties of an Earth Engine object.
 
-    This follows the Code Editor standard where priority keys are sorted first and the rest are
-    returned in alphabetical order.
+    This follows the Code Editor standard where priority keys are sorted first and the
+    rest are returned in alphabetical order.
     """
     priority_keys = [k for k in PROPERTY_PRIORITY if k in obj]
     start = {k: obj[k] for k in priority_keys}
@@ -76,12 +74,12 @@ def _sort_dict(obj: dict) -> dict:
     return {**start, **end}
 
 
-def _make_collapsible_li(header, children) -> str:
-    """Package a header and children into a collapsible list element"""
+def _make_collapsible_li(header: str, children: list) -> str:
+    """Package a header and children into a collapsible list element."""
     return (
         "<li>"
         f"<label class='ee-shut'>{header}"
-        f"<input type='checkbox' class='ee-toggle'></label>"
+        "<input type='checkbox' class='ee-toggle'></label>"
         f"<ul>{''.join(children)}</ul>"
         "</li>"
     )
