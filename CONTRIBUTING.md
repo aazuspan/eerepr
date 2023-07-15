@@ -58,20 +58,23 @@ hatch run test:all -k feature
 
 ### Building New Tests
 
-New features should have unit tests. To avoid having to use `getInfo` every time a test is run against a client-side Earth Engine object, `eerepr` uses a caching function `tests.test_html.load_info` to load data. This function takes an Earth Engine object and either 1) retrieves it from the local cache in `tests/data/data.json` if it has been used before, or 2) retrieves it from the server and adds it to the cache. Objects in the cache use their serialized form as an identifying key.
+New features should have unit tests. If your test needs to use `getInfo` to retrieve data from an Earth Engine object, you'll need to use the caching system described below.
 
-To demonstrate, let's write a new dummy test that uses a custom `ee.Image`.
+Using `getInfo` to retrieve data from an Earth Engine object can be slow and network-dependent. To speed up tests, `eerepr` uses a caching function `tests.cache.get_info` to load data. This function takes an Earth Engine object and either 1) retrieves its info from a local cache file if it has been used before, or 2) retrieves it from the server and adds it to the cache. The cache directory and file (`tests/data/data.json`) will be created automatically the first time tests are run.
+
+To demonstrate, let's write a new dummy test that checks the properties of a custom `ee.Image`.
 
 ```python
-from tests.test_html import load_info
+from tests.cache import get_info
 
 def test_my_image():
     img = ee.Image.constant(42).set("custom_property", ["a", "b", "c"])
-    info = load_info(img)
+    # Use `get_info` instead of `img.getInfo` to utilize the cache
+    info = get_info(img)
 
-    assert info
+    assert "custom_property" in info["properties"]
 ```
 
 The first time the test is run, `getInfo` will be used to retrieve the image metadata and store it in `tests/data/data.json`. Subsequent runs will pull the data directly from the cache.
 
-When you add a new test, be sure to commit the updated data cache.
+Caches are kept locally and are not version-controlled, so there's no need to commit newly added objects.
