@@ -14,22 +14,22 @@ def get_info(obj):
     """
     serialized = obj.serialize()
 
-    if not os.path.isdir("./tests/data"):
-        os.mkdir("./tests/data")
+    if not os.path.isdir(CACHE_DIR):
+        os.mkdir(CACHE_DIR)
 
     try:
-        with open("./tests/data/data.json") as src:
+        with open(CACHE_PATH) as src:
             existing_data = json.load(src)
 
     # File is missing or unreadable
     except (FileNotFoundError, json.JSONDecodeError):
         existing_data = {}
-        with open("./tests/data/data.json", "w") as dst:
+        with open(CACHE_PATH, "w") as dst:
             json.dump(existing_data, dst)
 
     # File exists, but info does not
     if serialized not in existing_data:
-        with open("./tests/data/data.json", "w") as dst:
+        with open(CACHE_PATH, "w") as dst:
             existing_data[serialized] = obj.getInfo()
             json.dump(existing_data, dst, indent=2)
 
