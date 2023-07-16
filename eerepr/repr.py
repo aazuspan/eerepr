@@ -1,29 +1,40 @@
+from __future__ import annotations
+
+import threading
+import time
 import uuid
 from functools import _lru_cache_wrapper, lru_cache
 from typing import Callable, Type, Union
-import threading
-import anywidget
-import traitlets
-import time
 from warnings import warn
 
+import anywidget
 import ee
+import traitlets
 
 from eerepr.config import options
-from eerepr.html import build_object_html, build_loading_html, build_error_html, build_fallback_html
+from eerepr.html import (
+    build_error_html,
+    build_fallback_html,
+    build_loading_html,
+    build_object_html,
+)
 from eerepr.utils import is_nondeterministic, load_css, load_js
 
-
-# Track which reprs have been set so we can overwrite them if needed.
-reprs_set = set()
+REPR_HTML = "_repr_html_"
 EEObject = Union[ee.Element, ee.ComputedObject]
+EEClass = Type[Union[ee.Element, ee.ComputedObject]]
+
+# Track which html reprs have been set so we can overwrite them if needed.
+reprs_set = set()
 
 
-def _attach_repr(cls: Type, repr: Callable) -> None:
-    """Add a custom repr method to an EE class. Only overwrite the method if it was set by this function."""
+def _attach_repr(cls: EEClass, repr: Callable) -> None:
+    """Add a custom repr method to an EE class. Only overwrite the method if it was set
+    by this function.
+    """
     if not hasattr(cls, "_ipython_display_") or cls.__name__ in reprs_set:
         reprs_set.update([cls.__name__])
-        setattr(cls, "_ipython_display_", repr)
+        cls._ipython_display_ = repr
 
 
 def _ipython_display_(obj: EEObject, **kwargs) -> str:
@@ -35,8 +46,8 @@ def _ipython_display_(obj: EEObject, **kwargs) -> str:
 def _get_cached_repr(obj: EEObject) -> str:
     """Build or retrieve an HTML repr from an Earth Engine object."""
     if is_nondeterministic(obj):
-        # Prevent caching of non-deterministic objects (e.g. ee.List([]).shuffle(False)))
-        setattr(obj, "_eerepr_id", uuid.uuid4())
+        # Prevent caching non-deterministic objects (e.g. ee.List([]).shuffle(False)))
+        obj._eerepr_id = uuid.uuid4()
 
     try:
         info = obj.getInfo()
@@ -47,21 +58,21 @@ def _get_cached_repr(obj: EEObject) -> str:
     return content
 
 
-def initialize(max_cache_size=None) -> None:
-    """Attach repr methods to EE objects and set the cache size.
+def initialize(max_cache_size: int | None = None) -> None:
+    """Attach HTML repr methods to EE objects and set the cache size.
 
     Re-running this function will reset the cache.
 
     Parameters
     ----------
     max_cache_size : int, optional
-        The maximum number of EE objects to cache. If None, the cache size is unlimited. Set to 0
-        to disable caching.
+        The maximum number of EE objects to cache. If None, the cache size is unlimited.
+        Set to 0 to disable caching.
     """
     global _get_cached_repr
     # Unwrap from the LRU cache so we can reset it
     if isinstance(_get_cached_repr, _lru_cache_wrapper):
-        _get_cached_repr = _get_cached_repr.__wrapped__
+        _get_cached_repr = _get_cached_repr.__wrapped__  # type: ignore
 
     # If caching is enabled, rewrap in a new LRU cache
     if max_cache_size != 0:
@@ -74,7 +85,7 @@ def initialize(max_cache_size=None) -> None:
 class EEReprWidget(anywidget.AnyWidget):
     _esm = load_js()
     _css = load_css()
-    
+
     content = traitlets.Unicode().tag(sync=True)
 
     def __init__(self, obj: EEObject, *args, **kwargs):
@@ -98,15 +109,19 @@ class EEReprWidget(anywidget.AnyWidget):
         self.set_content(rep)
 
     def set_content(self, content: str) -> None:
-        """Set the widget content, checking content size to avoid crashes from huge reprs."""
+        """Set the widget content, checking content size to avoid crashes from huge
+        reprs.
+        """
         mbs = len(content) / 1e6
         if mbs > options.max_repr_mbs:
             warn(
                 message=(
-                    f"HTML repr size ({mbs:.0f}mB) exceeds maximum ({options.max_repr_mbs:.0f}mB), falling"
-                    " back to string repr. You can set `eerepr.options.max_repr_mbs` to display larger"
-                    " objects, but this may cause performance issues."
-                )
+                    f"HTML repr size ({mbs:.0f}mB) exceeds maximum"
+                    f" ({options.max_repr_mbs:.0f}mB), falling back to string repr. You"
+                    " can set `eerepr.options.max_repr_mbs` to display larger objects,"
+                    " but this may cause performance issues."
+                ),
+                stacklevel=2,
             )
             content = build_fallback_html(self.obj)
 
@@ -125,8 +140,9 @@ class EEReprWidget(anywidget.AnyWidget):
             # ipywidgets v7
             super()._ipython_display_(**kwargs)
         else:
-            from IPython.display import display
             import ipywidgets
+            from IPython.display import display
+
             # ipywidgets v8
             data = ipywidgets.DOMWidget._repr_mimebundle_(self, **kwargs)
             display(data, raw=True)

@@ -1,8 +1,12 @@
+from __future__ import annotations
+
 import json
 
 
 class Config:
-    def __init__(self, max_cache_size, max_repr_mbs, communication_delay):
+    def __init__(
+        self, max_cache_size: int | None, max_repr_mbs: int, communication_delay: float
+    ):
         self.max_cache_size = max_cache_size
         self.max_repr_mbs = max_repr_mbs
         self.communication_delay = communication_delay
@@ -16,6 +20,7 @@ options = Config(
     max_cache_size=None,
     # Max size of repr content in MB to prevent performance issues
     max_repr_mbs=100,
-    # Minimum delay in seconds before updating widgets to prevent communication timing issues.
+    # Minimum delay in seconds before updating widgets to prevent communication timing
+    # issues. Delayed that are too low can break collapsing behavior.
     communication_delay=0.1,
 )

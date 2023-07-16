@@ -1,5 +1,5 @@
-from importlib.resources import read_text
 from functools import lru_cache
+from importlib.resources import read_text
 
 
 def is_nondeterministic(obj):
@@ -16,6 +16,7 @@ def is_nondeterministic(obj):
 @lru_cache(maxsize=None)
 def load_css():
     return read_text("eerepr.static.css", "style.css")
+
 
 @lru_cache(maxsize=None)
 def load_js():

@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = "Code Editor-style reprs for Earth Engine data in a Jupyter notebook."
 readme = "README.md"
 license = { file = "LICENSE" }
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 authors = [{ name = "Aaron Zuspan" }]
 keywords = [
     "earthengine",
@@ -25,17 +25,6 @@ dependencies = [
     "traitlets",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "black",
-    "ipykernel",
-    "isort",
-    "jupyterlab",
-    "pytest",
-    "pytest-cov",
-    "hatch",
-]
-
 [project.urls]
 Homepage = "https://github.com/aazuspan/eerepr"
 
@@ -45,29 +34,20 @@ path = "eerepr/__init__.py"
 [tool.hatch.build.targets.sdist]
 include = ["/eerepr"]
 
+[tool.hatch.envs.default]
+dependencies = ["pre-commit"]
+
 [tool.hatch.envs.test]
 dependencies = [
-    "earthengine-api",
     "pytest",
     "pytest-cov",
-    "tox",
 ]
 
 [tool.hatch.envs.test.scripts]
-tests = "pytest ."
-cov = "pytest . --cov=eerepr --cov-report=html"
-view-cov = "open htmlcov/index.html"
-ci = "tox"
+all = "pytest . {args}"
+cov = "pytest . --cov=eerepr {args}"
 
-[tool.tox]
-legacy_tox_ini = """
-[tox]
-envlist = python3.7,python3.8,python3.9,python3.10
-[testenv]
-deps = 
-    pytest
-    pytest-cov
-    earthengine-api
-commands = pytest
-isolated_build = True
-"""
+[tool.ruff]
+select = ["E", "I", "F", "B", "FA", "UP", "ISC", "PT", "Q", "RET", "SIM", "PERF"]
+fix = true
+show-fixes = true

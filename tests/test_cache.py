@@ -3,23 +3,26 @@ from functools import _lru_cache_wrapper
 import ee
 
 import eerepr
+from eerepr.repr import _get_cached_repr
 
 
 def test_disabled_cache():
     eerepr.initialize(max_cache_size=0)
     x = ee.Number(0)
-    assert not isinstance(x._repr_html_, _lru_cache_wrapper)
+    assert not isinstance(x._ipython_display_, _lru_cache_wrapper)
 
 
 def test_nondeterministic_caching():
-    """ee.List.shuffle(seed=False) is nondeterministic. Make sure it misses the cache."""
+    """ee.List.shuffle(seed=False) is nondeterministic. Make sure it misses the cache.
+    """
     eerepr.initialize(max_cache_size=None)
-    cache = eerepr.repr._repr_html_
 
-    cache.cache_clear()
+    _get_cached_repr.cache_clear()
 
-    assert cache.cache_info().misses == 0
+    assert _get_cached_repr.cache_info().misses == 0
     x = ee.List([0, 1, 2]).shuffle(seed=False)
-    x._repr_html_()
-    x._repr_html_()
-    assert cache.cache_info().misses == 2
+
+    _get_cached_repr(x)
+    _get_cached_repr(x)
+
+    assert _get_cached_repr.cache_info().misses == 2
