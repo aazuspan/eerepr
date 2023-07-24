@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import datetime
+from html import escape
 from itertools import chain
 from typing import Any, Hashable
+
+import ee
 
 # Max characters to display for a list before truncating to "List (n elements)"
 MAX_INLINE_LENGTH = 50
@@ -18,8 +21,28 @@ PROPERTY_PRIORITY = [
 ]
 
 
-def convert_to_html(obj: Any, key: Hashable | None = None) -> str:
-    """Converts a Python object (not list or dict) to an HTML <li> element.
+def build_loading_html(obj: Any) -> str:
+    """Build an HTML element to display when asynchronously loading an object."""
+    spinner = """<div class='ee-spinner'></div>"""
+    return (
+        "<span"
+        f" class='ee-loading'>{spinner} {obj.__class__.__name__} (Computing)</span>"
+    )
+
+
+def build_error_html(err: ee.EEException) -> str:
+    """Build an HTML element to display an Earth Engine Exception"""
+    return f"<div class='ee-error'>{escape(str(err))}</div>"
+
+
+def build_fallback_html(obj: Any) -> str:
+    """Build an HTML element to fall back to if something goes wrong in the main repr.
+    """
+    return f"<pre>{escape(repr(obj))}</pre>"
+
+
+def build_object_html(obj: Any, key: Hashable | None = None) -> str:
+    """Build an HTML <li> element from a Python object.
 
     Parameters
     ----------
@@ -45,7 +68,7 @@ def list_to_html(obj: list, key: Hashable | None = None) -> str:
     noun = "element" if n == 1 else "elements"
     header = f"{key}: " if key is not None else ""
     header += f"List ({n} {noun})" if len(contents) > MAX_INLINE_LENGTH else contents
-    children = [convert_to_html(item, key=i) for i, item in enumerate(obj)]
+    children = [build_object_html(item, key=i) for i, item in enumerate(obj)]
 
     return _make_collapsible_li(header, children)
 
@@ -57,7 +80,7 @@ def dict_to_html(obj: dict, key: Hashable | None = None) -> str:
 
     header = f"{key}: " if key is not None else ""
     header += label
-    children = [convert_to_html(value, key=key) for key, value in obj.items()]
+    children = [build_object_html(value, key=key) for key, value in obj.items()]
 
     return _make_collapsible_li(header, children)
 

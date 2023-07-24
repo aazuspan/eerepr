@@ -20,6 +20,9 @@ keywords = [
 ]
 dependencies = [
     "earthengine-api",
+    "ipywidgets",
+    "anywidget",
+    "traitlets",
 ]
 
 [project.urls]

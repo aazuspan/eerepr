@@ -11,6 +11,13 @@ Add interactive Code Editor-style HTML reprs to Earth Engine objects in a Jupyte
 
 ![eerepr demo expanding the metadata for an image collection](assets/eerepr.gif)
 
+
+## Features
+
+- **⚡ Async**: `eerepr` uses threading to grab data asynchronously from Earth Engine, meaning that you can display big objects without blocking execution!
+- **📦 Caching**: Earth Engine objects are automatically cached to speed up subsequent prints.
+- **⚠️ Error Handling**: `eerepr` handles Earth Engine errors gracefully, displaying the message instead of crashing the notebook.
+
 ## Setup
 
 Install from PyPI:
@@ -35,9 +42,3 @@ Importing `eerepr` in a Jupyter notebook adds an HTML repr method to all Earth E
 
 > **Note**
 > Just like in the Code Editor, printing huge collections can be slow and may hit memory limits.
-
-## Caching
-
-`eerepr` uses caching to improve performance. Server data will only be requested once for each unique Earth Engine object, and all subsequent requests will be retrieved from the cache until the Jupyter session is restarted.
-
-When you import `eerepr`, it is automatically initialized with an unlimited cache size. You can manually set the number of unique objects to cache using `eerepr.initialize(max_cache_size=n)`. A value of `None` sets an unlimited cache while a value of `0` disables caching.
