@@ -13,6 +13,9 @@ Add interactive Code Editor-style HTML reprs to Earth Engine objects in a Jupyte
 
 ## Setup
 
+> [!TIP]
+> `eerepr` is pre-installed in [Google Colab](https://colab.research.google.com/)!
+
 Install from PyPI:
 
 ```bash
@@ -27,14 +30,35 @@ $ conda install -c conda-forge eerepr
 
 ## Usage
 
+### Activating eerepr
+
 ```python
 import eerepr
 ```
 
 Importing `eerepr` in a Jupyter notebook adds an HTML repr method to all Earth Engine objects. When you print them, you'll see an interactive HTML repr instead of a boring old string repr. Simple as that!
 
-> **Note**
-> Just like in the Code Editor, printing huge collections can be slow and may hit memory limits.
+> [!TIP]
+> If you're using [geemap](https://github.com/gee-community/geemap), `eerepr` is automatically imported and activated by default!
+
+### Manually Rendering Objects
+
+Jupyter only automatically displays the last object in a cell. To manually render an HTML repr anywhere in a code block, use `IPython.display.display`.
+
+```python
+from IPython.display import display
+import ee
+import eerepr
+
+ee.Initialize()
+
+display(ee.FeatureCollection("LARSE/GEDI/GEDI02_A_002_INDEX").limit(3))
+```
+
+### Large Objects
+
+> [!CAUTION]
+> Just like in the Code Editor, printing huge collections can be slow and may hit memory limits. If a repr exceeds 100 Mb, `eerepr` will fallback to a string repr to avoid freezing the notebook. Adjust `eerepr.options.max_repr_mbs` to print larger objects.
 
 ## Caching
 
