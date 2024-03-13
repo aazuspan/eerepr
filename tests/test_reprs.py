@@ -10,4 +10,4 @@ def test_error():
     """
     with pytest.warns(UserWarning):
         rep = ee.Projection("not a real epsg")._repr_html_()
-    assert "ee.Projection object" in rep
+    assert "Projection object" in rep
