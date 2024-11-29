@@ -1,0 +1,11 @@
+'<li><label class=''ee-shut''>LineString (3 vertices)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>type:</span><span class=''ee-v''>LineString</span></li><li><label
+  class=''ee-shut''>coordinates: [[1, 1], [2, 2], [3, 3]]<input type=''checkbox''
+  class=''ee-toggle''></label><ul><li><label class=''ee-shut''>0: [1, 1]<input type=''checkbox''
+  class=''ee-toggle''></label><ul><li><span class=''ee-k''>0:</span><span class=''ee-v''>1</span></li><li><span
+  class=''ee-k''>1:</span><span class=''ee-v''>1</span></li></ul></li><li><label class=''ee-shut''>1:
+  [2, 2]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span class=''ee-k''>0:</span><span
+  class=''ee-v''>2</span></li><li><span class=''ee-k''>1:</span><span class=''ee-v''>2</span></li></ul></li><li><label
+  class=''ee-shut''>2: [3, 3]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>0:</span><span class=''ee-v''>3</span></li><li><span class=''ee-k''>1:</span><span
+  class=''ee-v''>3</span></li></ul></li></ul></li></ul></li>'

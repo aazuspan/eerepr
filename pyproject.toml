@@ -38,11 +38,13 @@ dependencies = ["pre-commit"]
 dependencies = [
     "pytest",
     "pytest-cov",
+    "pytest-regressions",
 ]
 
 [tool.hatch.envs.test.scripts]
 all = "pytest . {args}"
 cov = "pytest . --cov=eerepr {args}"
+html = "python tests/preview_html.py"
 
 [tool.ruff.lint]
 select = ["E", "I", "F", "B", "FA", "UP", "ISC", "PT", "Q", "RET", "SIM", "PERF"]

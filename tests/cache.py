@@ -4,7 +4,7 @@ from pathlib import Path
 import ee
 
 CACHE_DIR = Path(__file__).parent / "data/"
-CACHE_PATH = CACHE_DIR / "data.json"
+CACHE_PATH = CACHE_DIR / ".cache.json"
 
 
 def get_info(obj: ee.ComputedObject) -> dict:

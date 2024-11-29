@@ -1,0 +1,8 @@
+'<li><label class=''ee-shut''>MultiPoint (2 vertices)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>type:</span><span class=''ee-v''>MultiPoint</span></li><li><label
+  class=''ee-shut''>coordinates: [[1, 1], [2, 2]]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><label
+  class=''ee-shut''>0: [1, 1]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>0:</span><span class=''ee-v''>1</span></li><li><span class=''ee-k''>1:</span><span
+  class=''ee-v''>1</span></li></ul></li><li><label class=''ee-shut''>1: [2, 2]<input
+  type=''checkbox'' class=''ee-toggle''></label><ul><li><span class=''ee-k''>0:</span><span
+  class=''ee-v''>2</span></li><li><span class=''ee-k''>1:</span><span class=''ee-v''>2</span></li></ul></li></ul></li></ul></li>'

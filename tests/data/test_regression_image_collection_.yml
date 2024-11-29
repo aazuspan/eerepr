@@ -1,0 +1,40 @@
+'<li><label class=''ee-shut''>ImageCollection (2 elements)<input type=''checkbox''
+  class=''ee-toggle''></label><ul><li><span class=''ee-k''>type:</span><span class=''ee-v''>ImageCollection</span></li><li><label
+  class=''ee-shut''>bands: []<input type=''checkbox'' class=''ee-toggle''></label><ul></ul></li><li><label
+  class=''ee-shut''>properties: Object (1 property)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>test_prop:</span><span class=''ee-v''>42</span></li></ul></li><li><label
+  class=''ee-shut''>features: List (2 elements)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><label
+  class=''ee-shut''>0: Image (1 band)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>type:</span><span class=''ee-v''>Image</span></li><li><label class=''ee-shut''>bands:
+  List (1 element)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><label
+  class=''ee-shut''>0: "constant", int ∈ [0, 0], EPSG:4326<input type=''checkbox''
+  class=''ee-toggle''></label><ul><li><span class=''ee-k''>id:</span><span class=''ee-v''>constant</span></li><li><span
+  class=''ee-k''>crs:</span><span class=''ee-v''>EPSG:4326</span></li><li><label class=''ee-shut''>crs_transform:
+  [1, 0, 0, 0, 1, 0]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>0:</span><span class=''ee-v''>1</span></li><li><span class=''ee-k''>1:</span><span
+  class=''ee-v''>0</span></li><li><span class=''ee-k''>2:</span><span class=''ee-v''>0</span></li><li><span
+  class=''ee-k''>3:</span><span class=''ee-v''>0</span></li><li><span class=''ee-k''>4:</span><span
+  class=''ee-v''>1</span></li><li><span class=''ee-k''>5:</span><span class=''ee-v''>0</span></li></ul></li><li><label
+  class=''ee-shut''>data_type: int ∈ [0, 0]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>type:</span><span class=''ee-v''>PixelType</span></li><li><span class=''ee-k''>max:</span><span
+  class=''ee-v''>0</span></li><li><span class=''ee-k''>min:</span><span class=''ee-v''>0</span></li><li><span
+  class=''ee-k''>precision:</span><span class=''ee-v''>int</span></li></ul></li></ul></li></ul></li><li><label
+  class=''ee-shut''>properties: Object (1 property)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>system:index:</span><span class=''ee-v''>0</span></li></ul></li></ul></li><li><label
+  class=''ee-shut''>1: Image (1 band)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>type:</span><span class=''ee-v''>Image</span></li><li><label class=''ee-shut''>bands:
+  List (1 element)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><label
+  class=''ee-shut''>0: "constant", int ∈ [1, 1], EPSG:4326<input type=''checkbox''
+  class=''ee-toggle''></label><ul><li><span class=''ee-k''>id:</span><span class=''ee-v''>constant</span></li><li><span
+  class=''ee-k''>crs:</span><span class=''ee-v''>EPSG:4326</span></li><li><label class=''ee-shut''>crs_transform:
+  [1, 0, 0, 0, 1, 0]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>0:</span><span class=''ee-v''>1</span></li><li><span class=''ee-k''>1:</span><span
+  class=''ee-v''>0</span></li><li><span class=''ee-k''>2:</span><span class=''ee-v''>0</span></li><li><span
+  class=''ee-k''>3:</span><span class=''ee-v''>0</span></li><li><span class=''ee-k''>4:</span><span
+  class=''ee-v''>1</span></li><li><span class=''ee-k''>5:</span><span class=''ee-v''>0</span></li></ul></li><li><label
+  class=''ee-shut''>data_type: int ∈ [1, 1]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>type:</span><span class=''ee-v''>PixelType</span></li><li><span class=''ee-k''>max:</span><span
+  class=''ee-v''>1</span></li><li><span class=''ee-k''>min:</span><span class=''ee-v''>1</span></li><li><span
+  class=''ee-k''>precision:</span><span class=''ee-v''>int</span></li></ul></li></ul></li></ul></li><li><label
+  class=''ee-shut''>properties: Object (1 property)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-k''>system:index:</span><span class=''ee-v''>1</span></li></ul></li></ul></li></ul></li></ul></li>'
