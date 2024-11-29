@@ -44,7 +44,6 @@ dependencies = [
 all = "pytest . {args}"
 cov = "pytest . --cov=eerepr {args}"
 
-[tool.ruff]
+[tool.ruff.lint]
 select = ["E", "I", "F", "B", "FA", "UP", "ISC", "PT", "Q", "RET", "SIM", "PERF"]
-fix = true
-show-fixes = true
+exclude = ["*.ipynb"]

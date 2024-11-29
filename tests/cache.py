@@ -1,11 +1,13 @@
 import json
-import os
+from pathlib import Path
 
-CACHE_DIR = "./tests/data/"
-CACHE_PATH = CACHE_DIR + "data.json"
+import ee
+
+CACHE_DIR = Path(__file__).parent / "data/"
+CACHE_PATH = CACHE_DIR / "data.json"
 
 
-def get_info(obj):
+def get_info(obj: ee.ComputedObject) -> dict:
     """Load client-side info for an Earth Engine object.
 
     Info is retrieved (if available) from a local JSON file using the serialized
@@ -14,8 +16,7 @@ def get_info(obj):
     """
     serialized = obj.serialize()
 
-    if not os.path.isdir(CACHE_DIR):
-        os.mkdir(CACHE_DIR)
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
     try:
         with open(CACHE_PATH) as src:
