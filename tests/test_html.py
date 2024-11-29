@@ -1,5 +1,3 @@
-from pathlib import Path
-
 import ee
 import pytest
 
@@ -90,11 +88,7 @@ def get_test_objects() -> list:
     }
 
 
-@pytest.fixture(scope="session")
-def original_datadir():
-    return Path(__file__).parent / "data"
-
-
 @pytest.mark.parametrize("key_val", get_test_objects().items(), ids=lambda kv: kv[0])
-def test_regression(key_val, data_regression):
+def test_regression_objects(key_val, data_regression):
+    """Test the HTML repr of various EE objects."""
     data_regression.check(convert_to_html(get_info(key_val[1])))
