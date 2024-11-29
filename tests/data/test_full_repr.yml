@@ -1,0 +1,286 @@
+"<div><style>:root {\n  --font-color-primary: var(--jp-content-font-color0, rgba(0,\
+  \ 0, 0, 1));\n  --font-color-secondary: var(--jp-content-font-color2, rgba(0, 0,\
+  \ 0, 0.6));\n  --font-color-accent: rgba(123, 31, 162, 1);\n  --border-color: var(--jp-border-color2,\
+  \ #e0e0e0);\n  --background-color: var(--jp-layout-color0, white);\n  --background-color-row-even:\
+  \ var(--jp-layout-color1, white);\n  --background-color-row-odd: var(--jp-layout-color2,\
+  \ #eeeeee);\n}\n\nhtml[theme=\"dark\"],\nbody[data-theme=\"dark\"],\nbody.vscode-dark\
+  \ {\n  --font-color-primary: rgba(255, 255, 255, 1);\n  --font-color-secondary:\
+  \ rgba(255, 255, 255, 0.6);\n  --font-color-accent: rgb(173, 132, 190);\n  --border-color:\
+  \ #2e2e2e;\n  --background-color: #111111;\n  --background-color-row-even: #111111;\n\
+  \  --background-color-row-odd: #313131;\n}\n\n.ee {\n  padding: 1em;\n  line-height:\
+  \ 1.5em;\n  min-width: 300px;\n  max-width: 1200px;\n  overflow-y: scroll;\n  max-height:\
+  \ 600px;\n  border: 1px solid var(--border-color);\n  font-family: monospace;\n\
+  }\n\n.ee li {\n  list-style-type: none;\n}\n\n.ee ul {\n  padding-left: 1.5em !important;\n\
+  \  margin: 0;\n}\n\n.ee > ul {\n  padding-left: 0 !important;\n}\n\n.ee-open,\n\
+  .ee-shut {\n  color: var(--font-color-secondary);\n  cursor: pointer;\n  margin:\
+  \ 0;\n}\n\n.ee-open:hover,\n.ee-shut:hover {\n  color: var(--font-color-primary);\n\
+  }\n\n.ee-k {\n  color: var(--font-color-accent);\n  margin-right: 6px;\n}\n\n.ee-v\
+  \ {\n  color: var(--font-color-primary);\n}\n\n.ee-toggle {\n  display: none;\n\
+  }\n\n.ee-shut + ul {\n  display: none;\n}\n\n.ee-open + ul {\n  display: block;\n\
+  }\n\n.ee-shut::before {\n  display: inline-block;\n  content: \"▼\";\n  margin-right:\
+  \ 6px;\n  transform: rotate(-90deg);\n  transition: transform 0.2s;\n}\n\n.ee-open::before\
+  \ {\n  transform: rotate(0deg);\n  display: inline-block;\n  content: \"▼\";\n \
+  \ margin-right: 6px;\n  transition: transform 0.2s;\n}\n</style><div class='ee'><ul><li><label\
+  \ class='ee-shut'>List (40 elements)<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: Image foo (1 band)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Image</span></li><li><span class='ee-k'>id:</span><span\
+  \ class='ee-v'>foo</span></li><li><label class='ee-shut'>bands: List (1 element)<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><label class='ee-shut'>0: \"\
+  constant\", int ∈ [0, 0], EPSG:4326<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>id:</span><span class='ee-v'>constant</span></li><li><span class='ee-k'>crs:</span><span\
+  \ class='ee-v'>EPSG:4326</span></li><li><label class='ee-shut'>crs_transform: [1,\
+  \ 0, 0, 0, 1, 0]<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li><li><span\
+  \ class='ee-k'>2:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>3:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>4:</span><span class='ee-v'>1</span></li><li><span\
+  \ class='ee-k'>5:</span><span class='ee-v'>0</span></li></ul></li><li><label class='ee-shut'>data_type:\
+  \ int ∈ [0, 0]<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>0</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></li></ul></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>1: ImageCollection (0 elements)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>ImageCollection</span></li><li><label\
+  \ class='ee-shut'>bands: []<input type='checkbox' class='ee-toggle'></label><ul></ul></li><li><label\
+  \ class='ee-shut'>properties: Object (1 property)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>test_prop:</span><span class='ee-v'>42</span></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>2: Feature (Point, 1 property)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Feature</span></li><li><label class='ee-shut'>geometry:\
+  \ Point (0.00, 0.00)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Point</span></li><li><label class='ee-shut'>coordinates:\
+  \ [0, 0]<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>properties: Object (1 property)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>foo:</span><span class='ee-v'>bar</span></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>3: Feature (0 properties)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Feature</span></li><li><span class='ee-k'>geometry:</span><span\
+  \ class='ee-v'>None</span></li><li><label class='ee-shut'>properties: Object (0\
+  \ properties)<input type='checkbox' class='ee-toggle'></label><ul></ul></li></ul></li><li><label\
+  \ class='ee-shut'>4: FeatureCollection (0 elements, 2 columns)<input type='checkbox'\
+  \ class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span class='ee-v'>FeatureCollection</span></li><li><label\
+  \ class='ee-shut'>columns: Object (2 properties)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>foo:</span><span class='ee-v'>String</span></li><li><span class='ee-k'>system:index:</span><span\
+  \ class='ee-v'>String</span></li></ul></li></ul></li><li><label class='ee-shut'>5:\
+  \ Date (2021-03-27 14:01:07)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Date</span></li><li><span class='ee-k'>value:</span><span\
+  \ class='ee-v'>1616853667000</span></li></ul></li><li><label class='ee-shut'>6:\
+  \ Filter.eq<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>Filter.eq</span></li><li><span class='ee-k'>leftField:</span><span\
+  \ class='ee-v'>foo</span></li><li><span class='ee-k'>rightValue:</span><span class='ee-v'>bar</span></li></ul></li><li><label\
+  \ class='ee-shut'>7: Object (1 property)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>foo:</span><span class='ee-v'>bar</span></li></ul></li><li><label\
+  \ class='ee-shut'>8: [1, 2, 3, 4]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>2</span></li><li><span class='ee-k'>2:</span><span class='ee-v'>3</span></li><li><span\
+  \ class='ee-k'>3:</span><span class='ee-v'>4</span></li></ul></li><li><label class='ee-shut'>9:\
+  \ List (21 elements)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>1</span></li><li><span class='ee-k'>2:</span><span class='ee-v'>2</span></li><li><span\
+  \ class='ee-k'>3:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>4:</span><span\
+  \ class='ee-v'>4</span></li><li><span class='ee-k'>5:</span><span class='ee-v'>5</span></li><li><span\
+  \ class='ee-k'>6:</span><span class='ee-v'>6</span></li><li><span class='ee-k'>7:</span><span\
+  \ class='ee-v'>7</span></li><li><span class='ee-k'>8:</span><span class='ee-v'>8</span></li><li><span\
+  \ class='ee-k'>9:</span><span class='ee-v'>9</span></li><li><span class='ee-k'>10:</span><span\
+  \ class='ee-v'>10</span></li><li><span class='ee-k'>11:</span><span class='ee-v'>11</span></li><li><span\
+  \ class='ee-k'>12:</span><span class='ee-v'>12</span></li><li><span class='ee-k'>13:</span><span\
+  \ class='ee-v'>13</span></li><li><span class='ee-k'>14:</span><span class='ee-v'>14</span></li><li><span\
+  \ class='ee-k'>15:</span><span class='ee-v'>15</span></li><li><span class='ee-k'>16:</span><span\
+  \ class='ee-v'>16</span></li><li><span class='ee-k'>17:</span><span class='ee-v'>17</span></li><li><span\
+  \ class='ee-k'>18:</span><span class='ee-v'>18</span></li><li><span class='ee-k'>19:</span><span\
+  \ class='ee-v'>19</span></li><li><span class='ee-k'>20:</span><span class='ee-v'>20</span></li></ul></li><li><span\
+  \ class='ee-k'>10:</span><span class='ee-v'>13th Warrior is an underrated movie</span></li><li><span\
+  \ class='ee-k'>11:</span><span class='ee-v'>42</span></li><li><label class='ee-shut'>12:\
+  \ Point (1.11, 2.00)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Point</span></li><li><label class='ee-shut'>coordinates:\
+  \ [1.112312, 2]<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1.112312</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>13: MultiPoint (2 vertices)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>MultiPoint</span></li><li><label class='ee-shut'>coordinates:\
+  \ [[1, 1], [2, 2]]<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [1, 1]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>1</span></li></ul></li><li><label class='ee-shut'>1: [2, 2]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>14: LineString (3 vertices)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>LineString</span></li><li><label class='ee-shut'>coordinates:\
+  \ [[1, 1], [2, 2], [3, 3]]<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [1, 1]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>1</span></li></ul></li><li><label class='ee-shut'>1: [2, 2]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></li><li><label\
+  \ class='ee-shut'>2: [3, 3]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>3</span></li></ul></li></ul></li></ul></li><li><label class='ee-shut'>15:\
+  \ MultiLineString<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>MultiLineString</span></li><li><label\
+  \ class='ee-shut'>coordinates: [[[0, 0], [1, 1]]]<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [[0, 0], [1, 1]]<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [0, 0]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>0</span></li></ul></li><li><label class='ee-shut'>1: [1, 1]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></li></ul></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>16: Polygon (4 vertices)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Polygon</span></li><li><label class='ee-shut'>coordinates:\
+  \ [[[0, 0], [1, 1], [2, 2], [0, 0]]]<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [[0, 0], [1, 1], [2, 2], [0, 0]]<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [0, 0]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>0</span></li></ul></li><li><label class='ee-shut'>1: [1, 1]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></li><li><label\
+  \ class='ee-shut'>2: [2, 2]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>2</span></li></ul></li><li><label class='ee-shut'>3: [0, 0]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></li></ul></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>17: MultiPolygon (8 vertices)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>MultiPolygon</span></li><li><label\
+  \ class='ee-shut'>coordinates: List (1 element)<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: List (2 elements)<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [[0, 0], [1, 1], [2, 2], [0, 0]]<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [0, 0]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>0</span></li></ul></li><li><label class='ee-shut'>1: [1, 1]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></li><li><label\
+  \ class='ee-shut'>2: [2, 2]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>2</span></li></ul></li><li><label class='ee-shut'>3: [0, 0]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>1: [[4, 6], [3, 2], [1, 2], [4, 6]]<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [4, 6]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>4</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>6</span></li></ul></li><li><label class='ee-shut'>1: [3, 2]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></li><li><label\
+  \ class='ee-shut'>2: [1, 2]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>2</span></li></ul></li><li><label class='ee-shut'>3: [4, 6]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>4</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>6</span></li></ul></li></ul></li></ul></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>18: LinearRing (4 vertices)<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>LinearRing</span></li><li><label class='ee-shut'>coordinates:\
+  \ [[0, 0], [1, 1], [2, 2], [0, 0]]<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [0, 0]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>0</span></li></ul></li><li><label class='ee-shut'>1: [1, 1]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></li><li><label\
+  \ class='ee-shut'>2: [2, 2]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>2</span></li></ul></li><li><label class='ee-shut'>3: [0, 0]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>19: DateRange [2020-01-01 21:01:10, 2022-03-01 14:32:11]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>DateRange</span></li><li><label class='ee-shut'>dates: [1577912470000,\
+  \ 1646145131000]<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1577912470000</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1646145131000</span></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>20: Foo bar <input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Foo</span></li><li><span class='ee-k'>id:</span><span\
+  \ class='ee-v'>bar</span></li></ul></li><li><label class='ee-shut'>21: \"B1\", unsigned\
+  \ int16, EPSG:32610, 1830x1830 px<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>id:</span><span class='ee-v'>B1</span></li><li><span class='ee-k'>crs:</span><span\
+  \ class='ee-v'>EPSG:32610</span></li><li><label class='ee-shut'>data_type: unsigned\
+  \ int16<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>65535</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></li><li><label class='ee-shut'>dimensions: [1830,\
+  \ 1830]<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1830</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1830</span></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>22: \"B1\", unsigned int16<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>id:</span><span class='ee-v'>B1</span></li><li><label class='ee-shut'>data_type:\
+  \ unsigned int16<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>65535</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></li></ul></li><li><label class='ee-shut'>23:\
+  \ float<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>float</span></li></ul></li><li><label class='ee-shut'>24: double<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>double</span></li></ul></li><li><label class='ee-shut'>25: signed\
+  \ int8<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>127</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>-128</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></li><li><label class='ee-shut'>26: unsigned\
+  \ int8<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>255</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></li><li><label class='ee-shut'>27: signed int16<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>32767</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>-32768</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></li><li><label class='ee-shut'>28: unsigned\
+  \ int16<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>65535</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></li><li><label class='ee-shut'>29: signed int32<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>2147483647</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>-2147483648</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></li><li><label class='ee-shut'>30: unsigned\
+  \ int32<input type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>4294967295</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></li><li><label class='ee-shut'>31: signed int64<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>9.223372036854776e+18</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>-9.223372036854776e+18</span></li><li><span\
+  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></li><li><label\
+  \ class='ee-shut'>32: int ∈ [10, 255]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
+  \ class='ee-v'>255</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>10</span></li><li><span\
+  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></li><li><label\
+  \ class='ee-shut'>33: Clusterer.wekaKMeans<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Clusterer.wekaKMeans</span></li><li><span\
+  \ class='ee-k'>nClusters:</span><span class='ee-v'>2</span></li></ul></li><li><label\
+  \ class='ee-shut'>34: Classifier.smileKNN<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Classifier.smileKNN</span></li></ul></li><li><label\
+  \ class='ee-shut'>35: [[1, 2], [3, 4]]<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [1, 2]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>2</span></li></ul></li><li><label class='ee-shut'>1: [3, 4]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>4</span></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>36: [[1, 2], [3, 4]]<input type='checkbox' class='ee-toggle'></label><ul><li><label\
+  \ class='ee-shut'>0: [1, 2]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>2</span></li></ul></li><li><label class='ee-shut'>1: [3, 4]<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>4</span></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>37: Kernel.gaussian<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Kernel.gaussian</span></li><li><label\
+  \ class='ee-shut'>center: [3, 3]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>3</span></li></ul></li><li><span class='ee-k'>radius:</span><span\
+  \ class='ee-v'>3</span></li><li><span class='ee-k'>weights:</span><span class='ee-v'>\n\
+  \  [1.9651916124031917E-5, 2.3940934949727E-4, 0.001072958264978661, 0.0017690091140438226,\
+  \ 0.001072958264978661, 2.3940934949727E-4, 1.9651916124031917E-5]\n  [2.3940934949727E-4,\
+  \ 0.0029166029543864387, 0.013071307583189414, 0.02155094284826827, 0.013071307583189414,\
+  \ 0.0029166029543864387, 2.3940934949727E-4]\n  [0.001072958264978661, 0.013071307583189414,\
+  \ 0.05858153633060706, 0.09658462501856419, 0.05858153633060706, 0.013071307583189414,\
+  \ 0.001072958264978661]\n  [0.0017690091140438226, 0.02155094284826827, 0.09658462501856419,\
+  \ 0.15924112569070253, 0.09658462501856419, 0.02155094284826827, 0.0017690091140438226]\n\
+  \  [0.001072958264978661, 0.013071307583189414, 0.05858153633060706, 0.09658462501856419,\
+  \ 0.05858153633060706, 0.013071307583189414, 0.001072958264978661]\n  [2.3940934949727E-4,\
+  \ 0.0029166029543864387, 0.013071307583189414, 0.02155094284826827, 0.013071307583189414,\
+  \ 0.0029166029543864387, 2.3940934949727E-4]\n  [1.9651916124031917E-5, 2.3940934949727E-4,\
+  \ 0.001072958264978661, 0.0017690091140438226, 0.001072958264978661, 2.3940934949727E-4,\
+  \ 1.9651916124031917E-5]</span></li></ul></li><li><label class='ee-shut'>38: Projection<input\
+  \ type='checkbox' class='ee-toggle'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>Projection</span></li><li><span class='ee-k'>crs:</span><span class='ee-v'>EPSG:5070</span></li><li><label\
+  \ class='ee-shut'>transform: [100, 0, 0, 0, 100, 0]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>100</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>2:</span><span class='ee-v'>0</span></li><li><span\
+  \ class='ee-k'>3:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>4:</span><span\
+  \ class='ee-v'>100</span></li><li><span class='ee-k'>5:</span><span class='ee-v'>0</span></li></ul></li></ul></li><li><label\
+  \ class='ee-shut'>39: Reducer.max<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Reducer.max</span></li><li><span class='ee-k'>numInputs:</span><span\
+  \ class='ee-v'>5</span></li></ul></li></ul></li></ul></div><script>function toggleHeader()\
+  \ {\n    const parent = this.parentElement;\n    parent.className = parent.className\
+  \ === \"ee-open\" ? \"ee-shut\" : \"ee-open\";\n}\n\nfor (let c of document.getElementsByClassName(\"\
+  ee-toggle\")) {\n    c.onclick = toggleHeader;\n}</script></div>"
