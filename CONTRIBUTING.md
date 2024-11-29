@@ -56,11 +56,13 @@ Additional arguments can be passed to `pytest` after the script name, e.g.:
 hatch run test:all -k feature
 ```
 
+Rendered HTML is tested using [pytest-regressions](https://pytest-regressions.readthedocs.io/en/latest/overview.html), which compares the current HTML output for each object to the previously recorded output. Tests will fail if the HTML output changes. If the change is correct (i.e. an update to the HTML formatting or a difference in object representations in Earth Engine), use the `--force-regen` argument to regenerate a new "reference" HTML output.
+
 ### Building New Tests
 
 New features should have unit tests. If your test needs to use `getInfo` to retrieve data from an Earth Engine object, you'll need to use the caching system described below.
 
-Using `getInfo` to retrieve data from an Earth Engine object can be slow and network-dependent. To speed up tests, `eerepr` uses a caching function `tests.cache.get_info` to load data. This function takes an Earth Engine object and either 1) retrieves its info from a local cache file if it has been used before, or 2) retrieves it from the server and adds it to the cache. The cache directory and file (`tests/data/data.json`) will be created automatically the first time tests are run.
+Using `getInfo` to retrieve data from an Earth Engine object can be slow and network-dependent. To speed up tests, `eerepr` uses a caching function `tests.cache.get_info` to load data. This function takes an Earth Engine object and either 1) retrieves its info from a local cache file if it has been used before, or 2) retrieves it from the server and adds it to the cache. The cache directory and file (`tests/data/.cache.json`) will be created automatically the first time tests are run.
 
 To demonstrate, let's write a new dummy test that checks the properties of a custom `ee.Image`.
 
@@ -75,6 +77,14 @@ def test_my_image():
     assert "custom_property" in info["properties"]
 ```
 
-The first time the test is run, `getInfo` will be used to retrieve the image metadata and store it in `tests/data/data.json`. Subsequent runs will pull the data directly from the cache.
+The first time the test is run, `getInfo` will be used to retrieve the image metadata and store it in `tests/data/.cache.json`. Subsequent runs will pull the data directly from the cache. Caches are kept locally and are not version-controlled.
 
-Caches are kept locally and are not version-controlled, so there's no need to commit newly added objects.
+When a new object is added to regression testing, the first run will fail and generate a new reference file. Subsequent tests will pass. Output from regression testing *is* version controlled, so new outputs should be committed.
+
+### Previewing HTML Output
+
+Running the command below renders an HTML repr with a variety of different EE objects and opens it in the default web browser. Use this to visually compare results with outputs from the Code Editor.
+
+```bash
+hatch run test:html
+```
