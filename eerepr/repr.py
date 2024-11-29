@@ -3,7 +3,6 @@ from __future__ import annotations
 import uuid
 from functools import _lru_cache_wrapper, lru_cache
 from html import escape
-from importlib.resources import read_text
 from typing import Any, Union
 from warnings import warn
 
@@ -15,21 +14,38 @@ from eerepr.html import convert_to_html
 REPR_HTML = "_repr_html_"
 EEObject = Union[ee.Element, ee.ComputedObject]
 
-# Track which html reprs have been set so we can overwrite them if needed.
+# Track which repr methods have been set so we can overwrite them if needed.
 reprs_set = set()
 
 
-@lru_cache(maxsize=None)
+def _load_file(package: str, resource: str) -> str:
+    """
+    Compatibility wrapper for deprecated `importlib.resources.read_text`.
+
+    Replace with `importlib.resources.files` once support for Python < 3.9 is dropped.
+    """
+    try:
+        # Python >= 3.9
+        from importlib.resources import files
+
+        return files(package).joinpath(resource).read_text()
+    except ImportError:
+        from importlib.resources import read_text
+
+        return read_text(package, resource)
+
+
+@lru_cache(maxsize=1)
 def _load_css() -> str:
-    return read_text("eerepr.static.css", "style.css")
+    return _load_file("eerepr.static.css", "style.css")
 
 
-@lru_cache(maxsize=None)
+@lru_cache(maxsize=1)
 def _load_js() -> str:
     """Note: JS is only needed because the CSS `:has()` selector isn't well supported
     yet, preventing a pure CSS solution to the collapsible lists.
     """
-    return read_text("eerepr.static.js", "script.js")
+    return _load_file("eerepr.static.js", "script.js")
 
 
 def _attach_html_repr(cls: type, repr: Any) -> None:
