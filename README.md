@@ -34,9 +34,11 @@ $ conda install -c conda-forge eerepr
 
 ```python
 import eerepr
+
+eerepr.initialize()
 ```
 
-Importing `eerepr` in a Jupyter notebook adds an HTML repr method to all Earth Engine objects. When you print them, you'll see an interactive HTML repr instead of a boring old string repr. Simple as that!
+Running `eerepr.initialize` adds an HTML repr method to all Earth Engine objects. When you print them in an IPython environment, you'll see an interactive HTML repr instead of a boring old string repr. Simple as that!
 
 > [!TIP]
 > If you're using [geemap](https://github.com/gee-community/geemap), `eerepr` is automatically imported and activated by default!

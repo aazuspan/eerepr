@@ -15,7 +15,7 @@ REPR_HTML = "_repr_html_"
 EEObject = Union[ee.Element, ee.ComputedObject]
 
 # Track which repr methods have been set so we can overwrite them if needed.
-reprs_set = set()
+reprs_set: set[EEObject] = set()
 
 
 def _load_file(package: str, resource: str) -> str:
@@ -52,8 +52,8 @@ def _attach_html_repr(cls: type, repr: Any) -> None:
     """Add a HTML repr method to an EE class. Only overwrite the method if it was set by
     this function.
     """
-    if not hasattr(cls, REPR_HTML) or cls.__name__ in reprs_set:
-        reprs_set.update([cls.__name__])
+    if not hasattr(cls, REPR_HTML) or cls in reprs_set:
+        reprs_set.update([cls])
         setattr(cls, REPR_HTML, repr)
 
 
@@ -141,3 +141,9 @@ def initialize(max_cache_size: int | None = None) -> None:
 
     for cls in [ee.Element, ee.ComputedObject]:
         _attach_html_repr(cls, _ee_repr)
+
+
+def reset():
+    """Remove HTML repr methods added by eerepr to EE objects."""
+    for cls in reprs_set:
+        delattr(cls, REPR_HTML)
