@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import datetime
+from datetime import datetime, timezone
 from itertools import chain
 from typing import Any, Hashable
 
@@ -16,6 +16,8 @@ PROPERTY_PRIORITY = [
     "geometry",
     "properties",
 ]
+# Format for ee.Date and ee.DateRange
+DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 
 def convert_to_html(obj: Any, key: Hashable | None = None) -> str:
@@ -102,8 +104,8 @@ def _build_imagecollection_label(obj: dict) -> str:
 
 
 def _build_date_label(obj: dict) -> str:
-    dt = datetime.datetime.utcfromtimestamp(obj.get("value", 0) / 1000)
-    return f"Date ({dt})"
+    dt = datetime.fromtimestamp(obj.get("value", 0) / 1000, tz=timezone.utc)
+    return f"Date ({dt.strftime(DATE_FORMAT)})"
 
 
 def _build_feature_label(obj: dict) -> str:
@@ -196,9 +198,11 @@ def _build_band_label(obj: dict) -> str:
 
 def _build_daterange_label(obj: dict) -> str:
     start, end = obj.get("dates", [0, 0])
-    dt_start = datetime.datetime.utcfromtimestamp(start / 1000)
-    dt_end = datetime.datetime.utcfromtimestamp(end / 1000)
-    return f"DateRange [{dt_start}, {dt_end}]"
+    dt_start = datetime.fromtimestamp(start / 1000, tz=timezone.utc)
+    dt_end = datetime.fromtimestamp(end / 1000, tz=timezone.utc)
+    return (
+        f"DateRange [{dt_start.strftime(DATE_FORMAT)}, {dt_end.strftime(DATE_FORMAT)}]"
+    )
 
 
 def _build_object_label(obj: dict) -> str:
