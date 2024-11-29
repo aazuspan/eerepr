@@ -3,7 +3,7 @@ from pathlib import Path
 
 import ee
 
-CACHE_DIR = Path("./tests/data/")
+CACHE_DIR = Path(__file__).parent / "data/"
 CACHE_PATH = CACHE_DIR / "data.json"
 
 
