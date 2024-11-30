@@ -54,26 +54,16 @@ def list_to_html(obj: list, key: Hashable | None = None) -> str:
 
 def dict_to_html(obj: dict, key: Hashable | None = None) -> str:
     """Convert a Python dictionary to an HTML <li> element."""
-    obj = _sort_dict(obj)
     label = _build_label(obj)
+    header = (f"{key}: " if key is not None else "") + label
 
-    header = f"{key}: " if key is not None else ""
-    header += label
-    children = [convert_to_html(value, key=key) for key, value in obj.items()]
+    # Sort properties by priority, then alphabetically
+    sorted_keys = [k for k in PROPERTY_PRIORITY if k in obj] + sorted(
+        [k for k in obj if k not in PROPERTY_PRIORITY]
+    )
+    children = [convert_to_html(obj[key], key=key) for key in sorted_keys]
 
     return _make_collapsible_li(header, children)
-
-
-def _sort_dict(obj: dict) -> dict:
-    """Sort the properties of an Earth Engine object.
-
-    This follows the Code Editor standard where priority keys are sorted first and the
-    rest are returned in alphabetical order.
-    """
-    priority_keys = [k for k in PROPERTY_PRIORITY if k in obj]
-    start = {k: obj[k] for k in priority_keys}
-    end = {k: obj[k] for k in sorted(obj)}
-    return {**start, **end}
 
 
 def _make_collapsible_li(header: str, children: list) -> str:
