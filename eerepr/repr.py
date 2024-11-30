@@ -146,4 +146,5 @@ def initialize(max_cache_size: int | None = None) -> None:
 def reset():
     """Remove HTML repr methods added by eerepr to EE objects."""
     for cls in reprs_set:
-        delattr(cls, REPR_HTML)
+        if hasattr(cls, REPR_HTML):
+            delattr(cls, REPR_HTML)

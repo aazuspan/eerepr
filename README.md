@@ -53,6 +53,7 @@ import ee
 import eerepr
 
 ee.Initialize()
+eerepr.initialize()
 
 display(ee.FeatureCollection("LARSE/GEDI/GEDI02_A_002_INDEX").limit(3))
 ```
@@ -65,5 +66,3 @@ display(ee.FeatureCollection("LARSE/GEDI/GEDI02_A_002_INDEX").limit(3))
 ## Caching
 
 `eerepr` uses caching to improve performance. Server data will only be requested once for each unique Earth Engine object, and all subsequent requests will be retrieved from the cache until the Jupyter session is restarted.
-
-When you import `eerepr`, it is automatically initialized with an unlimited cache size. You can manually set the number of unique objects to cache using `eerepr.initialize(max_cache_size=n)`. A value of `None` sets an unlimited cache while a value of `0` disables caching.

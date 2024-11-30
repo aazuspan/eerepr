@@ -1,7 +1,7 @@
 import ee
 import pytest
 
-import eerepr  # noqa: F401
+import eerepr
 from eerepr.repr import _repr_html_
 
 
