@@ -9,8 +9,9 @@ def test_error():
     """Test that an object that raises on getInfo falls back to the string repr and
     warns.
     """
-    with pytest.warns(UserWarning):
+    with pytest.warns(UserWarning, match="Getting info failed"):
         rep = ee.Projection("not a real epsg")._repr_html_()
+
     assert "Projection object" in rep
 
 
