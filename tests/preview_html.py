@@ -3,7 +3,7 @@ import webbrowser
 import ee
 
 from eerepr.repr import _repr_html_
-from tests.cache import CACHE_DIR
+from tests.conftest import CACHE_DIR
 
 
 def preview_html_output():

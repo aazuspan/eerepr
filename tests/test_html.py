@@ -2,7 +2,6 @@ import ee
 import pytest
 
 from eerepr.html import convert_to_html
-from tests.cache import get_info
 
 
 def get_test_objects() -> list:
@@ -91,4 +90,4 @@ def get_test_objects() -> list:
 @pytest.mark.parametrize("key_val", get_test_objects().items(), ids=lambda kv: kv[0])
 def test_regression_objects(key_val, data_regression):
     """Test the HTML repr of various EE objects."""
-    data_regression.check(convert_to_html(get_info(key_val[1])))
+    data_regression.check(convert_to_html(key_val[1].getInfo()))
