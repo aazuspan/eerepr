@@ -5,12 +5,21 @@ from pathlib import Path
 import ee
 import pytest
 
+import eerepr
+
 CACHE_DIR = Path(__file__).parent / "data/"
 CACHE_PATH = CACHE_DIR / ".cache.json"
 
 
 def pytest_sessionstart(session):
     ee.Initialize()
+
+
+@pytest.fixture(autouse=True)
+def reset_eerepr():
+    """Reset eerepr after each test to avoid inconsistent state."""
+    yield
+    eerepr.reset()
 
 
 @pytest.fixture(scope="session")

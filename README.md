@@ -34,9 +34,11 @@ $ conda install -c conda-forge eerepr
 
 ```python
 import eerepr
+
+eerepr.initialize()
 ```
 
-Importing `eerepr` in a Jupyter notebook adds an HTML repr method to all Earth Engine objects. When you print them, you'll see an interactive HTML repr instead of a boring old string repr. Simple as that!
+Running `eerepr.initialize` adds an HTML repr method to all Earth Engine objects. When you print them in an IPython environment, you'll see an interactive HTML repr instead of a boring old string repr. Simple as that!
 
 > [!TIP]
 > If you're using [geemap](https://github.com/gee-community/geemap), `eerepr` is automatically imported and activated by default!
@@ -51,6 +53,7 @@ import ee
 import eerepr
 
 ee.Initialize()
+eerepr.initialize()
 
 display(ee.FeatureCollection("LARSE/GEDI/GEDI02_A_002_INDEX").limit(3))
 ```
@@ -63,5 +66,3 @@ display(ee.FeatureCollection("LARSE/GEDI/GEDI02_A_002_INDEX").limit(3))
 ## Caching
 
 `eerepr` uses caching to improve performance. Server data will only be requested once for each unique Earth Engine object, and all subsequent requests will be retrieved from the cache until the Jupyter session is restarted.
-
-When you import `eerepr`, it is automatically initialized with an unlimited cache size. You can manually set the number of unique objects to cache using `eerepr.initialize(max_cache_size=n)`. A value of `None` sets an unlimited cache while a value of `0` disables caching.
