@@ -60,26 +60,9 @@ Rendered HTML is tested using [pytest-regressions](https://pytest-regressions.re
 
 ### Building New Tests
 
-New features should have unit tests. If your test needs to use `getInfo` to retrieve data from an Earth Engine object, you'll need to use the caching system described below.
+Tests that rely on server-side data via `getInfo` are slow, so `eerepr` uses a mocked `getInfo` method for all tests. When `getInfo` is run on a new object, the value is computed server-side and stored in the local cache file (`tests/data/.cache.json`). A warning is thrown to alert you. Subsequent calls to `getInfo` with the same object (based on its serialized form) will return data from the cache instead of Earth Engine servers. If the cache somehow becomes stale, i.e. the value returned by Earth Engine changes, you can manually delete the cache file and re-run tests to regenerate it. Caches are kept locally and are **not version-controlled**.
 
-Using `getInfo` to retrieve data from an Earth Engine object can be slow and network-dependent. To speed up tests, `eerepr` uses a caching function `tests.cache.get_info` to load data. This function takes an Earth Engine object and either 1) retrieves its info from a local cache file if it has been used before, or 2) retrieves it from the server and adds it to the cache. The cache directory and file (`tests/data/.cache.json`) will be created automatically the first time tests are run.
-
-To demonstrate, let's write a new dummy test that checks the properties of a custom `ee.Image`.
-
-```python
-from tests.cache import get_info
-
-def test_my_image():
-    img = ee.Image.constant(42).set("custom_property", ["a", "b", "c"])
-    # Use `get_info` instead of `img.getInfo` to utilize the cache
-    info = get_info(img)
-
-    assert "custom_property" in info["properties"]
-```
-
-The first time the test is run, `getInfo` will be used to retrieve the image metadata and store it in `tests/data/.cache.json`. Subsequent runs will pull the data directly from the cache. Caches are kept locally and are not version-controlled.
-
-When a new object is added to regression testing, the first run will fail and generate a new reference file. Subsequent tests will pass. Output from regression testing *is* version controlled, so new outputs should be committed.
+When a new object is added to regression testing, the first run will fail and generate a new reference file. Subsequent tests will pass. Output from regression testing **is version controlled**, so new outputs should be committed.
 
 ### Previewing HTML Output
 
