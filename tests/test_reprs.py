@@ -10,8 +10,9 @@ def test_error():
     warns.
     """
     eerepr.initialize()
-    with pytest.warns(UserWarning):
+    with pytest.warns(UserWarning, match="Getting info failed"):
         rep = ee.Projection("not a real epsg")._repr_html_()
+
     assert "Projection object" in rep
     eerepr.reset()
 
