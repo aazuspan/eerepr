@@ -1,6 +1,5 @@
-'<li><label class=''ee-shut''>DateRange [2020-01-01 21:01:10, 2022-03-01 14:32:11]<input
-  type=''checkbox'' class=''ee-toggle''></label><ul><li><span class=''ee-k''>type:</span><span
-  class=''ee-v''>DateRange</span></li><li><label class=''ee-shut''>dates: [1577912470000,
-  1646145131000]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
-  class=''ee-k''>0:</span><span class=''ee-v''>1577912470000</span></li><li><span
-  class=''ee-k''>1:</span><span class=''ee-v''>1646145131000</span></li></ul></li></ul></li>'
+'<li><label>DateRange [2020-01-01 21:01:10, 2022-03-01 14:32:11]<input type=''checkbox''></label><ul><li><span
+  class=''ee-k''>type:</span><span class=''ee-v''>DateRange</span></li><li><label>dates:
+  [1577912470000, 1646145131000]<input type=''checkbox''></label><ul><li><span class=''ee-k''>0:</span><span
+  class=''ee-v''>1577912470000</span></li><li><span class=''ee-k''>1:</span><span
+  class=''ee-v''>1646145131000</span></li></ul></li></ul></li>'

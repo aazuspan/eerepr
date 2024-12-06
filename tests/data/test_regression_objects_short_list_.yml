@@ -1,5 +1,5 @@
-<li><label class='ee-shut'>[1, 2, 3, 4]<input type='checkbox' class='ee-toggle'></label><ul><li><span
-  class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span
-  class='ee-v'>2</span></li><li><span class='ee-k'>2:</span><span class='ee-v'>3</span></li><li><span
-  class='ee-k'>3:</span><span class='ee-v'>4</span></li></ul></li>
+<li><label>[1, 2, 3, 4]<input type='checkbox'></label><ul><li><span class='ee-k'>0:</span><span
+  class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li><li><span
+  class='ee-k'>2:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>3:</span><span
+  class='ee-v'>4</span></li></ul></li>
 ...

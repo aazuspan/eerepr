@@ -1,5 +1,4 @@
-'<li><label class=''ee-shut''>Point (1.11, 2.00)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
-  class=''ee-k''>type:</span><span class=''ee-v''>Point</span></li><li><label class=''ee-shut''>coordinates:
-  [1.112312, 2]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+'<li><label>Point (1.11, 2.00)<input type=''checkbox''></label><ul><li><span class=''ee-k''>type:</span><span
+  class=''ee-v''>Point</span></li><li><label>coordinates: [1.112312, 2]<input type=''checkbox''></label><ul><li><span
   class=''ee-k''>0:</span><span class=''ee-v''>1.112312</span></li><li><span class=''ee-k''>1:</span><span
   class=''ee-v''>2</span></li></ul></li></ul></li>'

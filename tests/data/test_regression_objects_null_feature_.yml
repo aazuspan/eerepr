@@ -1,4 +1,4 @@
-'<li><label class=''ee-shut''>Feature (0 properties)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
-  class=''ee-k''>type:</span><span class=''ee-v''>Feature</span></li><li><span class=''ee-k''>geometry:</span><span
-  class=''ee-v''>None</span></li><li><label class=''ee-shut''>properties: Object (0
-  properties)<input type=''checkbox'' class=''ee-toggle''></label><ul></ul></li></ul></li>'
+'<li><label>Feature (0 properties)<input type=''checkbox''></label><ul><li><span class=''ee-k''>type:</span><span
+  class=''ee-v''>Feature</span></li><li><span class=''ee-k''>geometry:</span><span
+  class=''ee-v''>None</span></li><li><label>properties: Object (0 properties)<input
+  type=''checkbox''></label><ul></ul></li></ul></li>'

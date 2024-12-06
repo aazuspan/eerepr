@@ -1,4 +1,4 @@
-<li><label class='ee-shut'>Date (2021-03-27 14:01:07)<input type='checkbox' class='ee-toggle'></label><ul><li><span
+<li><label>Date (2021-03-27 14:01:07)<input type='checkbox'></label><ul><li><span
   class='ee-k'>type:</span><span class='ee-v'>Date</span></li><li><span class='ee-k'>value:</span><span
   class='ee-v'>1616853667000</span></li></ul></li>
 ...

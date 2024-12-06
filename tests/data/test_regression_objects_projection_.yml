@@ -1,8 +1,7 @@
-'<li><label class=''ee-shut''>Projection<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
-  class=''ee-k''>type:</span><span class=''ee-v''>Projection</span></li><li><span
-  class=''ee-k''>crs:</span><span class=''ee-v''>EPSG:5070</span></li><li><label class=''ee-shut''>transform:
-  [100, 0, 0, 0, 100, 0]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
-  class=''ee-k''>0:</span><span class=''ee-v''>100</span></li><li><span class=''ee-k''>1:</span><span
-  class=''ee-v''>0</span></li><li><span class=''ee-k''>2:</span><span class=''ee-v''>0</span></li><li><span
-  class=''ee-k''>3:</span><span class=''ee-v''>0</span></li><li><span class=''ee-k''>4:</span><span
-  class=''ee-v''>100</span></li><li><span class=''ee-k''>5:</span><span class=''ee-v''>0</span></li></ul></li></ul></li>'
+'<li><label>Projection<input type=''checkbox''></label><ul><li><span class=''ee-k''>type:</span><span
+  class=''ee-v''>Projection</span></li><li><span class=''ee-k''>crs:</span><span class=''ee-v''>EPSG:5070</span></li><li><label>transform:
+  [100, 0, 0, 0, 100, 0]<input type=''checkbox''></label><ul><li><span class=''ee-k''>0:</span><span
+  class=''ee-v''>100</span></li><li><span class=''ee-k''>1:</span><span class=''ee-v''>0</span></li><li><span
+  class=''ee-k''>2:</span><span class=''ee-v''>0</span></li><li><span class=''ee-k''>3:</span><span
+  class=''ee-v''>0</span></li><li><span class=''ee-k''>4:</span><span class=''ee-v''>100</span></li><li><span
+  class=''ee-k''>5:</span><span class=''ee-v''>0</span></li></ul></li></ul></li>'

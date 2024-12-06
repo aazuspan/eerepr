@@ -1,8 +1,8 @@
-'<li><label class=''ee-shut''>Feature (Point, 1 property)<input type=''checkbox''
-  class=''ee-toggle''></label><ul><li><span class=''ee-k''>type:</span><span class=''ee-v''>Feature</span></li><li><label
-  class=''ee-shut''>geometry: Point (0.00, 0.00)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
-  class=''ee-k''>type:</span><span class=''ee-v''>Point</span></li><li><label class=''ee-shut''>coordinates:
-  [0, 0]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span class=''ee-k''>0:</span><span
-  class=''ee-v''>0</span></li><li><span class=''ee-k''>1:</span><span class=''ee-v''>0</span></li></ul></li></ul></li><li><label
-  class=''ee-shut''>properties: Object (1 property)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
-  class=''ee-k''>foo:</span><span class=''ee-v''>bar</span></li></ul></li></ul></li>'
+'<li><label>Feature (Point, 1 property)<input type=''checkbox''></label><ul><li><span
+  class=''ee-k''>type:</span><span class=''ee-v''>Feature</span></li><li><label>geometry:
+  Point (0.00, 0.00)<input type=''checkbox''></label><ul><li><span class=''ee-k''>type:</span><span
+  class=''ee-v''>Point</span></li><li><label>coordinates: [0, 0]<input type=''checkbox''></label><ul><li><span
+  class=''ee-k''>0:</span><span class=''ee-v''>0</span></li><li><span class=''ee-k''>1:</span><span
+  class=''ee-v''>0</span></li></ul></li></ul></li><li><label>properties: Object (1
+  property)<input type=''checkbox''></label><ul><li><span class=''ee-k''>foo:</span><span
+  class=''ee-v''>bar</span></li></ul></li></ul></li>'

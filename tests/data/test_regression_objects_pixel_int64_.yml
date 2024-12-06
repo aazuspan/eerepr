@@ -1,6 +1,5 @@
-<li><label class='ee-shut'>signed int64<input type='checkbox' class='ee-toggle'></label><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span
-  class='ee-v'>9.223372036854776e+18</span></li><li><span class='ee-k'>min:</span><span
-  class='ee-v'>-9.223372036854776e+18</span></li><li><span class='ee-k'>precision:</span><span
-  class='ee-v'>int</span></li></ul></li>
+<li><label>signed int64<input type='checkbox'></label><ul><li><span class='ee-k'>type:</span><span
+  class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>9.223372036854776e+18</span></li><li><span
+  class='ee-k'>min:</span><span class='ee-v'>-9.223372036854776e+18</span></li><li><span
+  class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></li>
 ...

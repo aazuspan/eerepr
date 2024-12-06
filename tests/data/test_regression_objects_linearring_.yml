@@ -1,13 +1,11 @@
-'<li><label class=''ee-shut''>LinearRing (4 vertices)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
-  class=''ee-k''>type:</span><span class=''ee-v''>LinearRing</span></li><li><label
-  class=''ee-shut''>coordinates: [[0, 0], [1, 1], [2, 2], [0, 0]]<input type=''checkbox''
-  class=''ee-toggle''></label><ul><li><label class=''ee-shut''>0: [0, 0]<input type=''checkbox''
-  class=''ee-toggle''></label><ul><li><span class=''ee-k''>0:</span><span class=''ee-v''>0</span></li><li><span
-  class=''ee-k''>1:</span><span class=''ee-v''>0</span></li></ul></li><li><label class=''ee-shut''>1:
-  [1, 1]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span class=''ee-k''>0:</span><span
-  class=''ee-v''>1</span></li><li><span class=''ee-k''>1:</span><span class=''ee-v''>1</span></li></ul></li><li><label
-  class=''ee-shut''>2: [2, 2]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
-  class=''ee-k''>0:</span><span class=''ee-v''>2</span></li><li><span class=''ee-k''>1:</span><span
-  class=''ee-v''>2</span></li></ul></li><li><label class=''ee-shut''>3: [0, 0]<input
-  type=''checkbox'' class=''ee-toggle''></label><ul><li><span class=''ee-k''>0:</span><span
+'<li><label>LinearRing (4 vertices)<input type=''checkbox''></label><ul><li><span
+  class=''ee-k''>type:</span><span class=''ee-v''>LinearRing</span></li><li><label>coordinates:
+  [[0, 0], [1, 1], [2, 2], [0, 0]]<input type=''checkbox''></label><ul><li><label>0:
+  [0, 0]<input type=''checkbox''></label><ul><li><span class=''ee-k''>0:</span><span
+  class=''ee-v''>0</span></li><li><span class=''ee-k''>1:</span><span class=''ee-v''>0</span></li></ul></li><li><label>1:
+  [1, 1]<input type=''checkbox''></label><ul><li><span class=''ee-k''>0:</span><span
+  class=''ee-v''>1</span></li><li><span class=''ee-k''>1:</span><span class=''ee-v''>1</span></li></ul></li><li><label>2:
+  [2, 2]<input type=''checkbox''></label><ul><li><span class=''ee-k''>0:</span><span
+  class=''ee-v''>2</span></li><li><span class=''ee-k''>1:</span><span class=''ee-v''>2</span></li></ul></li><li><label>3:
+  [0, 0]<input type=''checkbox''></label><ul><li><span class=''ee-k''>0:</span><span
   class=''ee-v''>0</span></li><li><span class=''ee-k''>1:</span><span class=''ee-v''>0</span></li></ul></li></ul></li></ul></li>'

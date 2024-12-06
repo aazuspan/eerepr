@@ -1,4 +1,4 @@
-<li><label class='ee-shut'>float<input type='checkbox' class='ee-toggle'></label><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span
+<li><label>float<input type='checkbox'></label><ul><li><span class='ee-k'>type:</span><span
+  class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span
   class='ee-v'>float</span></li></ul></li>
 ...

@@ -1,5 +1,5 @@
-<li><label class='ee-shut'>unsigned int16<input type='checkbox' class='ee-toggle'></label><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span
-  class='ee-v'>65535</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span
-  class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></li>
+<li><label>unsigned int16<input type='checkbox'></label><ul><li><span class='ee-k'>type:</span><span
+  class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>65535</span></li><li><span
+  class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span
+  class='ee-v'>int</span></li></ul></li>
 ...

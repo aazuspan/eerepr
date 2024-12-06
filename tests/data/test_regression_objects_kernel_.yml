@@ -1,6 +1,5 @@
-"<li><label class='ee-shut'>Kernel.gaussian<input type='checkbox' class='ee-toggle'></label><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Kernel.gaussian</span></li><li><label\
-  \ class='ee-shut'>center: [3, 3]<input type='checkbox' class='ee-toggle'></label><ul><li><span\
+"<li><label>Kernel.gaussian<input type='checkbox'></label><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>Kernel.gaussian</span></li><li><label>center: [3, 3]<input type='checkbox'></label><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span\
   \ class='ee-v'>3</span></li></ul></li><li><span class='ee-k'>radius:</span><span\
   \ class='ee-v'>3</span></li><li><span class='ee-k'>weights:</span><span class='ee-v'>\n\
