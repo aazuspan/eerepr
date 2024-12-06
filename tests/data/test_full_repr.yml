@@ -1,25 +1,26 @@
 "<div><style>:root {\n  --font-color-primary: var(--jp-content-font-color0, rgba(0,\
   \ 0, 0, 1));\n  --font-color-secondary: var(--jp-content-font-color2, rgba(0, 0,\
-  \ 0, 0.6));\n  --font-color-accent: rgba(123, 31, 162, 1);\n  --border-color: var(--jp-border-color2,\
+  \ 0, 0.7));\n  --font-color-accent: rgba(123, 31, 162, 1);\n  --border-color: var(--jp-border-color2,\
   \ #e0e0e0);\n  --background-color: var(--jp-layout-color0, white);\n  --background-color-row-even:\
   \ var(--jp-layout-color1, white);\n  --background-color-row-odd: var(--jp-layout-color2,\
   \ #eeeeee);\n}\n\nhtml[theme=\"dark\"],\nbody[data-theme=\"dark\"],\nbody.vscode-dark\
   \ {\n  --font-color-primary: rgba(255, 255, 255, 1);\n  --font-color-secondary:\
-  \ rgba(255, 255, 255, 0.6);\n  --font-color-accent: rgb(173, 132, 190);\n  --border-color:\
+  \ rgba(255, 255, 255, 0.7);\n  --font-color-accent: rgb(173, 132, 190);\n  --border-color:\
   \ #2e2e2e;\n  --background-color: #111111;\n  --background-color-row-even: #111111;\n\
-  \  --background-color-row-odd: #313131;\n}\n\n.ee {\n  padding: 1em;\n  line-height:\
+  \  --background-color-row-odd: #313131;\n}\n\n.eerepr {\n  padding: 1em;\n  line-height:\
   \ 1.5em;\n  min-width: 300px;\n  max-width: 1200px;\n  overflow-y: scroll;\n  max-height:\
   \ 600px;\n  border: 1px solid var(--border-color);\n  font-family: monospace;\n\
-  }\n\n.ee li {\n  list-style-type: none;\n}\n\n.ee ul {\n  padding-left: 1.5em !important;\n\
-  \  margin: 0;\n}\n\n.ee > ul {\n  padding-left: 0 !important;\n}\n\n.ee summary\
-  \ {\n  color: var(--font-color-secondary);\n  cursor: pointer;\n  margin: 0;\n}\n\
-  \n.ee summary:hover {\n  color: var(--font-color-primary);\n}\n\n.ee-k {\n  color:\
-  \ var(--font-color-accent);\n  margin-right: 6px;\n}\n\n.ee-v {\n  color: var(--font-color-primary);\n\
-  }\n\n.ee details > summary::before {\n  content: '▼';\n  display: inline-block;\n\
+  \  font-size: 14px;\n}\n\n.eerepr li {\n  list-style-type: none;\n  margin: 0;\n\
+  }\n\n.eerepr ul {\n  padding-left: 1.5em !important;\n  margin: 0;\n}\n\n.eerepr\
+  \ > ul {\n  padding-left: 0 !important;\n}\n\n.eerepr summary {\n  color: var(--font-color-secondary);\n\
+  \  cursor: pointer;\n  margin: 0;\n}\n\n.eerepr summary:hover {\n  color: var(--font-color-primary);\n\
+  \  background-color: var(--background-color-row-odd)\n}\n\n.ee-k {\n  color: var(--font-color-accent);\n\
+  \  margin-right: 6px;\n}\n\n.ee-v {\n  color: var(--font-color-primary);\n}\n\n\
+  .eerepr details > summary::before {\n  content: '▼';\n  display: inline-block;\n\
   \  margin-right: 6px;\n  transition: transform 0.2s;\n  transform: rotate(-90deg);\n\
-  }\n\n.ee details[open] > summary::before {\n  transform: rotate(0deg);\n}\n\n.ee\
-  \ details summary::-webkit-details-marker {\n  display:none;\n}\n\n.ee details summary\
-  \ {\n  list-style-type: none;\n}\n</style><div class='ee'><ul><li><details><summary>List\
+  }\n\n.eerepr details[open] > summary::before {\n  transform: rotate(0deg);\n}\n\n\
+  .eerepr details summary::-webkit-details-marker {\n  display:none;\n}\n\n.eerepr\
+  \ details summary {\n  list-style-type: none;\n}\n</style><div class='eerepr'><ul><li><details><summary>List\
   \ (40 elements)</summary><ul><li><details><summary>0: Image foo (1 band)</summary><ul><li><span\
   \ class='ee-k'>type:</span><span class='ee-v'>Image</span></li><li><span class='ee-k'>id:</span><span\
   \ class='ee-v'>foo</span></li><li><details><summary>bands: List (1 element)</summary><ul><li><details><summary>0:\
