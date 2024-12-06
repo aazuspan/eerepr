@@ -12,7 +12,7 @@ html[theme="dark"],
 body[data-theme="dark"],
 body.vscode-dark {
   --font-color-primary: rgba(255, 255, 255, 1);
-  --font-color-secondary: rgba(255, 255, 255, 0.6);
+  --font-color-secondary: rgba(255, 255, 255, 0.7);
   --font-color-accent: rgb(173, 132, 190);
   --border-color: #2e2e2e;
   --background-color: #111111;
@@ -29,7 +29,7 @@ body.vscode-dark {
   max-height: 600px;
   border: 1px solid var(--border-color);
   font-family: monospace;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .eerepr li {
@@ -54,6 +54,7 @@ body.vscode-dark {
 
 .eerepr summary:hover {
   color: var(--font-color-primary);
+  background-color: var(--background-color-row-odd)
 }
 
 .ee-k {
