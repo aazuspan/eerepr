@@ -58,11 +58,10 @@ eerepr.initialize()
 display(ee.FeatureCollection("LARSE/GEDI/GEDI02_A_002_INDEX").limit(3))
 ```
 
-### Large Objects
+## Configuration
 
-> [!CAUTION]
-> Just like in the Code Editor, printing huge collections can be slow and may hit memory limits. If a repr exceeds 100 Mb, `eerepr` will fallback to a string repr to avoid freezing the notebook. You can adjust this limit with `eerepr.initialize(max_repr_mbs=...)`. 
+`eerepr.initialize` takes a number of configuration options:
 
-## Caching
-
-`eerepr` uses caching to improve performance. Server data will only be requested once for each unique Earth Engine object, and all subsequent requests will be retrieved from the cache until the Jupyter session is restarted.
+- `max_repr_mbs`: When an HTML repr exceeds this size (default 100 MBs), the string repr will be displayed instead to avoid freezing the notebook. 
+- `max_cache_size`: The maximum number of Earth Engine objects to cache. Using `None` (default) is recommended unless memory is very limited or the object is likely to change, e.g. getting the most recent image from a near-real-time collection. Caching can be disabled by setting to `0`.
+- `on_error`: When an object can't be retrieved from Earth Engine, either `warn` (default) or `raise`.

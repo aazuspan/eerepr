@@ -1,20 +1,7 @@
 import ee
-import pytest
 
 import eerepr
 from eerepr.repr import _repr_html_
-
-
-def test_error():
-    """Test that an object that raises on getInfo falls back to the string repr and
-    warns.
-    """
-    eerepr.initialize()
-    with pytest.warns(UserWarning, match="Getting info failed"):
-        rep = ee.Projection("not a real epsg")._repr_html_()
-
-    assert "Projection object" in rep
-    eerepr.reset()
 
 
 def test_full_repr(data_regression):

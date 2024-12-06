@@ -3,7 +3,7 @@ from __future__ import annotations
 import uuid
 from functools import _lru_cache_wrapper, lru_cache
 from html import escape
-from typing import Any, Union
+from typing import Any, Literal, Union
 from warnings import warn
 
 import ee
@@ -64,16 +64,7 @@ def _is_nondeterministic(obj: EEObject) -> bool:
 @lru_cache(maxsize=None)
 def _repr_html_(obj: EEObject) -> str:
     """Generate an HTML representation of an EE object."""
-    try:
-        info = obj.getInfo()
-    # Fall back to a string repr if getInfo fails
-    except ee.EEException as e:
-        warn(
-            f"Getting info failed with: '{e}'. Falling back to string repr.",
-            stacklevel=2,
-        )
-        return f"<pre>{escape(repr(obj))}</pre>"
-
+    info = obj.getInfo()
     css = _load_css()
     body = convert_to_html(info)
 
@@ -95,7 +86,18 @@ def _ee_repr(obj: EEObject) -> str:
         # cache hit.
         obj._eerepr_id = uuid.uuid4()
 
-    rep = _repr_html_(obj)
+    try:
+        rep = _repr_html_(obj)
+    except ee.EEException as e:
+        if options.on_error == "raise":
+            raise e from None
+
+        warn(
+            f"Getting info failed with: '{e}'. Falling back to string repr.",
+            stacklevel=2,
+        )
+        return f"<pre>{escape(repr(obj))}</pre>"
+
     mbs = len(rep) / 1e6
     if mbs > options.max_repr_mbs:
         warn(
@@ -115,6 +117,7 @@ def _ee_repr(obj: EEObject) -> str:
 def initialize(
     max_cache_size: int | None = None,
     max_repr_mbs: int = 100,
+    on_error: Literal["warn", "raise"] = "warn",
 ) -> None:
     """Attach HTML repr methods to EE objects and set the cache size.
 
@@ -129,9 +132,16 @@ def initialize(
         The maximum HTML repr size to display, in MBs. Setting this too high may freeze
         the client when printing very large objects. When a repr exceeds this size, the
         string repr will be displayed instead along with a warning.
+    on_error : {'warn', 'raise'}, default 'warn'
+        Whether to raise an error or display a warning when an error occurs fetching
+        Earth Engine data.
     """
     global _repr_html_
-    options.update(max_cache_size=max_cache_size, max_repr_mbs=max_repr_mbs)
+    options.update(
+        max_cache_size=max_cache_size,
+        max_repr_mbs=max_repr_mbs,
+        on_error=on_error,
+    )
 
     if isinstance(_repr_html_, _lru_cache_wrapper):
         _repr_html_ = _repr_html_.__wrapped__  # type: ignore

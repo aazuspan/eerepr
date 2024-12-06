@@ -16,6 +16,10 @@ All notable changes to this project will be documented in this file.
 
     If you're using `eerepr` through `geemap>=0.35.2`, this is [handled automatically](https://github.com/gee-community/geemap/pull/2183) by `geemap`.
 
+### Added
+
+- Add `on_error` parameter to `initialize` with option `raise` to throw Earth Engine exceptions instead of warning
+- Add `max_repr_mbs` parameter to `initialize` to allow setting the maximum repr size for safety
 
 ### Changed
 
@@ -23,7 +27,6 @@ All notable changes to this project will be documented in this file.
 - Better accessibility - reprs can be navigated by keyboard
 - Optimized dict sorting (3-10% faster)
 - Improved styling
-- Allow setting all configuration options through `eerepr.initialize`
 
 ### Fixed
 
@@ -32,6 +35,7 @@ All notable changes to this project will be documented in this file.
 ### Removed
 
 - Dropped Python 3.7 support
+- Automatic `initialize` on import
 
 ## [0.0.4] - 2022-11-30
 
