@@ -23,6 +23,7 @@ All notable changes to this project will be documented in this file.
 - Better accessibility - reprs can be navigated by keyboard
 - Optimized dict sorting (3-10% faster)
 - Improved styling
+- Allow setting all configuration options through `eerepr.initialize`
 
 ### Fixed
 

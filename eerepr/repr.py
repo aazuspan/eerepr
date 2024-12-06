@@ -8,7 +8,7 @@ from warnings import warn
 
 import ee
 
-from eerepr.config import options
+from eerepr.config import Config
 from eerepr.html import convert_to_html
 
 REPR_HTML = "_repr_html_"
@@ -16,6 +16,7 @@ EEObject = Union[ee.Element, ee.ComputedObject]
 
 # Track which repr methods have been set so we can overwrite them if needed.
 reprs_set: set[EEObject] = set()
+options = Config()
 
 
 def _load_file(package: str, resource: str) -> str:
@@ -111,7 +112,10 @@ def _ee_repr(obj: EEObject) -> str:
     return rep
 
 
-def initialize(max_cache_size: int | None = None) -> None:
+def initialize(
+    max_cache_size: int | None = None,
+    max_repr_mbs: int = 100,
+) -> None:
     """Attach HTML repr methods to EE objects and set the cache size.
 
     Re-running this function will reset the cache.
@@ -121,13 +125,19 @@ def initialize(max_cache_size: int | None = None) -> None:
     max_cache_size : int, optional
         The maximum number of EE objects to cache. If None, the cache size is unlimited.
         Set to 0 to disable caching.
+    max_repr_mbs : int, default 100
+        The maximum HTML repr size to display, in MBs. Setting this too high may freeze
+        the client when printing very large objects. When a repr exceeds this size, the
+        string repr will be displayed instead along with a warning.
     """
     global _repr_html_
+    options.update(max_cache_size=max_cache_size, max_repr_mbs=max_repr_mbs)
+
     if isinstance(_repr_html_, _lru_cache_wrapper):
         _repr_html_ = _repr_html_.__wrapped__  # type: ignore
 
     if max_cache_size != 0:
-        _repr_html_ = lru_cache(maxsize=max_cache_size)(_repr_html_)
+        _repr_html_ = lru_cache(maxsize=options.max_cache_size)(_repr_html_)
 
     for cls in [ee.Element, ee.ComputedObject]:
         _attach_html_repr(cls, _ee_repr)
