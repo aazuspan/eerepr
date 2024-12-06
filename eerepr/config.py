@@ -1,18 +1,13 @@
 from __future__ import annotations
 
-import json
+from dataclasses import dataclass
 
 
+@dataclass
 class Config:
-    def __init__(self, max_cache_size: int | None, max_repr_mbs: int):
-        self.max_cache_size = max_cache_size
-        self.max_repr_mbs = max_repr_mbs
+    max_cache_size: int | None = None
+    max_repr_mbs: int = 100
 
-    def __repr__(self):
-        return json.dumps(self.__dict__, indent=2)
-
-
-options = Config(
-    max_cache_size=None,
-    max_repr_mbs=100,
-)
+    def update(self, **kwargs) -> Config:
+        self.__dict__.update(**kwargs)
+        return self

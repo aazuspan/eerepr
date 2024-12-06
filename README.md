@@ -41,7 +41,7 @@ eerepr.initialize()
 Running `eerepr.initialize` adds an HTML repr method to all Earth Engine objects. When you print them in an IPython environment, you'll see an interactive HTML repr instead of a boring old string repr. Simple as that!
 
 > [!TIP]
-> If you're using [geemap](https://github.com/gee-community/geemap), `eerepr` is automatically imported and activated by default!
+> If you're using `geemap>=0.35.2`, `eerepr` is automatically imported and initialized.
 
 ### Manually Rendering Objects
 
@@ -61,7 +61,7 @@ display(ee.FeatureCollection("LARSE/GEDI/GEDI02_A_002_INDEX").limit(3))
 ### Large Objects
 
 > [!CAUTION]
-> Just like in the Code Editor, printing huge collections can be slow and may hit memory limits. If a repr exceeds 100 Mb, `eerepr` will fallback to a string repr to avoid freezing the notebook. Adjust `eerepr.options.max_repr_mbs` to print larger objects.
+> Just like in the Code Editor, printing huge collections can be slow and may hit memory limits. If a repr exceeds 100 Mb, `eerepr` will fallback to a string repr to avoid freezing the notebook. You can adjust this limit with `eerepr.initialize(max_repr_mbs=...)`. 
 
 ## Caching
 
