@@ -1,4 +1,4 @@
-<li><label class='ee-shut'>double<input type='checkbox' class='ee-toggle'></label><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span
-  class='ee-v'>double</span></li></ul></li>
+<li><details><summary>double</summary><ul><li><span class='ee-k'>type:</span><span
+  class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span
+  class='ee-v'>double</span></li></ul></details></li>
 ...

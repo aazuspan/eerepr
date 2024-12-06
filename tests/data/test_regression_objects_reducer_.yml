@@ -1,4 +1,4 @@
-<li><label class='ee-shut'>Reducer.max<input type='checkbox' class='ee-toggle'></label><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>Reducer.max</span></li><li><span class='ee-k'>numInputs:</span><span
-  class='ee-v'>5</span></li></ul></li>
+<li><details><summary>Reducer.max</summary><ul><li><span class='ee-k'>type:</span><span
+  class='ee-v'>Reducer.max</span></li><li><span class='ee-k'>numInputs:</span><span
+  class='ee-v'>5</span></li></ul></details></li>
 ...

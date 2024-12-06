@@ -1,6 +1,5 @@
-'<li><label class=''ee-shut''>"B1", unsigned int16<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
-  class=''ee-k''>id:</span><span class=''ee-v''>B1</span></li><li><label class=''ee-shut''>data_type:
-  unsigned int16<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+'<li><details><summary>"B1", unsigned int16</summary><ul><li><span class=''ee-k''>id:</span><span
+  class=''ee-v''>B1</span></li><li><details><summary>data_type: unsigned int16</summary><ul><li><span
   class=''ee-k''>type:</span><span class=''ee-v''>PixelType</span></li><li><span class=''ee-k''>max:</span><span
   class=''ee-v''>65535</span></li><li><span class=''ee-k''>min:</span><span class=''ee-v''>0</span></li><li><span
-  class=''ee-k''>precision:</span><span class=''ee-v''>int</span></li></ul></li></ul></li>'
+  class=''ee-k''>precision:</span><span class=''ee-v''>int</span></li></ul></details></li></ul></details></li>'

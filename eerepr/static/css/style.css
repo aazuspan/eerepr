@@ -44,15 +44,13 @@ body.vscode-dark {
   padding-left: 0 !important;
 }
 
-.ee-open,
-.ee-shut {
+.ee summary {
   color: var(--font-color-secondary);
   cursor: pointer;
   margin: 0;
 }
 
-.ee-open:hover,
-.ee-shut:hover {
+.ee summary:hover {
   color: var(--font-color-primary);
 }
 
@@ -65,30 +63,22 @@ body.vscode-dark {
   color: var(--font-color-primary);
 }
 
-.ee-toggle {
-  display: none;
-}
-
-.ee-shut + ul {
-  display: none;
-}
-
-.ee-open + ul {
-  display: block;
-}
-
-.ee-shut::before {
+.ee details > summary::before {
+  content: '▼';
   display: inline-block;
-  content: "▼";
   margin-right: 6px;
+  transition: transform 0.2s;
   transform: rotate(-90deg);
-  transition: transform 0.2s;
 }
 
-.ee-open::before {
+.ee details[open] > summary::before {
   transform: rotate(0deg);
-  display: inline-block;
-  content: "▼";
-  margin-right: 6px;
-  transition: transform 0.2s;
+}
+
+.ee details summary::-webkit-details-marker {
+  display:none;
+}
+
+.ee details summary {
+  list-style-type: none;
 }

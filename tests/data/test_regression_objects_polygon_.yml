@@ -1,14 +1,12 @@
-'<li><label class=''ee-shut''>Polygon (4 vertices)<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
-  class=''ee-k''>type:</span><span class=''ee-v''>Polygon</span></li><li><label class=''ee-shut''>coordinates:
-  [[[0, 0], [1, 1], [2, 2], [0, 0]]]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><label
-  class=''ee-shut''>0: [[0, 0], [1, 1], [2, 2], [0, 0]]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><label
-  class=''ee-shut''>0: [0, 0]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+'<li><details><summary>Polygon (4 vertices)</summary><ul><li><span class=''ee-k''>type:</span><span
+  class=''ee-v''>Polygon</span></li><li><details><summary>coordinates: [[[0, 0], [1,
+  1], [2, 2], [0, 0]]]</summary><ul><li><details><summary>0: [[0, 0], [1, 1], [2,
+  2], [0, 0]]</summary><ul><li><details><summary>0: [0, 0]</summary><ul><li><span
   class=''ee-k''>0:</span><span class=''ee-v''>0</span></li><li><span class=''ee-k''>1:</span><span
-  class=''ee-v''>0</span></li></ul></li><li><label class=''ee-shut''>1: [1, 1]<input
-  type=''checkbox'' class=''ee-toggle''></label><ul><li><span class=''ee-k''>0:</span><span
-  class=''ee-v''>1</span></li><li><span class=''ee-k''>1:</span><span class=''ee-v''>1</span></li></ul></li><li><label
-  class=''ee-shut''>2: [2, 2]<input type=''checkbox'' class=''ee-toggle''></label><ul><li><span
+  class=''ee-v''>0</span></li></ul></details></li><li><details><summary>1: [1, 1]</summary><ul><li><span
+  class=''ee-k''>0:</span><span class=''ee-v''>1</span></li><li><span class=''ee-k''>1:</span><span
+  class=''ee-v''>1</span></li></ul></details></li><li><details><summary>2: [2, 2]</summary><ul><li><span
   class=''ee-k''>0:</span><span class=''ee-v''>2</span></li><li><span class=''ee-k''>1:</span><span
-  class=''ee-v''>2</span></li></ul></li><li><label class=''ee-shut''>3: [0, 0]<input
-  type=''checkbox'' class=''ee-toggle''></label><ul><li><span class=''ee-k''>0:</span><span
-  class=''ee-v''>0</span></li><li><span class=''ee-k''>1:</span><span class=''ee-v''>0</span></li></ul></li></ul></li></ul></li></ul></li>'
+  class=''ee-v''>2</span></li></ul></details></li><li><details><summary>3: [0, 0]</summary><ul><li><span
+  class=''ee-k''>0:</span><span class=''ee-v''>0</span></li><li><span class=''ee-k''>1:</span><span
+  class=''ee-v''>0</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li>'

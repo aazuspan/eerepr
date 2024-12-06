@@ -1,4 +1,4 @@
-<li><label class='ee-shut'>Filter.eq<input type='checkbox' class='ee-toggle'></label><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>Filter.eq</span></li><li><span class='ee-k'>leftField:</span><span
-  class='ee-v'>foo</span></li><li><span class='ee-k'>rightValue:</span><span class='ee-v'>bar</span></li></ul></li>
+<li><details><summary>Filter.eq</summary><ul><li><span class='ee-k'>type:</span><span
+  class='ee-v'>Filter.eq</span></li><li><span class='ee-k'>leftField:</span><span
+  class='ee-v'>foo</span></li><li><span class='ee-k'>rightValue:</span><span class='ee-v'>bar</span></li></ul></details></li>
 ...
