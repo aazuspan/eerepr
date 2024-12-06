@@ -79,7 +79,7 @@ def _repr_html_(obj: EEObject) -> str:
     return (
         "<div>"
         f"<style>{css}</style>"
-        "<div class='ee'>"
+        "<div class='eerepr'>"
         f"<ul>{body}</ul>"
         "</div>"
         "</div>"
