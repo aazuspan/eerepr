@@ -1,6 +1,6 @@
 :root {
   --font-color-primary: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
-  --font-color-secondary: var(--jp-content-font-color2, rgba(0, 0, 0, 0.6));
+  --font-color-secondary: var(--jp-content-font-color2, rgba(0, 0, 0, 0.7));
   --font-color-accent: rgba(123, 31, 162, 1);
   --border-color: var(--jp-border-color2, #e0e0e0);
   --background-color: var(--jp-layout-color0, white);
@@ -29,10 +29,12 @@ body.vscode-dark {
   max-height: 600px;
   border: 1px solid var(--border-color);
   font-family: monospace;
+  font-size: 12px;
 }
 
 .eerepr li {
   list-style-type: none;
+  margin: 0;
 }
 
 .eerepr ul {
