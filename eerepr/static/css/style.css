@@ -62,3 +62,23 @@ body.vscode-dark {
 .ee-v {
   color: var(--font-color-primary);
 }
+
+.ee details > summary::before {
+  content: '▼';
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform 0.2s;
+  transform: rotate(-90deg);
+}
+
+.ee details[open] > summary::before {
+  transform: rotate(0deg);
+}
+
+.ee details summary::-webkit-details-marker {
+  display:none;
+}
+
+.ee details summary {
+  list-style-type: none;
+}
