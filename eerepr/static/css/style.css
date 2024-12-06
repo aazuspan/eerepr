@@ -44,15 +44,13 @@ body.vscode-dark {
   padding-left: 0 !important;
 }
 
-.ee-open,
-.ee-shut {
+.ee label {
   color: var(--font-color-secondary);
   cursor: pointer;
   margin: 0;
 }
 
-.ee-open:hover,
-.ee-shut:hover {
+.ee label:hover {
   color: var(--font-color-primary);
 }
 
@@ -65,30 +63,26 @@ body.vscode-dark {
   color: var(--font-color-primary);
 }
 
-.ee-toggle {
+.ee input {
   display: none;
 }
 
-.ee-shut + ul {
+.ee label + ul {
   display: none;
 }
 
-.ee-open + ul {
+.ee label:has(input:checked) + ul {
   display: block;
 }
 
-.ee-shut::before {
+.ee label::before {
+  transform: rotate(-90deg);
   display: inline-block;
   content: "▼";
   margin-right: 6px;
-  transform: rotate(-90deg);
   transition: transform 0.2s;
 }
 
-.ee-open::before {
+.ee label:has(input:checked)::before {
   transform: rotate(0deg);
-  display: inline-block;
-  content: "▼";
-  margin-right: 6px;
-  transition: transform 0.2s;
 }

@@ -70,8 +70,8 @@ def _make_collapsible_li(header: str, children: list) -> str:
     """Package a header and children into a collapsible list element."""
     return (
         "<li>"
-        f"<label class='ee-shut'>{header}"
-        "<input type='checkbox' class='ee-toggle'></label>"
+        f"<label>{header}"
+        "<input type='checkbox'></label>"
         f"<ul>{''.join(children)}</ul>"
         "</li>"
     )

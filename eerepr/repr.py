@@ -40,14 +40,6 @@ def _load_css() -> str:
     return _load_file("eerepr.static.css", "style.css")
 
 
-@lru_cache(maxsize=1)
-def _load_js() -> str:
-    """Note: JS is only needed because the CSS `:has()` selector isn't well supported
-    yet, preventing a pure CSS solution to the collapsible lists.
-    """
-    return _load_file("eerepr.static.js", "script.js")
-
-
 def _attach_html_repr(cls: type, repr: Any) -> None:
     """Add a HTML repr method to an EE class. Only overwrite the method if it was set by
     this function.
@@ -82,7 +74,6 @@ def _repr_html_(obj: EEObject) -> str:
         return f"<pre>{escape(repr(obj))}</pre>"
 
     css = _load_css()
-    js = _load_js()
     body = convert_to_html(info)
 
     return (
@@ -91,7 +82,6 @@ def _repr_html_(obj: EEObject) -> str:
         "<div class='ee'>"
         f"<ul>{body}</ul>"
         "</div>"
-        f"<script>{js}</script>"
         "</div>"
     )
 
