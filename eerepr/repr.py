@@ -1,6 +1,6 @@
 import uuid
 from functools import _lru_cache_wrapper, lru_cache
-from html import escape
+import html
 from importlib.resources import read_text
 from typing import Callable, Type, Union
 from warnings import warn
@@ -8,7 +8,7 @@ from warnings import warn
 import ee
 
 from eerepr.config import options
-from eerepr.html import convert_to_html
+from eerepr.html import convert_to_html, escape_object
 
 REPR_HTML = "_repr_html_"
 # Track which html reprs have been set so we can overwrite them if needed.
@@ -51,11 +51,11 @@ def _is_nondeterministic(obj):
 def _repr_html_(obj: Union[ee.Element, ee.ComputedObject]) -> str:
     """Generate an HTML representation of an EE object."""
     try:
-        info = obj.getInfo()
+        info = escape_object(obj.getInfo())
     # Fall back to a string repr if getInfo fails
     except ee.EEException as e:
         warn(f"Getting info failed with: '{e}'. Falling back to string repr.")
-        return f"<pre>{escape(repr(obj))}</pre>"
+        return f"<pre>{html.escape(repr(obj))}</pre>"
 
     css = _load_css()
     js = _load_js()
@@ -89,7 +89,7 @@ def _ee_repr(obj: Union[ee.Element, ee.ComputedObject]) -> str:
                 " objects, but this may cause performance issues."
             )
         )
-        return f"<pre>{escape(repr(obj))}</pre>"
+        return f"<pre>{html.escape(repr(obj))}</pre>"
 
     return rep
 

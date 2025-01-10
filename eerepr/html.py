@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 import datetime
+import html
 from itertools import chain
 from typing import Any
 
@@ -14,6 +17,17 @@ PROPERTY_PRIORITY = [
     "geometry",
     "properties",
 ]
+
+
+def escape_object(obj: Any) -> Any:
+    """Recursively escape HTML strings in a Python object."""
+    if isinstance(obj, str):
+        return html.escape(obj)
+    if isinstance(obj, list):
+        return [escape_object(element) for element in obj]
+    if isinstance(obj, dict):
+        return {escape_object(key): escape_object(value) for key, value in obj.items()}
+    return obj
 
 
 def convert_to_html(obj: Any, key=None) -> str:

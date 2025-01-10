@@ -180,4 +180,20 @@ def test_error():
     """Test that an object that raises on getInfo falls abck to the string repr and warns."""
     with pytest.warns(UserWarning):
         rep = ee.Projection("not a real epsg")._repr_html_()
-    assert "ee.Projection object" in rep
+    assert "ee.projection.Projection object" in rep
+
+
+def test_scripts_sanitized():
+    """Test that scripts within objects are escaped."""
+    eerepr.initialize()
+
+    script_injection = "<script>alert('foo')</script>"
+
+    obj = ee.String(script_injection)
+    assert "<script>alert" not in obj._repr_html_()
+
+    obj = ee.List([script_injection])
+    assert "<script>alert" not in obj._repr_html_()
+
+    obj = ee.Dictionary({script_injection: script_injection, "type": script_injection})
+    assert "<script>alert" not in obj._repr_html_()
