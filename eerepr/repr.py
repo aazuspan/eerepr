@@ -1,15 +1,15 @@
 from __future__ import annotations
 
+import html
 import uuid
 from functools import _lru_cache_wrapper, lru_cache
-from html import escape
 from typing import Any, Literal, Union
 from warnings import warn
 
 import ee
 
 from eerepr.config import Config
-from eerepr.html import convert_to_html
+from eerepr.html import convert_to_html, escape_object
 
 REPR_HTML = "_repr_html_"
 EEObject = Union[ee.Element, ee.ComputedObject]
@@ -64,7 +64,8 @@ def _is_nondeterministic(obj: EEObject) -> bool:
 @lru_cache(maxsize=None)
 def _repr_html_(obj: EEObject) -> str:
     """Generate an HTML representation of an EE object."""
-    info = obj.getInfo()
+    # Escape all strings in object info to prevent injection
+    info = escape_object(obj.getInfo())
     css = _load_css()
     body = convert_to_html(info)
 
@@ -96,7 +97,7 @@ def _ee_repr(obj: EEObject) -> str:
             f"Getting info failed with: '{e}'. Falling back to string repr.",
             stacklevel=2,
         )
-        return f"<pre>{escape(repr(obj))}</pre>"
+        return f"<pre>{html.escape(repr(obj))}</pre>"
 
     mbs = len(rep) / 1e6
     if mbs > options.max_repr_mbs:
@@ -109,7 +110,7 @@ def _ee_repr(obj: EEObject) -> str:
             ),
             stacklevel=2,
         )
-        return f"<pre>{escape(repr(obj))}</pre>"
+        return f"<pre>{html.escape(repr(obj))}</pre>"
 
     return rep
 

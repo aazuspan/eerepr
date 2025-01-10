@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
     ```
 
     If you're using `eerepr` through `geemap>=0.35.2`, this is [handled automatically](https://github.com/gee-community/geemap/pull/2183) by `geemap`.
+- For security, HTML within Earth Engine objects is no longer rendered. This is consistent with the Code Editor.
 
 ### Added
 
@@ -36,6 +37,10 @@ All notable changes to this project will be documented in this file.
 
 - Dropped Python 3.7 support
 - Automatic `initialize` on import
+
+### Security
+
+- Escape HTML in all server-side data to prevent injection attacks
 
 ## [0.0.4] - 2022-11-30
 
