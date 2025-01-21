@@ -55,7 +55,6 @@ def convert_to_html(obj: Any, key: Hashable | None = None) -> str:
 def list_to_html(obj: list, key: Hashable | None = None) -> str:
     """Convert a Python list to an HTML <li> element."""
     n = len(obj)
-    noun = "element" if n == 1 else "elements"
     header = f"{key}: " if key is not None else ""
 
     # Skip the expensive stringification for lists that are definitely too long to
@@ -65,7 +64,7 @@ def list_to_html(obj: list, key: Hashable | None = None) -> str:
     if min_length < MAX_INLINE_LENGTH and len(contents := str(obj)) < MAX_INLINE_LENGTH:
         header += contents
     else:
-        header += f"List ({n} {noun})"
+        header += f"List ({n} {'element' if n == 1 else 'elements'})"
 
     children = [convert_to_html(item, key=i) for i, item in enumerate(obj)]
     return _make_collapsible_li(header, children)
@@ -80,8 +79,8 @@ def dict_to_html(obj: dict, key: Hashable | None = None) -> str:
     sorted_keys = [k for k in PROPERTY_PRIORITY if k in obj] + sorted(
         [k for k in obj if k not in PROPERTY_PRIORITY]
     )
-    children = [convert_to_html(obj[key], key=key) for key in sorted_keys]
 
+    children = [convert_to_html(obj[key], key=key) for key in sorted_keys]
     return _make_collapsible_li(header, children)
 
 
