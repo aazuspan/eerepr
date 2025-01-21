@@ -54,13 +54,20 @@ def convert_to_html(obj: Any, key: Hashable | None = None) -> str:
 
 def list_to_html(obj: list, key: Hashable | None = None) -> str:
     """Convert a Python list to an HTML <li> element."""
-    contents = str(obj)
     n = len(obj)
     noun = "element" if n == 1 else "elements"
     header = f"{key}: " if key is not None else ""
-    header += f"List ({n} {noun})" if len(contents) > MAX_INLINE_LENGTH else contents
-    children = [convert_to_html(item, key=i) for i, item in enumerate(obj)]
 
+    # Skip the expensive stringification for lists that are definitely too long to
+    # include inline (counting whitespace and delimiters). This is a substantial
+    # performance improvement for large collections.
+    min_length = 3 * (n - 1) + 3
+    if min_length < MAX_INLINE_LENGTH and len(contents := str(obj)) < MAX_INLINE_LENGTH:
+        header += contents
+    else:
+        header += f"List ({n} {noun})"
+
+    children = [convert_to_html(item, key=i) for i, item in enumerate(obj)]
     return _make_collapsible_li(header, children)
 
 
