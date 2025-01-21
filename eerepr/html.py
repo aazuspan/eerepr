@@ -79,8 +79,8 @@ def dict_to_html(obj: dict, key: Hashable | None = None) -> str:
     sorted_keys = [k for k in PROPERTY_PRIORITY if k in obj] + sorted(
         [k for k in obj if k not in PROPERTY_PRIORITY]
     )
-    children = [convert_to_html(obj[key], key=key) for key in sorted_keys]
 
+    children = [convert_to_html(obj[key], key=key) for key in sorted_keys]
     return _make_collapsible_li(header, children)
 
 
