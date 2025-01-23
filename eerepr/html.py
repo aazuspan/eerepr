@@ -201,8 +201,7 @@ def _build_band_label(obj: dict) -> str:
     dimensions = f"{dims[0]}x{dims[1]} px" if dims else ""
     crs = obj.get("crs", "")
 
-    parts = list(filter(lambda k: k, [band_id, dtype, crs, dimensions]))
-    return ", ".join(parts)
+    return ", ".join(filter(None, [band_id, dtype, crs, dimensions]))
 
 
 def _build_daterange_label(obj: dict) -> str:
