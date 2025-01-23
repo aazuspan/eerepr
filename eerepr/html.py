@@ -172,7 +172,7 @@ def _build_pixeltype_label(obj: dict) -> str:
     prec = obj.get("precision", "")
     minimum = str(obj.get("min", ""))
     maximum = str(obj.get("max", ""))
-    range = f"[{minimum}, {maximum}]"
+    val_range = f"[{minimum}, {maximum}]"
 
     type_ranges = {
         "[-128, 127]": "signed int8",
@@ -187,9 +187,9 @@ def _build_pixeltype_label(obj: dict) -> str:
     if prec in ["double", "float"]:
         return prec
     try:
-        return type_ranges[range]
+        return type_ranges[val_range]
     except KeyError:
-        return f"{prec} ∈ {range}"
+        return f"{prec} ∈ {val_range}"
 
 
 def _build_band_label(obj: dict) -> str:
@@ -201,8 +201,7 @@ def _build_band_label(obj: dict) -> str:
     dimensions = f"{dims[0]}x{dims[1]} px" if dims else ""
     crs = obj.get("crs", "")
 
-    parts = list(filter(lambda k: k, [band_id, dtype, crs, dimensions]))
-    return ", ".join(parts)
+    return ", ".join(filter(None, [band_id, dtype, crs, dimensions]))
 
 
 def _build_daterange_label(obj: dict) -> str:
@@ -235,7 +234,6 @@ def _build_label(obj: dict) -> str:
     These labels attempt to be consistent with outputs from the Code Editor.
     """
     labelers = {
-        # Explicit types
         "Image": _build_image_label,
         "ImageCollection": _build_imagecollection_label,
         "Date": _build_date_label,
@@ -249,16 +247,14 @@ def _build_label(obj: dict) -> str:
         "MultiPolygon": _build_multipolygon_label,
         "PixelType": _build_pixeltype_label,
         "DateRange": _build_daterange_label,
-        # Inferred types
-        "_Band": _build_band_label,
-        "_Object": _build_object_label,
-        "_Typed": _build_typed_label,
     }
 
     obj_type = obj.get("type", "")
     if not obj_type:
-        obj_type = "_Band" if "id" in obj and "data_type" in obj else "_Object"
-    if obj_type not in labelers:
-        obj_type = "_Typed"
-
-    return labelers[obj_type](obj)
+        if "data_type" in obj and "id" in obj:
+            return _build_band_label(obj)
+        return _build_object_label(obj)
+    try:
+        return labelers[obj_type](obj)
+    except KeyError:
+        return _build_typed_label(obj)
