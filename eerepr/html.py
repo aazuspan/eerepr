@@ -172,7 +172,7 @@ def _build_pixeltype_label(obj: dict) -> str:
     prec = obj.get("precision", "")
     minimum = str(obj.get("min", ""))
     maximum = str(obj.get("max", ""))
-    range = f"[{minimum}, {maximum}]"
+    val_range = f"[{minimum}, {maximum}]"
 
     type_ranges = {
         "[-128, 127]": "signed int8",
@@ -187,9 +187,9 @@ def _build_pixeltype_label(obj: dict) -> str:
     if prec in ["double", "float"]:
         return prec
     try:
-        return type_ranges[range]
+        return type_ranges[val_range]
     except KeyError:
-        return f"{prec} ∈ {range}"
+        return f"{prec} ∈ {val_range}"
 
 
 def _build_band_label(obj: dict) -> str:
