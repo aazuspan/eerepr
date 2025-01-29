@@ -1,4 +1,5 @@
 import json
+import os
 import warnings
 from collections import UserDict
 from pathlib import Path
@@ -65,7 +66,13 @@ def object_cache():
 
 
 def pytest_sessionstart(session):
-    ee.Initialize()
+    if os.environ.get("GITHUB_ACTIONS"):
+        service_account = os.environ.get("EE_SERVICE_ACCOUNT")
+        credentials = ee.ServiceAccountCredentials(None, key_data=service_account)
+    else:
+        credentials = "persistent"
+
+    ee.Initialize(credentials=credentials)
 
 
 @pytest.fixture(autouse=True)
