@@ -10,6 +10,7 @@ import ee
 
 from eerepr.config import Config
 from eerepr.html import convert_to_html, escape_object
+from eerepr.style import CSS
 
 REPR_HTML = "_repr_html_"
 EEObject = Union[ee.Element, ee.ComputedObject]
@@ -17,28 +18,6 @@ EEObject = Union[ee.Element, ee.ComputedObject]
 # Track which repr methods have been set so we can overwrite them if needed.
 reprs_set: set[EEObject] = set()
 options = Config()
-
-
-def _load_file(package: str, resource: str) -> str:
-    """
-    Compatibility wrapper for deprecated `importlib.resources.read_text`.
-
-    Replace with `importlib.resources.files` once support for Python < 3.9 is dropped.
-    """
-    try:
-        # Python >= 3.9
-        from importlib.resources import files
-
-        return files(package).joinpath(resource).read_text()
-    except ImportError:
-        from importlib.resources import read_text
-
-        return read_text(package, resource)
-
-
-@lru_cache(maxsize=1)
-def _load_css() -> str:
-    return _load_file("eerepr.static.css", "style.css")
 
 
 def _attach_html_repr(cls: type, repr: Any) -> None:
@@ -66,12 +45,11 @@ def _repr_html_(obj: EEObject) -> str:
     """Generate an HTML representation of an EE object."""
     # Escape all strings in object info to prevent injection
     info = escape_object(obj.getInfo())
-    css = _load_css()
     body = convert_to_html(info)
 
     return (
         "<div>"
-        f"<style>{css}</style>"
+        f"<style>{CSS}</style>"
         "<div class='eerepr'>"
         f"<ul>{body}</ul>"
         "</div>"
