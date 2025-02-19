@@ -4,9 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed an error generating reprs when the default system encoding is `gbk`
+
 ### Performance
 
 - Avoid stringifying long lists that will definitely be truncated in the repr (~20% speedup when testing with a 25-image Sentinel-2 collection)
+
+### Changed
+
+- CSS is loaded from a Python module instead of a static file
 
 ## [0.1.0] - 2025-01-10
 

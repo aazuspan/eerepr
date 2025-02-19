@@ -1,4 +1,4 @@
-:root {
+CSS = r""":root {
   --font-color-primary: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
   --font-color-secondary: var(--jp-content-font-color2, rgba(0, 0, 0, 0.7));
   --font-color-accent: rgba(123, 31, 162, 1);
@@ -85,3 +85,4 @@ body.vscode-dark {
 .eerepr details summary {
   list-style-type: none;
 }
+"""
