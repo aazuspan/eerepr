@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-Nothing yet!
+### Performance
+
+- Non-deterministic objects are no longer cached, rather than getting a unique attribute to force a cache miss. Negligible reduction in memory, unless you're caching huge shuffled lists.
 
 ## [0.1.1] - 2025-02-19
 
