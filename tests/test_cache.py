@@ -30,3 +30,13 @@ def test_nondeterministic_uncached():
     x = ee.List([0, 1, 2]).shuffle(seed=False)
     x._repr_html_()
     assert cache.cache_info().currsize == 0
+
+
+def test_reset_cache():
+    """Test that the cache is correctly reset."""
+    eerepr.initialize()
+    cache = eerepr.repr._repr_html_
+    ee.Number(42)._repr_html_()
+    assert cache.cache_info().currsize == 1
+    eerepr.reset()
+    assert cache.cache_info().currsize == 0
