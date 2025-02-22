@@ -20,15 +20,13 @@ def test_caching(obj):
     assert cache.cache_info().hits == 1
 
 
-def test_nondeterministic_caching():
+def test_nondeterministic_uncached():
     """
-    ee.List.shuffle(seed=False) is nondeterministic. Make sure it misses the cache.
+    ee.List.shuffle(seed=False) is nondeterministic. Make sure it isn't cached.
     """
     eerepr.initialize()
     cache = eerepr.repr._repr_html_
 
-    assert cache.cache_info().misses == 0
     x = ee.List([0, 1, 2]).shuffle(seed=False)
     x._repr_html_()
-    x._repr_html_()
-    assert cache.cache_info().misses == 2
+    assert cache.cache_info().currsize == 0

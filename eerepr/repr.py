@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import html
-import uuid
 from functools import _lru_cache_wrapper, lru_cache
 from typing import Any, Literal, Union
 from warnings import warn
@@ -57,16 +56,19 @@ def _repr_html_(obj: EEObject) -> str:
     )
 
 
+def _uncached_repr_html_(obj: EEObject) -> str:
+    """Generate an HTML representation of an EE object without caching."""
+    if isinstance(_repr_html_, _lru_cache_wrapper):
+        return _repr_html_.__wrapped__(obj)
+    return _repr_html_(obj)
+
+
 def _ee_repr(obj: EEObject) -> str:
-    """Wrapper around _repr_html_ to prevent cache hits on nondeterministic objects."""
-    if _is_nondeterministic(obj):
-        # We don't want to cache nondeterministic objects, so we'll add add a unique
-        # attribute that causes ee.ComputedObject.__eq__ to return False, preventing a
-        # cache hit.
-        obj._eerepr_id = uuid.uuid4()
+    """Handle errors and conditional caching for _repr_html_."""
+    repr_func = _uncached_repr_html_ if _is_nondeterministic(obj) else _repr_html_
 
     try:
-        rep = _repr_html_(obj)
+        rep = repr_func(obj)
     except ee.EEException as e:
         if options.on_error == "raise":
             raise e from None
