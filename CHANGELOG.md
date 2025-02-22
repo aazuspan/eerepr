@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+
+- `eerepr.reset()` now clears the cache immediately instead of waiting for `eerepr.initialize()`.
+
 ### Performance
 
 - Non-deterministic objects are no longer cached, rather than getting a unique attribute to force a cache miss. Negligible reduction in memory, unless you're caching huge shuffled lists.
