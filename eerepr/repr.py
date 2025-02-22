@@ -100,7 +100,7 @@ def initialize(
     max_repr_mbs: int = 100,
     on_error: Literal["warn", "raise"] = "warn",
 ) -> None:
-    """Attach HTML repr methods to EE objects and set the cache size.
+    """Attach HTML repr methods to EE objects and initialize a cache.
 
     Re-running this function will reset the cache.
 
@@ -135,7 +135,11 @@ def initialize(
 
 
 def reset():
-    """Remove HTML repr methods added by eerepr to EE objects."""
+    """Remove HTML repr methods added by eerepr to EE objects and reset the cache."""
     for cls in reprs_set:
         if hasattr(cls, REPR_HTML):
             delattr(cls, REPR_HTML)
+
+    reprs_set.clear()
+    if isinstance(_repr_html_, _lru_cache_wrapper):
+        _repr_html_.cache_clear()
