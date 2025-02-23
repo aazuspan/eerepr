@@ -7,6 +7,10 @@ from typing import Any, Hashable
 
 # Max characters to display for a list before truncating to "List (n elements)"
 MAX_INLINE_LENGTH = 50
+# Max elements in a list without definitely truncating, i.e. a list where each element
+# takes 1 character plus brackets and delimiters.
+MAX_LIST_LENGTH = MAX_INLINE_LENGTH // 3
+
 # Sorting priority for Earth Engine properties
 PROPERTY_PRIORITY = [
     "type",
@@ -57,11 +61,9 @@ def list_to_html(obj: list, key: Hashable | None = None) -> str:
     n = len(obj)
     header = f"{key}: " if key is not None else ""
 
-    # Skip the expensive stringification for lists that are definitely too long to
-    # include inline (counting whitespace and delimiters). This is a substantial
-    # performance improvement for large collections.
-    min_length = 3 * (n - 1) + 3
-    if min_length < MAX_INLINE_LENGTH and len(contents := str(obj)) < MAX_INLINE_LENGTH:
+    # Only stringify the list if it has few enough elements that it might not be
+    # truncated.
+    if n < MAX_LIST_LENGTH and len(contents := str(obj)) < MAX_INLINE_LENGTH:
         header += contents
     else:
         header += f"List ({n} {'element' if n == 1 else 'elements'})"
