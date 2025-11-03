@@ -1,9 +1,9 @@
+import tempfile
 import webbrowser
 
 import ee
 
 from eerepr.repr import _repr_html_
-from tests.conftest import CACHE_DIR
 
 
 def preview_html_output():
@@ -13,13 +13,10 @@ def preview_html_output():
 
     rendered = _repr_html_(ee.List([obj[1] for obj in objects]))
 
-    CACHE_DIR.mkdir(parents=True, exist_ok=True)
-    preview_path = CACHE_DIR / ".preview.html"
-    with open(preview_path, "w") as f:
+    with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False) as f:
         f.write(rendered)
-
-    webbrowser.open(f"file://{preview_path}")
-    print(f"Rendered HTML output to {preview_path}")
+        webbrowser.open(f.name)
+    print(f"Rendered HTML output to {f.name}")
 
 
 if __name__ == "__main__":
