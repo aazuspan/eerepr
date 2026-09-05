@@ -27,7 +27,7 @@ def test_max_repr_mbs():
 
     with pytest.warns(UserWarning, match="HTML repr size"):
         rep = ee.Image.constant(0).set("system:id", "foo")._repr_html_()
-        assert "<pre>" in rep
+    assert "<pre>" in rep
 
 
 def test_on_error():
@@ -37,7 +37,7 @@ def test_on_error():
     eerepr.initialize(on_error="warn")
     with pytest.warns(UserWarning, match="Getting info failed"):
         rep = invalid_obj._repr_html_()
-        assert "Projection object" in rep
+    assert "Projection object" in rep
 
     eerepr.initialize(on_error="raise")
     with pytest.raises(ee.EEException):

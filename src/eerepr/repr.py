@@ -15,7 +15,7 @@ REPR_HTML = "_repr_html_"
 EEObject = Union[ee.Element, ee.ComputedObject]
 
 # Track which repr methods have been set so we can overwrite them if needed.
-reprs_set: set[EEObject] = set()
+reprs_set: set[type[EEObject]] = set()
 options = Config()
 
 
@@ -46,14 +46,7 @@ def _repr_html_(obj: EEObject) -> str:
     info = escape_object(obj.getInfo())
     body = convert_to_html(info)
 
-    return (
-        "<div>"
-        f"<style>{CSS}</style>"
-        "<div class='eerepr'>"
-        f"<ul>{body}</ul>"
-        "</div>"
-        "</div>"
-    )
+    return f"<div><style>{CSS}</style><div class='eerepr'><ul>{body}</ul></div></div>"
 
 
 def _uncached_repr_html_(obj: EEObject) -> str:
