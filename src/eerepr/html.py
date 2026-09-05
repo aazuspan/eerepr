@@ -1,9 +1,10 @@
 from __future__ import annotations
 
 import html
+from collections.abc import Hashable
 from datetime import datetime, timezone
 from itertools import chain
-from typing import Any, Hashable
+from typing import Any
 
 # Max characters to display for a list before truncating to "List (n elements)"
 MAX_INLINE_LENGTH = 50
