@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import html
-from functools import _lru_cache_wrapper, lru_cache
-from typing import Any, Literal, Union
+from functools import _lru_cache_wrapper, cache, lru_cache
+from typing import Any, Literal
 from warnings import warn
 
 import ee
@@ -12,7 +12,7 @@ from eerepr.html import convert_to_html, escape_object
 from eerepr.style import CSS
 
 REPR_HTML = "_repr_html_"
-EEObject = Union[ee.Element, ee.ComputedObject]
+EEObject = ee.Element | ee.ComputedObject
 
 # Track which repr methods have been set so we can overwrite them if needed.
 reprs_set: set[type[EEObject]] = set()
@@ -39,7 +39,7 @@ def _is_nondeterministic(obj: EEObject) -> bool:
     return shuffled and false_seed
 
 
-@lru_cache(maxsize=None)
+@cache
 def _repr_html_(obj: EEObject) -> str:
     """Generate an HTML representation of an EE object."""
     # Escape all strings in object info to prevent injection
