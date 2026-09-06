@@ -34,6 +34,7 @@ dev = [
     "pytest-regressions",
     "pytest-mock",
     "mypy>=1.14.1",
+    "pytest-benchmark>=5.3.0",
 ]
 
 [tool.ruff.lint]
@@ -44,6 +45,10 @@ exclude = ["*.ipynb"]
 ignore_missing_imports = true
 exclude = ["tests/*"]
 
+[tool.pytest.ini_options]
+markers = ["benchmark"]
+addopts = "-m 'not benchmark'"
+
 [tool.poe.tasks]
 lint = "ruff check . --fix"
 format = "ruff format ."
@@ -52,3 +57,4 @@ check = ["lint", "format", "type-check"]
 test = "pytest"
 coverage = "pytest . --cov=eerepr {args}"
 preview = "uv run python -m tests.preview_html"
+benchmark = "pytest -m 'benchmark'"
