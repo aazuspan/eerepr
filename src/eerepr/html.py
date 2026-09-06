@@ -145,7 +145,7 @@ def _build_featurecollection_label(obj: dict) -> str:
 def _build_point_label(obj: dict) -> str:
     x, y = obj.get("coordinates", [None, None])
     xstr = f"{x:.2f}" if isinstance(x, (int, float)) else "NaN"
-    ystr = f"{y:.2f}" if isinstance(x, (int, float)) else "NaN"
+    ystr = f"{y:.2f}" if isinstance(y, (int, float)) else "NaN"
     return f"Point ({xstr}, {ystr})"
 
 
