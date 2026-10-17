@@ -75,7 +75,7 @@ def list_to_html(obj: list, key: Hashable | None = None) -> str:
 
 def dict_to_html(obj: dict, key: Hashable | None = None) -> str:
     """Convert a Python dictionary to an HTML <li> element."""
-    label = _build_label(obj)
+    label = _summarize_collection(obj)
     header = (f"{key}: " if key is not None else "") + label
 
     # Sort properties by priority, then alphabetically
@@ -99,7 +99,7 @@ def _make_collapsible_li(header: str, children: list) -> str:
     )
 
 
-def _build_image_label(obj: dict) -> str:
+def _summarize_image(obj: dict) -> str:
     obj_id = obj.get("id")
     id_label = f" {obj_id}" if obj_id else ""
     n = len(obj.get("bands", []))
@@ -107,7 +107,7 @@ def _build_image_label(obj: dict) -> str:
     return f"Image{id_label} ({n} {noun})"
 
 
-def _build_imagecollection_label(obj: dict) -> str:
+def _summarize_imagecollection(obj: dict) -> str:
     obj_id = obj.get("id")
     id_label = f" {obj_id} " if obj_id else ""
     n = len(obj.get("features", []))
@@ -115,12 +115,12 @@ def _build_imagecollection_label(obj: dict) -> str:
     return f"ImageCollection{id_label} ({n} {noun})"
 
 
-def _build_date_label(obj: dict) -> str:
+def _summarize_date(obj: dict) -> str:
     dt = datetime.fromtimestamp(obj.get("value", 0) / 1000, tz=timezone.utc)
     return f"Date ({dt.strftime(DATE_FORMAT)})"
 
 
-def _build_feature_label(obj: dict) -> str:
+def _summarize_feature(obj: dict) -> str:
     n = len(obj.get("properties", []))
     try:
         geom_type = obj["geometry"]["type"]
@@ -132,7 +132,7 @@ def _build_feature_label(obj: dict) -> str:
     return f"Feature ({type_label}{n} {noun})"
 
 
-def _build_featurecollection_label(obj: dict) -> str:
+def _summarize_featurecollection(obj: dict) -> str:
     obj_id = obj.get("id")
     id_label = f" {obj_id} " if obj_id else ""
     ncols = len(obj.get("columns", []))
@@ -142,20 +142,20 @@ def _build_featurecollection_label(obj: dict) -> str:
     return f"FeatureCollection{id_label} ({nfeats} {feat_noun}, {ncols} {col_noun})"
 
 
-def _build_point_label(obj: dict) -> str:
+def _summarize_point(obj: dict) -> str:
     x, y = obj.get("coordinates", [None, None])
     xstr = f"{x:.2f}" if isinstance(x, (int, float)) else "NaN"
     ystr = f"{y:.2f}" if isinstance(y, (int, float)) else "NaN"
     return f"Point ({xstr}, {ystr})"
 
 
-def _build_polygon_label(obj: dict) -> str:
+def _summarize_polygon(obj: dict) -> str:
     n = len(obj.get("coordinates", [[]])[0])
     noun = "vertex" if n == 1 else "vertices"
     return f"Polygon ({n} {noun})"
 
 
-def _build_multipolygon_label(obj: dict) -> str:
+def _summarize_multipolygon(obj: dict) -> str:
     coords = obj.get("coordinates", [])[0]
     flat = list(chain.from_iterable(coords))
     n = len(flat)
@@ -163,7 +163,7 @@ def _build_multipolygon_label(obj: dict) -> str:
     return f"MultiPolygon ({n} {noun})"
 
 
-def _build_multipoint_label(obj: dict) -> str:
+def _summarize_multipoint(obj: dict) -> str:
     """This also works for LineString and LinearRing."""
     obj_type = obj.get("type")
     n = len(obj.get("coordinates", []))
@@ -171,7 +171,7 @@ def _build_multipoint_label(obj: dict) -> str:
     return f"{obj_type} ({n} {noun})"
 
 
-def _build_pixeltype_label(obj: dict) -> str:
+def _summarize_pixeltype(obj: dict) -> str:
     prec = obj.get("precision", "")
     minimum = str(obj.get("min", ""))
     maximum = str(obj.get("max", ""))
@@ -195,11 +195,11 @@ def _build_pixeltype_label(obj: dict) -> str:
         return f"{prec} ∈ {val_range}"
 
 
-def _build_band_label(obj: dict) -> str:
+def _summarize_band(obj: dict) -> str:
     band_id = obj.get("id", "")
     if band_id:
         band_id = f'"{band_id}"'
-    dtype = _build_pixeltype_label(obj.get("data_type", {}))
+    dtype = _summarize_pixeltype(obj.get("data_type", {}))
     dims = obj.get("dimensions")
     dimensions = f"{dims[0]}x{dims[1]} px" if dims else ""
     crs = obj.get("crs", "")
@@ -207,7 +207,7 @@ def _build_band_label(obj: dict) -> str:
     return ", ".join(filter(None, [band_id, dtype, crs, dimensions]))
 
 
-def _build_daterange_label(obj: dict) -> str:
+def _summarize_daterange(obj: dict) -> str:
     start, end = obj.get("dates", [0, 0])
     dt_start = datetime.fromtimestamp(start / 1000, tz=timezone.utc)
     dt_end = datetime.fromtimestamp(end / 1000, tz=timezone.utc)
@@ -216,14 +216,14 @@ def _build_daterange_label(obj: dict) -> str:
     )
 
 
-def _build_object_label(obj: dict) -> str:
+def _summarize_object(obj: dict) -> str:
     """Build a label for a generic JS object."""
     n = len(obj.keys())
     noun = "property" if n == 1 else "properties"
     return f"Object ({n} {noun})"
 
 
-def _build_typed_label(obj: dict) -> str:
+def _summarize_typed(obj: dict) -> str:
     """Build a label for an object with an unrecognized type."""
     obj_type = obj.get("type")
     obj_id = obj.get("id", "")
@@ -231,33 +231,33 @@ def _build_typed_label(obj: dict) -> str:
     return f"{obj_type}{id_label}"
 
 
-def _build_label(obj: dict) -> str:
-    """Take an info dictionary from Earth Engine and return a header label.
+def _summarize_collection(obj: dict) -> str:
+    """Generate a summary of a collection.
 
     These labels attempt to be consistent with outputs from the Code Editor.
     """
     labelers = {
-        "Image": _build_image_label,
-        "ImageCollection": _build_imagecollection_label,
-        "Date": _build_date_label,
-        "Feature": _build_feature_label,
-        "FeatureCollection": _build_featurecollection_label,
-        "Point": _build_point_label,
-        "MultiPoint": _build_multipoint_label,
-        "LineString": _build_multipoint_label,
-        "LinearRing": _build_multipoint_label,
-        "Polygon": _build_polygon_label,
-        "MultiPolygon": _build_multipolygon_label,
-        "PixelType": _build_pixeltype_label,
-        "DateRange": _build_daterange_label,
+        "Image": _summarize_image,
+        "ImageCollection": _summarize_imagecollection,
+        "Date": _summarize_date,
+        "Feature": _summarize_feature,
+        "FeatureCollection": _summarize_featurecollection,
+        "Point": _summarize_point,
+        "MultiPoint": _summarize_multipoint,
+        "LineString": _summarize_multipoint,
+        "LinearRing": _summarize_multipoint,
+        "Polygon": _summarize_polygon,
+        "MultiPolygon": _summarize_multipolygon,
+        "PixelType": _summarize_pixeltype,
+        "DateRange": _summarize_daterange,
     }
 
     obj_type = obj.get("type", "")
     if not obj_type:
         if "data_type" in obj and "id" in obj:
-            return _build_band_label(obj)
-        return _build_object_label(obj)
+            return _summarize_band(obj)
+        return _summarize_object(obj)
     try:
         return labelers[obj_type](obj)
     except KeyError:
-        return _build_typed_label(obj)
+        return _summarize_typed(obj)
