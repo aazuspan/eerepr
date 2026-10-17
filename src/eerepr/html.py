@@ -25,6 +25,17 @@ PROPERTY_PRIORITY = [
 # Format for ee.Date and ee.DateRange
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
+# Mapping of numeric ranges to type names
+_TYPE_RANGES = {
+    "[-128, 127]": "signed int8",
+    "[0, 255]": "unsigned int8",
+    "[-32768, 32767]": "signed int16",
+    "[0, 65535]": "unsigned int16",
+    "[-2147483648, 2147483647]": "signed int32",
+    "[0, 4294967295]": "unsigned int32",
+    "[-9.223372036854776e+18, 9.223372036854776e+18]": "signed int64",
+}
+
 
 def escape_object(obj: Any) -> Any:
     """Recursively escape HTML strings in a Python object."""
@@ -173,26 +184,14 @@ def _summarize_multipoint(obj: dict) -> str:
 
 def _summarize_pixeltype(obj: dict) -> str:
     prec = obj.get("precision", "")
+    if prec in ["double", "float"]:
+        return prec
+
     minimum = str(obj.get("min", ""))
     maximum = str(obj.get("max", ""))
     val_range = f"[{minimum}, {maximum}]"
 
-    type_ranges = {
-        "[-128, 127]": "signed int8",
-        "[0, 255]": "unsigned int8",
-        "[-32768, 32767]": "signed int16",
-        "[0, 65535]": "unsigned int16",
-        "[-2147483648, 2147483647]": "signed int32",
-        "[0, 4294967295]": "unsigned int32",
-        "[-9.223372036854776e+18, 9.223372036854776e+18]": "signed int64",
-    }
-
-    if prec in ["double", "float"]:
-        return prec
-    try:
-        return type_ranges[val_range]
-    except KeyError:
-        return f"{prec} ∈ {val_range}"
+    return _TYPE_RANGES.get(val_range, f"{prec} ∈ {val_range}")
 
 
 def _summarize_band(obj: dict) -> str:
@@ -236,28 +235,27 @@ def _summarize_collection(obj: dict) -> str:
 
     These labels attempt to be consistent with outputs from the Code Editor.
     """
-    labelers = {
-        "Image": _summarize_image,
-        "ImageCollection": _summarize_imagecollection,
-        "Date": _summarize_date,
-        "Feature": _summarize_feature,
-        "FeatureCollection": _summarize_featurecollection,
-        "Point": _summarize_point,
-        "MultiPoint": _summarize_multipoint,
-        "LineString": _summarize_multipoint,
-        "LinearRing": _summarize_multipoint,
-        "Polygon": _summarize_polygon,
-        "MultiPolygon": _summarize_multipolygon,
-        "PixelType": _summarize_pixeltype,
-        "DateRange": _summarize_daterange,
-    }
-
     obj_type = obj.get("type", "")
     if not obj_type:
         if "data_type" in obj and "id" in obj:
             return _summarize_band(obj)
         return _summarize_object(obj)
-    try:
-        return labelers[obj_type](obj)
-    except KeyError:
-        return _summarize_typed(obj)
+
+    return _LABELERS.get(obj_type, _summarize_typed)(obj)
+
+
+_LABELERS = {
+    "Image": _summarize_image,
+    "ImageCollection": _summarize_imagecollection,
+    "Date": _summarize_date,
+    "Feature": _summarize_feature,
+    "FeatureCollection": _summarize_featurecollection,
+    "Point": _summarize_point,
+    "MultiPoint": _summarize_multipoint,
+    "LineString": _summarize_multipoint,
+    "LinearRing": _summarize_multipoint,
+    "Polygon": _summarize_polygon,
+    "MultiPolygon": _summarize_multipolygon,
+    "PixelType": _summarize_pixeltype,
+    "DateRange": _summarize_daterange,
+}

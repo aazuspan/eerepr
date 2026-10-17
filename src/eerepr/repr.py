@@ -31,12 +31,22 @@ def _attach_html_repr(cls: type, repr: Any) -> None:
 def _is_nondeterministic(obj: EEObject) -> bool:
     """Check if an object returns nondeterministic results which would break caching.
 
-    Currently, this only tests for the case of `ee.List.shuffle(seed=False)`.
+    Non-deterministic here means that the same client-side computation graph can produce
+    different results on the server, making stale cache entries much more likely.
+    Technically any computation that depends on server data could be non-deterministic,
+    e.g. an image query can become stale as new assets are ingested; this check just
+    focuses on data-independent non-determinism, which has only been observed in
+    `ee.List.shuffle(seed=False)`.
     """
     invocation = obj.serialize()
-    shuffled = "List.shuffle" in invocation
-    false_seed = '"seed": {"constantValue": false}' in invocation
-    return shuffled and false_seed
+    return (
+        # Check the rarer `seed=False` condition first.
+        '"seed": {"constantValue": false}' in invocation
+        # Verify there is also a `List.shuffle` call. This could technically be a
+        # false positive since we don't check the context of the `seed` argument, but
+        # `List.shuffle` is the only function that currently supports a boolean `seed`.
+        and "List.shuffle" in invocation
+    )
 
 
 @cache
