@@ -19,6 +19,13 @@ reprs_set: set[type[EEObject]] = set()
 options = Config()
 
 
+class _UncachedRepr(Exception):
+    """A rendered HTML representation that was raised to escape the cache."""
+
+    def __init__(self, html: str):
+        self.html = html
+
+
 def _attach_html_repr(cls: type, repr: Any) -> None:
     """Add a HTML repr method to an EE class. Only overwrite the method if it was set by
     this function.
@@ -55,23 +62,20 @@ def _repr_html_(obj: EEObject) -> str:
     # Escape all strings in object info to prevent injection
     info = escape_object(obj.getInfo())
     body = convert_to_html(info)
+    rep = f"<div><style>{CSS}</style><div class='eerepr'><ul>{body}</ul></div></div>"
 
-    return f"<div><style>{CSS}</style><div class='eerepr'><ul>{body}</ul></div></div>"
-
-
-def _uncached_repr_html_(obj: EEObject) -> str:
-    """Generate an HTML representation of an EE object without caching."""
-    if isinstance(_repr_html_, _lru_cache_wrapper):
-        return _repr_html_.__wrapped__(obj)
-    return _repr_html_(obj)
+    # Raise to force a cache miss for non-deterministic objects
+    if _is_nondeterministic(obj):
+        raise _UncachedRepr(html=rep)
+    return rep
 
 
 def _ee_repr(obj: EEObject) -> str:
     """Handle errors and conditional caching for _repr_html_."""
-    repr_func = _uncached_repr_html_ if _is_nondeterministic(obj) else _repr_html_
-
     try:
-        rep = repr_func(obj)
+        rep = _repr_html_(obj)
+    except _UncachedRepr as e:
+        rep = e.html
     except ee.EEException as e:
         if options.on_error == "raise":
             raise e from None
