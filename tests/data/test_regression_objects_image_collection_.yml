@@ -7,7 +7,7 @@
   class='ee-k'>0:</span><span class='ee-v'>Image (1 band)</span></summary><ul><li><span
   class='ee-k'>type:</span><span class='ee-v'>Image</span></li><li><details><summary><span
   class='ee-k'>bands:</span><span class='ee-v'>List (1 element)</span></summary><ul><li><details><summary><span
-  class='ee-k'>0:</span><span class='ee-v'>"constant", int ∈ [0, 0], EPSG:4326</span></summary><ul><li><span
+  class='ee-k'>0:</span><span class='ee-v'>&quot;constant&quot;, int ∈ [0, 0], EPSG:4326</span></summary><ul><li><span
   class='ee-k'>id:</span><span class='ee-v'>constant</span></li><li><span class='ee-k'>crs:</span><span
   class='ee-v'>EPSG:4326</span></li><li><details><summary><span class='ee-k'>crs_transform:</span><span
   class='ee-v'>[1, 0, 0, 0, 1, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span
@@ -24,7 +24,7 @@
   class='ee-k'>1:</span><span class='ee-v'>Image (1 band)</span></summary><ul><li><span
   class='ee-k'>type:</span><span class='ee-v'>Image</span></li><li><details><summary><span
   class='ee-k'>bands:</span><span class='ee-v'>List (1 element)</span></summary><ul><li><details><summary><span
-  class='ee-k'>0:</span><span class='ee-v'>"constant", int ∈ [1, 1], EPSG:4326</span></summary><ul><li><span
+  class='ee-k'>0:</span><span class='ee-v'>&quot;constant&quot;, int ∈ [1, 1], EPSG:4326</span></summary><ul><li><span
   class='ee-k'>id:</span><span class='ee-v'>constant</span></li><li><span class='ee-k'>crs:</span><span
   class='ee-v'>EPSG:4326</span></li><li><details><summary><span class='ee-k'>crs_transform:</span><span
   class='ee-v'>[1, 0, 0, 0, 1, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span

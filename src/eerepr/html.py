@@ -4,7 +4,6 @@ import html
 from datetime import datetime, timezone
 from functools import lru_cache
 from itertools import chain
-from typing import Any
 
 from eerepr.style import CSS
 
@@ -42,17 +41,6 @@ _TYPE_RANGES = {
 @lru_cache(maxsize=8192)
 def _escape_str(s: str) -> str:
     return html.escape(s)
-
-
-def escape_object(obj: Any) -> Any:
-    """Recursively escape HTML strings in a Python object."""
-    if isinstance(obj, str):
-        return _escape_str(obj)
-    if isinstance(obj, list):
-        return [escape_object(element) for element in obj]
-    if isinstance(obj, dict):
-        return {escape_object(key): escape_object(value) for key, value in obj.items()}
-    return obj
 
 
 def build_html_repr(obj: str | int | float | bool | dict | list | None) -> str:
@@ -114,11 +102,14 @@ def _write_item(value: str, key: str | None, acc: list[str]) -> None:
     """
     Write a single HTML entry.
 
-    If the item is a child of a collection, it will prepend the optional key.
+    If the item is a child of a collection, it will prepend the optional key. Values and
+    keys are escaped prior to writing.
     """
     if key is not None:
-        acc.append(f"<span class='ee-k'>{key}:</span>")
-    acc.append(f"<span class='ee-v'>{value}</span>")
+        escaped_key = _escape_str(key)
+        acc.append(f"<span class='ee-k'>{escaped_key}:</span>")
+    escaped_value = _escape_str(value)
+    acc.append(f"<span class='ee-v'>{escaped_value}</span>")
 
 
 def _summarize_image(obj: dict) -> str:

@@ -26,7 +26,7 @@
   \ class='ee-k'>type:</span><span class='ee-v'>Image</span></li><li><span class='ee-k'>id:</span><span\
   \ class='ee-v'>foo</span></li><li><details><summary><span class='ee-k'>bands:</span><span\
   \ class='ee-v'>List (1 element)</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>\"constant\", int ∈ [0, 0], EPSG:4326</span></summary><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>&quot;constant&quot;, int ∈ [0, 0], EPSG:4326</span></summary><ul><li><span\
   \ class='ee-k'>id:</span><span class='ee-v'>constant</span></li><li><span class='ee-k'>crs:</span><span\
   \ class='ee-v'>EPSG:4326</span></li><li><details><summary><span class='ee-k'>crs_transform:</span><span\
   \ class='ee-v'>[1, 0, 0, 0, 1, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span\
@@ -186,7 +186,7 @@
   \ class='ee-k'>20:</span><span class='ee-v'>Foo bar </span></summary><ul><li><span\
   \ class='ee-k'>type:</span><span class='ee-v'>Foo</span></li><li><span class='ee-k'>id:</span><span\
   \ class='ee-v'>bar</span></li></ul></details></li><li><details><summary><span class='ee-k'>21:</span><span\
-  \ class='ee-v'>\"B1\", unsigned int16, EPSG:32610, 1830x1830 px</span></summary><ul><li><span\
+  \ class='ee-v'>&quot;B1&quot;, unsigned int16, EPSG:32610, 1830x1830 px</span></summary><ul><li><span\
   \ class='ee-k'>id:</span><span class='ee-v'>B1</span></li><li><span class='ee-k'>crs:</span><span\
   \ class='ee-v'>EPSG:32610</span></li><li><details><summary><span class='ee-k'>data_type:</span><span\
   \ class='ee-v'>unsigned int16</span></summary><ul><li><span class='ee-k'>type:</span><span\
@@ -195,7 +195,7 @@
   \ class='ee-v'>int</span></li></ul></details></li><li><details><summary><span class='ee-k'>dimensions:</span><span\
   \ class='ee-v'>[1830, 1830]</span></summary><ul><li><span class='ee-k'>0:</span><span\
   \ class='ee-v'>1830</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1830</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>22:</span><span class='ee-v'>\"B1\", unsigned int16</span></summary><ul><li><span\
+  \ class='ee-k'>22:</span><span class='ee-v'>&quot;B1&quot;, unsigned int16</span></summary><ul><li><span\
   \ class='ee-k'>id:</span><span class='ee-v'>B1</span></li><li><details><summary><span\
   \ class='ee-k'>data_type:</span><span class='ee-v'>unsigned int16</span></summary><ul><li><span\
   \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
