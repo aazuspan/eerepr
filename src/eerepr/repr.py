@@ -8,7 +8,7 @@ from warnings import warn
 import ee
 
 from eerepr.config import Config
-from eerepr.html import convert_to_html, escape_object
+from eerepr.html import _escape_str, convert_to_html, escape_object
 from eerepr.style import CSS
 
 REPR_HTML = "_repr_html_"
@@ -144,5 +144,6 @@ def reset():
             delattr(cls, REPR_HTML)
 
     reprs_set.clear()
+    _escape_str.cache_clear()
     if isinstance(_repr_html_, _lru_cache_wrapper):
         _repr_html_.cache_clear()

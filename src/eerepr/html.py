@@ -3,6 +3,7 @@ from __future__ import annotations
 import html
 from collections.abc import Hashable
 from datetime import datetime, timezone
+from functools import lru_cache
 from itertools import chain
 from typing import Any
 
@@ -37,10 +38,15 @@ _TYPE_RANGES = {
 }
 
 
+@lru_cache(maxsize=8192)
+def _escape_str(s: str) -> str:
+    return html.escape(s)
+
+
 def escape_object(obj: Any) -> Any:
     """Recursively escape HTML strings in a Python object."""
     if isinstance(obj, str):
-        return html.escape(obj)
+        return _escape_str(obj)
     if isinstance(obj, list):
         return [escape_object(element) for element in obj]
     if isinstance(obj, dict):
