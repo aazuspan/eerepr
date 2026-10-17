@@ -6,6 +6,8 @@ from functools import lru_cache
 from itertools import chain
 from typing import Any
 
+from eerepr.style import CSS
+
 # Max characters to display for a list before truncating to "List (n elements)"
 MAX_INLINE_LENGTH = 50
 # Max elements in a list without definitely truncating, i.e. a list where each element
@@ -51,6 +53,12 @@ def escape_object(obj: Any) -> Any:
     if isinstance(obj, dict):
         return {escape_object(key): escape_object(value) for key, value in obj.items()}
     return obj
+
+
+def build_html_repr(obj: str | int | float | bool | dict | list | None) -> str:
+    """Build a complete HTML repr for a Python object, including the stylesheet."""
+    body = convert_to_html(obj)
+    return f"<div><style>{CSS}</style><div class='eerepr'><ul>{body}</ul></div></div>"
 
 
 def convert_to_html(obj: str | int | float | bool | dict | list | None) -> str:

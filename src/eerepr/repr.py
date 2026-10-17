@@ -8,8 +8,7 @@ from warnings import warn
 import ee
 
 from eerepr.config import Config
-from eerepr.html import _escape_str, convert_to_html, escape_object
-from eerepr.style import CSS
+from eerepr.html import _escape_str, build_html_repr, escape_object
 
 REPR_HTML = "_repr_html_"
 EEObject = ee.Element | ee.ComputedObject
@@ -42,13 +41,12 @@ def _cached_repr(obj: EEObject) -> str:
     """Inner HTML generation for EE objects."""
     # Escape all strings in object info to prevent injection
     info = escape_object(obj.getInfo())
-    body = convert_to_html(info)
-    rep = f"<div><style>{CSS}</style><div class='eerepr'><ul>{body}</ul></div></div>"
+    html_repr = build_html_repr(info)
 
     # Raise to force a cache miss for non-deterministic objects
     if _is_nondeterministic(obj):
-        raise _UncachedRepr(html=rep)
-    return rep
+        raise _UncachedRepr(html=html_repr)
+    return html_repr
 
 
 def _is_nondeterministic(obj: EEObject) -> bool:
