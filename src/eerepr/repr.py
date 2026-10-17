@@ -26,13 +26,29 @@ class _UncachedRepr(Exception):
         self.html = html
 
 
-def _attach_html_repr(cls: type, repr: Any) -> None:
-    """Add a HTML repr method to an EE class. Only overwrite the method if it was set by
-    this function.
-    """
-    if not hasattr(cls, REPR_HTML) or cls in reprs_set:
-        reprs_set.update([cls])
-        setattr(cls, REPR_HTML, repr)
+def _repr_html_(obj: EEObject) -> str:
+    """Generate an HTML representation of an EE object."""
+    try:
+        rep = _cached_repr(obj)
+    except _UncachedRepr as uncached:
+        rep = uncached.html
+    except ee.EEException as exc:
+        return _error_repr(obj=obj, exc=exc)
+    return _limit_repr_size(rep=rep, obj=obj)
+
+
+@cache
+def _cached_repr(obj: EEObject) -> str:
+    """Inner HTML generation for EE objects."""
+    # Escape all strings in object info to prevent injection
+    info = escape_object(obj.getInfo())
+    body = convert_to_html(info)
+    rep = f"<div><style>{CSS}</style><div class='eerepr'><ul>{body}</ul></div></div>"
+
+    # Raise to force a cache miss for non-deterministic objects
+    if _is_nondeterministic(obj):
+        raise _UncachedRepr(html=rep)
+    return rep
 
 
 def _is_nondeterministic(obj: EEObject) -> bool:
@@ -56,36 +72,20 @@ def _is_nondeterministic(obj: EEObject) -> bool:
     )
 
 
-@cache
-def _repr_html_(obj: EEObject) -> str:
-    """Generate an HTML representation of an EE object."""
-    # Escape all strings in object info to prevent injection
-    info = escape_object(obj.getInfo())
-    body = convert_to_html(info)
-    rep = f"<div><style>{CSS}</style><div class='eerepr'><ul>{body}</ul></div></div>"
+def _error_repr(obj: EEObject, exc: ee.EEException) -> str:
+    """Generate an HTML representation for an EE object that encountered an error."""
+    if options.on_error == "raise":
+        raise exc from None
 
-    # Raise to force a cache miss for non-deterministic objects
-    if _is_nondeterministic(obj):
-        raise _UncachedRepr(html=rep)
-    return rep
+    warn(
+        f"Getting info failed with: '{exc}'. Falling back to string repr.",
+        stacklevel=2,
+    )
+    return f"<pre>{html.escape(repr(obj))}</pre>"
 
 
-def _ee_repr(obj: EEObject) -> str:
-    """Handle errors and conditional caching for _repr_html_."""
-    try:
-        rep = _repr_html_(obj)
-    except _UncachedRepr as e:
-        rep = e.html
-    except ee.EEException as e:
-        if options.on_error == "raise":
-            raise e from None
-
-        warn(
-            f"Getting info failed with: '{e}'. Falling back to string repr.",
-            stacklevel=2,
-        )
-        return f"<pre>{html.escape(repr(obj))}</pre>"
-
+def _limit_repr_size(rep: str, obj: EEObject) -> str:
+    """Limit the size of the HTML representation, falling back to the string repr."""
     mbs = len(rep) / 1e6
     if mbs > options.max_repr_mbs:
         warn(
@@ -124,21 +124,21 @@ def initialize(
         Whether to raise an error or display a warning when an error occurs fetching
         Earth Engine data.
     """
-    global _repr_html_
+    global _cached_repr
     options.update(
         max_cache_size=max_cache_size,
         max_repr_mbs=max_repr_mbs,
         on_error=on_error,
     )
 
-    if isinstance(_repr_html_, _lru_cache_wrapper):
-        _repr_html_ = _repr_html_.__wrapped__  # type: ignore
+    if isinstance(_cached_repr, _lru_cache_wrapper):
+        _cached_repr = _cached_repr.__wrapped__  # type: ignore
 
     if max_cache_size != 0:
-        _repr_html_ = lru_cache(maxsize=options.max_cache_size)(_repr_html_)
+        _cached_repr = lru_cache(maxsize=options.max_cache_size)(_cached_repr)
 
     for cls in [ee.Element, ee.ComputedObject]:
-        _attach_html_repr(cls, _ee_repr)
+        _attach_html_repr(cls, _repr_html_)
 
 
 def reset():
@@ -149,5 +149,14 @@ def reset():
 
     reprs_set.clear()
     _escape_str.cache_clear()
-    if isinstance(_repr_html_, _lru_cache_wrapper):
-        _repr_html_.cache_clear()
+    if isinstance(_cached_repr, _lru_cache_wrapper):
+        _cached_repr.cache_clear()
+
+
+def _attach_html_repr(cls: type, repr: Any) -> None:
+    """Add a HTML repr method to an EE class. Only overwrite the method if it was set by
+    this function.
+    """
+    if not hasattr(cls, REPR_HTML) or cls in reprs_set:
+        reprs_set.update([cls])
+        setattr(cls, REPR_HTML, repr)

@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from eerepr.repr import _repr_html_
+from eerepr.repr import _cached_repr
 
 
 class MockObject:
@@ -38,11 +38,11 @@ def feature_collection():
 
 @pytest.mark.benchmark
 def test_image_collection_repr_benchmark(image_collection, benchmark):
-    html = benchmark(_repr_html_.__wrapped__, image_collection)
+    html = benchmark(_cached_repr.__wrapped__, image_collection)
     assert len(html) > 1e6
 
 
 @pytest.mark.benchmark
 def test_feature_collection_repr_benchmark(feature_collection, benchmark):
-    html = benchmark(_repr_html_.__wrapped__, feature_collection)
+    html = benchmark(_cached_repr.__wrapped__, feature_collection)
     assert len(html) > 1e6

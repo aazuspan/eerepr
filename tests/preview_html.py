@@ -3,7 +3,7 @@ import webbrowser
 
 import ee
 
-from eerepr.repr import _repr_html_
+from eerepr.repr import _cached_repr
 
 
 def preview_html_output():
@@ -11,7 +11,7 @@ def preview_html_output():
 
     objects = get_test_objects().items()
 
-    rendered = _repr_html_(ee.List([obj[1] for obj in objects]))
+    rendered = _cached_repr(ee.List([obj[1] for obj in objects]))
 
     with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False) as f:
         f.write(rendered)

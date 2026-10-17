@@ -12,7 +12,7 @@ def test_caching(obj):
     Test that various EE objects are correctly retrieved from the cache
     """
     eerepr.initialize()
-    cache = eerepr.repr._repr_html_
+    cache = eerepr.repr._cached_repr
 
     obj[1]._repr_html_()
     assert cache.cache_info().hits == 0
@@ -25,7 +25,7 @@ def test_nondeterministic_uncached():
     ee.List.shuffle(seed=False) is nondeterministic. Make sure it isn't cached.
     """
     eerepr.initialize()
-    cache = eerepr.repr._repr_html_
+    cache = eerepr.repr._cached_repr
 
     x = ee.List([0, 1, 2]).shuffle(seed=False)
     x._repr_html_()
@@ -35,7 +35,7 @@ def test_nondeterministic_uncached():
 def test_reset_cache():
     """Test that the cache is correctly reset."""
     eerepr.initialize()
-    cache = eerepr.repr._repr_html_
+    cache = eerepr.repr._cached_repr
     ee.Number(42)._repr_html_()
     assert cache.cache_info().currsize == 1
     eerepr.reset()

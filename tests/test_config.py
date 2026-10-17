@@ -14,9 +14,9 @@ def test_cache_params(max_cache_size):
     eerepr.initialize(max_cache_size=max_cache_size)
 
     if max_cache_size == 0:
-        assert not isinstance(eerepr.repr._repr_html_, _lru_cache_wrapper)
+        assert not isinstance(eerepr.repr._cached_repr, _lru_cache_wrapper)
     else:
-        assert eerepr.repr._repr_html_.cache_info().maxsize == max_cache_size
+        assert eerepr.repr._cached_repr.cache_info().maxsize == max_cache_size
 
 
 def test_max_repr_mbs():
