@@ -80,9 +80,8 @@ def _write_object(
 def _write_collection(obj: list | dict, acc: list[str], key: str | None = None) -> None:
     # Create a collapsible <detail> block with a <summary> for the collection
     acc.append("<details><summary>")
-    if key is not None:
-        acc.append(f"{key}: ")
-    acc.append(_summarize_collection(obj))
+    summary = _summarize_collection(obj)
+    _write_item(summary, key=key, acc=acc)
     acc.append("</summary><ul>")
 
     # Build a list of key, value pairs for the collection's children

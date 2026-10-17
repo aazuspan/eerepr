@@ -1,5 +1,6 @@
-'<li><details><summary>[[1, 2], [3, 4]]</summary><ul><li><details><summary>0: [1,
-  2]</summary><ul><li><span class=''ee-k''>0:</span><span class=''ee-v''>1</span></li><li><span
-  class=''ee-k''>1:</span><span class=''ee-v''>2</span></li></ul></details></li><li><details><summary>1:
-  [3, 4]</summary><ul><li><span class=''ee-k''>0:</span><span class=''ee-v''>3</span></li><li><span
-  class=''ee-k''>1:</span><span class=''ee-v''>4</span></li></ul></details></li></ul></details></li>'
+<li><details><summary><span class='ee-v'>[[1, 2], [3, 4]]</span></summary><ul><li><details><summary><span
+  class='ee-k'>0:</span><span class='ee-v'>[1, 2]</span></summary><ul><li><span class='ee-k'>0:</span><span
+  class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li><li><details><summary><span
+  class='ee-k'>1:</span><span class='ee-v'>[3, 4]</span></summary><ul><li><span class='ee-k'>0:</span><span
+  class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>4</span></li></ul></details></li></ul></details></li>
+...

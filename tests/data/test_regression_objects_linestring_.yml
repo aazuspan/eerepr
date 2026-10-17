@@ -1,9 +1,10 @@
-'<li><details><summary>LineString (3 vertices)</summary><ul><li><span class=''ee-k''>type:</span><span
-  class=''ee-v''>LineString</span></li><li><details><summary>coordinates: [[1, 1],
-  [2, 2], [3, 3]]</summary><ul><li><details><summary>0: [1, 1]</summary><ul><li><span
-  class=''ee-k''>0:</span><span class=''ee-v''>1</span></li><li><span class=''ee-k''>1:</span><span
-  class=''ee-v''>1</span></li></ul></details></li><li><details><summary>1: [2, 2]</summary><ul><li><span
-  class=''ee-k''>0:</span><span class=''ee-v''>2</span></li><li><span class=''ee-k''>1:</span><span
-  class=''ee-v''>2</span></li></ul></details></li><li><details><summary>2: [3, 3]</summary><ul><li><span
-  class=''ee-k''>0:</span><span class=''ee-v''>3</span></li><li><span class=''ee-k''>1:</span><span
-  class=''ee-v''>3</span></li></ul></details></li></ul></details></li></ul></details></li>'
+<li><details><summary><span class='ee-v'>LineString (3 vertices)</span></summary><ul><li><span
+  class='ee-k'>type:</span><span class='ee-v'>LineString</span></li><li><details><summary><span
+  class='ee-k'>coordinates:</span><span class='ee-v'>[[1, 1], [2, 2], [3, 3]]</span></summary><ul><li><details><summary><span
+  class='ee-k'>0:</span><span class='ee-v'>[1, 1]</span></summary><ul><li><span class='ee-k'>0:</span><span
+  class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></details></li><li><details><summary><span
+  class='ee-k'>1:</span><span class='ee-v'>[2, 2]</span></summary><ul><li><span class='ee-k'>0:</span><span
+  class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li><li><details><summary><span
+  class='ee-k'>2:</span><span class='ee-v'>[3, 3]</span></summary><ul><li><span class='ee-k'>0:</span><span
+  class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>3</span></li></ul></details></li></ul></details></li></ul></details></li>
+...

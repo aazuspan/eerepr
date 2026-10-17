@@ -1,3 +1,5 @@
-'<li><details><summary>Feature (0 properties)</summary><ul><li><span class=''ee-k''>type:</span><span
-  class=''ee-v''>Feature</span></li><li><span class=''ee-k''>geometry:</span><span
-  class=''ee-v''>None</span></li><li><details><summary>properties: Object (0 properties)</summary><ul></ul></details></li></ul></details></li>'
+<li><details><summary><span class='ee-v'>Feature (0 properties)</span></summary><ul><li><span
+  class='ee-k'>type:</span><span class='ee-v'>Feature</span></li><li><span class='ee-k'>geometry:</span><span
+  class='ee-v'>None</span></li><li><details><summary><span class='ee-k'>properties:</span><span
+  class='ee-v'>Object (0 properties)</span></summary><ul></ul></details></li></ul></details></li>
+...

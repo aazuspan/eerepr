@@ -1,4 +1,6 @@
-'<li><details><summary>Point (1.11, 2.00)</summary><ul><li><span class=''ee-k''>type:</span><span
-  class=''ee-v''>Point</span></li><li><details><summary>coordinates: [1.112312, 2]</summary><ul><li><span
-  class=''ee-k''>0:</span><span class=''ee-v''>1.112312</span></li><li><span class=''ee-k''>1:</span><span
-  class=''ee-v''>2</span></li></ul></details></li></ul></details></li>'
+<li><details><summary><span class='ee-v'>Point (1.11, 2.00)</span></summary><ul><li><span
+  class='ee-k'>type:</span><span class='ee-v'>Point</span></li><li><details><summary><span
+  class='ee-k'>coordinates:</span><span class='ee-v'>[1.112312, 2]</span></summary><ul><li><span
+  class='ee-k'>0:</span><span class='ee-v'>1.112312</span></li><li><span class='ee-k'>1:</span><span
+  class='ee-v'>2</span></li></ul></details></li></ul></details></li>
+...

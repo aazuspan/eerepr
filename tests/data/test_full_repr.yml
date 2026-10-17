@@ -20,213 +20,270 @@
   \  margin-right: 6px;\n  transition: transform 0.2s;\n  transform: rotate(-90deg);\n\
   }\n\n.eerepr details[open] > summary::before {\n  transform: rotate(0deg);\n}\n\n\
   .eerepr details summary::-webkit-details-marker {\n  display:none;\n}\n\n.eerepr\
-  \ details summary {\n  list-style-type: none;\n}\n</style><div class='eerepr'><ul><li><details><summary>List\
-  \ (40 elements)</summary><ul><li><details><summary>0: Image foo (1 band)</summary><ul><li><span\
+  \ details summary {\n  list-style-type: none;\n}\n</style><div class='eerepr'><ul><li><details><summary><span\
+  \ class='ee-v'>List (40 elements)</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>Image foo (1 band)</span></summary><ul><li><span\
   \ class='ee-k'>type:</span><span class='ee-v'>Image</span></li><li><span class='ee-k'>id:</span><span\
-  \ class='ee-v'>foo</span></li><li><details><summary>bands: List (1 element)</summary><ul><li><details><summary>0:\
-  \ \"constant\", int ∈ [0, 0], EPSG:4326</summary><ul><li><span class='ee-k'>id:</span><span\
-  \ class='ee-v'>constant</span></li><li><span class='ee-k'>crs:</span><span class='ee-v'>EPSG:4326</span></li><li><details><summary>crs_transform:\
-  \ [1, 0, 0, 0, 1, 0]</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>2:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>3:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>4:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>5:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li><li><details><summary>data_type:\
-  \ int ∈ [0, 0]</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>max:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>min:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>1:\
-  \ ImageCollection (0 elements)</summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>ImageCollection</span></li><li><details><summary>bands: []</summary><ul></ul></details></li><li><details><summary>properties:\
-  \ Object (1 property)</summary><ul><li><span class='ee-k'>test_prop:</span><span\
-  \ class='ee-v'>42</span></li></ul></details></li></ul></details></li><li><details><summary>2:\
-  \ Feature (Point, 1 property)</summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>Feature</span></li><li><details><summary>geometry: Point (0.00, 0.00)</summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Point</span></li><li><details><summary>coordinates:\
-  \ [0, 0]</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary>properties:\
-  \ Object (1 property)</summary><ul><li><span class='ee-k'>foo:</span><span class='ee-v'>bar</span></li></ul></details></li></ul></details></li><li><details><summary>3:\
-  \ Feature (0 properties)</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>Feature</span></li><li><span\
-  \ class='ee-k'>geometry:</span><span class='ee-v'>None</span></li><li><details><summary>properties:\
-  \ Object (0 properties)</summary><ul></ul></details></li></ul></details></li><li><details><summary>4:\
-  \ FeatureCollection (0 elements, 2 columns)</summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>FeatureCollection</span></li><li><details><summary>columns: Object\
-  \ (2 properties)</summary><ul><li><span class='ee-k'>foo:</span><span class='ee-v'>String</span></li><li><span\
-  \ class='ee-k'>system:index:</span><span class='ee-v'>String</span></li></ul></details></li></ul></details></li><li><details><summary>5:\
-  \ Date (2021-03-27 14:01:07)</summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>Date</span></li><li><span class='ee-k'>value:</span><span class='ee-v'>1616853667000</span></li></ul></details></li><li><details><summary>6:\
-  \ Filter.eq</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>Filter.eq</span></li><li><span\
-  \ class='ee-k'>leftField:</span><span class='ee-v'>foo</span></li><li><span class='ee-k'>rightValue:</span><span\
-  \ class='ee-v'>bar</span></li></ul></details></li><li><details><summary>7: Object\
-  \ (1 property)</summary><ul><li><span class='ee-k'>foo:</span><span class='ee-v'>bar</span></li></ul></details></li><li><details><summary>8:\
-  \ [1, 2, 3, 4]</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>2</span></li><li><span class='ee-k'>2:</span><span\
-  \ class='ee-v'>3</span></li><li><span class='ee-k'>3:</span><span class='ee-v'>4</span></li></ul></details></li><li><details><summary>9:\
-  \ List (21 elements)</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>2:</span><span\
-  \ class='ee-v'>2</span></li><li><span class='ee-k'>3:</span><span class='ee-v'>3</span></li><li><span\
-  \ class='ee-k'>4:</span><span class='ee-v'>4</span></li><li><span class='ee-k'>5:</span><span\
-  \ class='ee-v'>5</span></li><li><span class='ee-k'>6:</span><span class='ee-v'>6</span></li><li><span\
-  \ class='ee-k'>7:</span><span class='ee-v'>7</span></li><li><span class='ee-k'>8:</span><span\
-  \ class='ee-v'>8</span></li><li><span class='ee-k'>9:</span><span class='ee-v'>9</span></li><li><span\
-  \ class='ee-k'>10:</span><span class='ee-v'>10</span></li><li><span class='ee-k'>11:</span><span\
-  \ class='ee-v'>11</span></li><li><span class='ee-k'>12:</span><span class='ee-v'>12</span></li><li><span\
-  \ class='ee-k'>13:</span><span class='ee-v'>13</span></li><li><span class='ee-k'>14:</span><span\
-  \ class='ee-v'>14</span></li><li><span class='ee-k'>15:</span><span class='ee-v'>15</span></li><li><span\
-  \ class='ee-k'>16:</span><span class='ee-v'>16</span></li><li><span class='ee-k'>17:</span><span\
-  \ class='ee-v'>17</span></li><li><span class='ee-k'>18:</span><span class='ee-v'>18</span></li><li><span\
-  \ class='ee-k'>19:</span><span class='ee-v'>19</span></li><li><span class='ee-k'>20:</span><span\
-  \ class='ee-v'>20</span></li></ul></details></li><li><span class='ee-k'>10:</span><span\
-  \ class='ee-v'>13th Warrior is an underrated movie</span></li><li><span class='ee-k'>11:</span><span\
-  \ class='ee-v'>42</span></li><li><details><summary>12: Point (1.11, 2.00)</summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Point</span></li><li><details><summary>coordinates:\
-  \ [1.112312, 2]</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>1.112312</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li></ul></details></li><li><details><summary>13:\
-  \ MultiPoint (2 vertices)</summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>MultiPoint</span></li><li><details><summary>coordinates: [[1, 1],\
-  \ [2, 2]]</summary><ul><li><details><summary>0: [1, 1]</summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></details></li><li><details><summary>1:\
-  \ [2, 2]</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>2</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>14:\
-  \ LineString (3 vertices)</summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>LineString</span></li><li><details><summary>coordinates: [[1, 1],\
-  \ [2, 2], [3, 3]]</summary><ul><li><details><summary>0: [1, 1]</summary><ul><li><span\
+  \ class='ee-v'>foo</span></li><li><details><summary><span class='ee-k'>bands:</span><span\
+  \ class='ee-v'>List (1 element)</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>\"constant\", int ∈ [0, 0], EPSG:4326</span></summary><ul><li><span\
+  \ class='ee-k'>id:</span><span class='ee-v'>constant</span></li><li><span class='ee-k'>crs:</span><span\
+  \ class='ee-v'>EPSG:4326</span></li><li><details><summary><span class='ee-k'>crs_transform:</span><span\
+  \ class='ee-v'>[1, 0, 0, 0, 1, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li><li><span\
+  \ class='ee-k'>2:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>3:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>4:</span><span class='ee-v'>1</span></li><li><span\
+  \ class='ee-k'>5:</span><span class='ee-v'>0</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>data_type:</span><span class='ee-v'>int ∈ [0, 0]</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span\
+  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>1:</span><span class='ee-v'>ImageCollection (0 elements)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>ImageCollection</span></li><li><details><summary><span\
+  \ class='ee-k'>bands:</span><span class='ee-v'>[]</span></summary><ul></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>properties:</span><span class='ee-v'>Object (1 property)</span></summary><ul><li><span\
+  \ class='ee-k'>test_prop:</span><span class='ee-v'>42</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>2:</span><span class='ee-v'>Feature (Point, 1 property)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Feature</span></li><li><details><summary><span\
+  \ class='ee-k'>geometry:</span><span class='ee-v'>Point (0.00, 0.00)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Point</span></li><li><details><summary><span\
+  \ class='ee-k'>coordinates:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>properties:</span><span class='ee-v'>Object (1 property)</span></summary><ul><li><span\
+  \ class='ee-k'>foo:</span><span class='ee-v'>bar</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>3:</span><span class='ee-v'>Feature (0 properties)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Feature</span></li><li><span class='ee-k'>geometry:</span><span\
+  \ class='ee-v'>None</span></li><li><details><summary><span class='ee-k'>properties:</span><span\
+  \ class='ee-v'>Object (0 properties)</span></summary><ul></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>4:</span><span class='ee-v'>FeatureCollection (0 elements, 2 columns)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>FeatureCollection</span></li><li><details><summary><span\
+  \ class='ee-k'>columns:</span><span class='ee-v'>Object (2 properties)</span></summary><ul><li><span\
+  \ class='ee-k'>foo:</span><span class='ee-v'>String</span></li><li><span class='ee-k'>system:index:</span><span\
+  \ class='ee-v'>String</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>5:</span><span class='ee-v'>Date (2021-03-27 14:01:07)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Date</span></li><li><span class='ee-k'>value:</span><span\
+  \ class='ee-v'>1616853667000</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>6:</span><span class='ee-v'>Filter.eq</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Filter.eq</span></li><li><span class='ee-k'>leftField:</span><span\
+  \ class='ee-v'>foo</span></li><li><span class='ee-k'>rightValue:</span><span class='ee-v'>bar</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>7:</span><span class='ee-v'>Object (1 property)</span></summary><ul><li><span\
+  \ class='ee-k'>foo:</span><span class='ee-v'>bar</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>8:</span><span class='ee-v'>[1, 2, 3, 4]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>1</span></li></ul></details></li><li><details><summary>1: [2, 2]</summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary>2: [3, 3]</summary><ul><li><span\
+  \ class='ee-v'>2</span></li><li><span class='ee-k'>2:</span><span class='ee-v'>3</span></li><li><span\
+  \ class='ee-k'>3:</span><span class='ee-v'>4</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>9:</span><span class='ee-v'>List (21 elements)</span></summary><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>1</span></li><li><span class='ee-k'>2:</span><span class='ee-v'>2</span></li><li><span\
+  \ class='ee-k'>3:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>4:</span><span\
+  \ class='ee-v'>4</span></li><li><span class='ee-k'>5:</span><span class='ee-v'>5</span></li><li><span\
+  \ class='ee-k'>6:</span><span class='ee-v'>6</span></li><li><span class='ee-k'>7:</span><span\
+  \ class='ee-v'>7</span></li><li><span class='ee-k'>8:</span><span class='ee-v'>8</span></li><li><span\
+  \ class='ee-k'>9:</span><span class='ee-v'>9</span></li><li><span class='ee-k'>10:</span><span\
+  \ class='ee-v'>10</span></li><li><span class='ee-k'>11:</span><span class='ee-v'>11</span></li><li><span\
+  \ class='ee-k'>12:</span><span class='ee-v'>12</span></li><li><span class='ee-k'>13:</span><span\
+  \ class='ee-v'>13</span></li><li><span class='ee-k'>14:</span><span class='ee-v'>14</span></li><li><span\
+  \ class='ee-k'>15:</span><span class='ee-v'>15</span></li><li><span class='ee-k'>16:</span><span\
+  \ class='ee-v'>16</span></li><li><span class='ee-k'>17:</span><span class='ee-v'>17</span></li><li><span\
+  \ class='ee-k'>18:</span><span class='ee-v'>18</span></li><li><span class='ee-k'>19:</span><span\
+  \ class='ee-v'>19</span></li><li><span class='ee-k'>20:</span><span class='ee-v'>20</span></li></ul></details></li><li><span\
+  \ class='ee-k'>10:</span><span class='ee-v'>13th Warrior is an underrated movie</span></li><li><span\
+  \ class='ee-k'>11:</span><span class='ee-v'>42</span></li><li><details><summary><span\
+  \ class='ee-k'>12:</span><span class='ee-v'>Point (1.11, 2.00)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Point</span></li><li><details><summary><span\
+  \ class='ee-k'>coordinates:</span><span class='ee-v'>[1.112312, 2]</span></summary><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>1.112312</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>2</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>13:</span><span class='ee-v'>MultiPoint (2 vertices)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>MultiPoint</span></li><li><details><summary><span\
+  \ class='ee-k'>coordinates:</span><span class='ee-v'>[[1, 1], [2, 2]]</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>[1, 1]</span></summary><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>1</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>[2, 2]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>14:</span><span class='ee-v'>LineString (3 vertices)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>LineString</span></li><li><details><summary><span\
+  \ class='ee-k'>coordinates:</span><span class='ee-v'>[[1, 1], [2, 2], [3, 3]]</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>[1, 1]</span></summary><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>1</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>[2, 2]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>2:</span><span class='ee-v'>[3, 3]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>3</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>15:\
-  \ MultiLineString</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>MultiLineString</span></li><li><details><summary>coordinates:\
-  \ [[[0, 0], [1, 1]]]</summary><ul><li><details><summary>0: [[0, 0], [1, 1]]</summary><ul><li><details><summary>0:\
-  \ [0, 0]</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></details></li><li><details><summary>1:\
-  \ [1, 1]</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>16:\
-  \ Polygon (4 vertices)</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>Polygon</span></li><li><details><summary>coordinates:\
-  \ [[[0, 0], [1, 1], [2, 2], [0, 0]]]</summary><ul><li><details><summary>0: [[0,\
-  \ 0], [1, 1], [2, 2], [0, 0]]</summary><ul><li><details><summary>0: [0, 0]</summary><ul><li><span\
+  \ class='ee-v'>3</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>15:</span><span class='ee-v'>MultiLineString</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>MultiLineString</span></li><li><details><summary><span\
+  \ class='ee-k'>coordinates:</span><span class='ee-v'>[[[0, 0], [1, 1]]]</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>[[0, 0], [1, 1]]</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li><li><details><summary>1: [1, 1]</summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>1</span></li></ul></details></li><li><details><summary>2: [2, 2]</summary><ul><li><span\
+  \ class='ee-v'>0</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>[1, 1]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>16:</span><span class='ee-v'>Polygon (4 vertices)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Polygon</span></li><li><details><summary><span\
+  \ class='ee-k'>coordinates:</span><span class='ee-v'>[[[0, 0], [1, 1], [2, 2], [0,\
+  \ 0]]]</span></summary><ul><li><details><summary><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>[[0, 0], [1, 1], [2, 2], [0, 0]]</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>0</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>[1, 1]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>2:</span><span class='ee-v'>[2, 2]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary>3: [0, 0]</summary><ul><li><span\
+  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>3:</span><span\
+  \ class='ee-v'>[0, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>17:</span><span class='ee-v'>MultiPolygon (8 vertices)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>MultiPolygon</span></li><li><details><summary><span\
+  \ class='ee-k'>coordinates:</span><span class='ee-v'>List (1 element)</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>List (2 elements)</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>[[0, 0], [1, 1], [2, 2], [0, 0]]</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>17:\
-  \ MultiPolygon (8 vertices)</summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>MultiPolygon</span></li><li><details><summary>coordinates: List (1\
-  \ element)</summary><ul><li><details><summary>0: List (2 elements)</summary><ul><li><details><summary>0:\
-  \ [[0, 0], [1, 1], [2, 2], [0, 0]]</summary><ul><li><details><summary>0: [0, 0]</summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li><li><details><summary>1: [1, 1]</summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>1</span></li></ul></details></li><li><details><summary>2: [2, 2]</summary><ul><li><span\
+  \ class='ee-v'>0</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>[1, 1]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>2:</span><span class='ee-v'>[2, 2]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary>3: [0, 0]</summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary>1:\
-  \ [[4, 6], [3, 2], [1, 2], [4, 6]]</summary><ul><li><details><summary>0: [4, 6]</summary><ul><li><span\
+  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>3:</span><span\
+  \ class='ee-v'>[0, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>1:</span><span class='ee-v'>[[4, 6], [3, 2], [1, 2], [4, 6]]</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>[4, 6]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>4</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>6</span></li></ul></details></li><li><details><summary>1: [3, 2]</summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary>2: [1, 2]</summary><ul><li><span\
+  \ class='ee-v'>6</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>[3, 2]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>2:</span><span class='ee-v'>[1, 2]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary>3: [4, 6]</summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>4</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>6</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>18:\
-  \ LinearRing (4 vertices)</summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>LinearRing</span></li><li><details><summary>coordinates: [[0, 0],\
-  \ [1, 1], [2, 2], [0, 0]]</summary><ul><li><details><summary>0: [0, 0]</summary><ul><li><span\
+  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>3:</span><span\
+  \ class='ee-v'>[4, 6]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>4</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>6</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>18:</span><span class='ee-v'>LinearRing (4 vertices)</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>LinearRing</span></li><li><details><summary><span\
+  \ class='ee-k'>coordinates:</span><span class='ee-v'>[[0, 0], [1, 1], [2, 2], [0,\
+  \ 0]]</span></summary><ul><li><details><summary><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>[0, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>1:</span><span class='ee-v'>[1, 1]</span></summary><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>1</span></li></ul></details></li><li><details><summary><span class='ee-k'>2:</span><span\
+  \ class='ee-v'>[2, 2]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>3:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li><li><details><summary>1: [1, 1]</summary><ul><li><span\
+  \ class='ee-v'>0</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>19:</span><span class='ee-v'>DateRange [2020-01-01 21:01:10, 2022-03-01\
+  \ 14:32:11]</span></summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>DateRange</span></li><li><details><summary><span\
+  \ class='ee-k'>dates:</span><span class='ee-v'>[1577912470000, 1646145131000]</span></summary><ul><li><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>1577912470000</span></li><li><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>1646145131000</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>20:</span><span class='ee-v'>Foo bar </span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Foo</span></li><li><span class='ee-k'>id:</span><span\
+  \ class='ee-v'>bar</span></li></ul></details></li><li><details><summary><span class='ee-k'>21:</span><span\
+  \ class='ee-v'>\"B1\", unsigned int16, EPSG:32610, 1830x1830 px</span></summary><ul><li><span\
+  \ class='ee-k'>id:</span><span class='ee-v'>B1</span></li><li><span class='ee-k'>crs:</span><span\
+  \ class='ee-v'>EPSG:32610</span></li><li><details><summary><span class='ee-k'>data_type:</span><span\
+  \ class='ee-v'>unsigned int16</span></summary><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>65535</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></details></li><li><details><summary><span class='ee-k'>dimensions:</span><span\
+  \ class='ee-v'>[1830, 1830]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>1830</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1830</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>22:</span><span class='ee-v'>\"B1\", unsigned int16</span></summary><ul><li><span\
+  \ class='ee-k'>id:</span><span class='ee-v'>B1</span></li><li><details><summary><span\
+  \ class='ee-k'>data_type:</span><span class='ee-v'>unsigned int16</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
+  \ class='ee-v'>65535</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span\
+  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>23:</span><span class='ee-v'>float</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>float</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>24:</span><span class='ee-v'>double</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>double</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>25:</span><span class='ee-v'>signed int8</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
+  \ class='ee-v'>127</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>-128</span></li><li><span\
+  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>26:</span><span class='ee-v'>unsigned int8</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
+  \ class='ee-v'>255</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span\
+  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>27:</span><span class='ee-v'>signed int16</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
+  \ class='ee-v'>32767</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>-32768</span></li><li><span\
+  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>28:</span><span class='ee-v'>unsigned int16</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
+  \ class='ee-v'>65535</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span\
+  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>29:</span><span class='ee-v'>signed int32</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
+  \ class='ee-v'>2147483647</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>-2147483648</span></li><li><span\
+  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>30:</span><span class='ee-v'>unsigned int32</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
+  \ class='ee-v'>4294967295</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span\
+  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>31:</span><span class='ee-v'>signed int64</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
+  \ class='ee-v'>9.223372036854776e+18</span></li><li><span class='ee-k'>min:</span><span\
+  \ class='ee-v'>-9.223372036854776e+18</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></details></li><li><details><summary><span class='ee-k'>32:</span><span\
+  \ class='ee-v'>int ∈ [10, 255]</span></summary><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>255</span></li><li><span\
+  \ class='ee-k'>min:</span><span class='ee-v'>10</span></li><li><span class='ee-k'>precision:</span><span\
+  \ class='ee-v'>int</span></li></ul></details></li><li><details><summary><span class='ee-k'>33:</span><span\
+  \ class='ee-v'>Clusterer.wekaKMeans</span></summary><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>Clusterer.wekaKMeans</span></li><li><span class='ee-k'>nClusters:</span><span\
+  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>34:</span><span\
+  \ class='ee-v'>Classifier.smileKNN</span></summary><ul><li><span class='ee-k'>type:</span><span\
+  \ class='ee-v'>Classifier.smileKNN</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>35:</span><span class='ee-v'>[[1, 2], [3, 4]]</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>[1, 2]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>1</span></li></ul></details></li><li><details><summary>2: [2, 2]</summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary>3: [0, 0]</summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>19:\
-  \ DateRange [2020-01-01 21:01:10, 2022-03-01 14:32:11]</summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>DateRange</span></li><li><details><summary>dates: [1577912470000,\
-  \ 1646145131000]</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>1577912470000</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>1646145131000</span></li></ul></details></li></ul></details></li><li><details><summary>20:\
-  \ Foo bar </summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>Foo</span></li><li><span\
-  \ class='ee-k'>id:</span><span class='ee-v'>bar</span></li></ul></details></li><li><details><summary>21:\
-  \ \"B1\", unsigned int16, EPSG:32610, 1830x1830 px</summary><ul><li><span class='ee-k'>id:</span><span\
-  \ class='ee-v'>B1</span></li><li><span class='ee-k'>crs:</span><span class='ee-v'>EPSG:32610</span></li><li><details><summary>data_type:\
-  \ unsigned int16</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>max:</span><span class='ee-v'>65535</span></li><li><span class='ee-k'>min:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary>dimensions:\
-  \ [1830, 1830]</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>1830</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>1830</span></li></ul></details></li></ul></details></li><li><details><summary>22:\
-  \ \"B1\", unsigned int16</summary><ul><li><span class='ee-k'>id:</span><span class='ee-v'>B1</span></li><li><details><summary>data_type:\
-  \ unsigned int16</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>max:</span><span class='ee-v'>65535</span></li><li><span class='ee-k'>min:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li></ul></details></li><li><details><summary>23:\
-  \ float</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>precision:</span><span class='ee-v'>float</span></li></ul></details></li><li><details><summary>24:\
-  \ double</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>precision:</span><span class='ee-v'>double</span></li></ul></details></li><li><details><summary>25:\
-  \ signed int8</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>max:</span><span class='ee-v'>127</span></li><li><span class='ee-k'>min:</span><span\
-  \ class='ee-v'>-128</span></li><li><span class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary>26:\
-  \ unsigned int8</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>max:</span><span class='ee-v'>255</span></li><li><span class='ee-k'>min:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary>27:\
-  \ signed int16</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>max:</span><span class='ee-v'>32767</span></li><li><span class='ee-k'>min:</span><span\
-  \ class='ee-v'>-32768</span></li><li><span class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary>28:\
-  \ unsigned int16</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>max:</span><span class='ee-v'>65535</span></li><li><span class='ee-k'>min:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary>29:\
-  \ signed int32</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>max:</span><span class='ee-v'>2147483647</span></li><li><span class='ee-k'>min:</span><span\
-  \ class='ee-v'>-2147483648</span></li><li><span class='ee-k'>precision:</span><span\
-  \ class='ee-v'>int</span></li></ul></details></li><li><details><summary>30: unsigned\
-  \ int32</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>max:</span><span class='ee-v'>4294967295</span></li><li><span class='ee-k'>min:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary>31:\
-  \ signed int64</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>max:</span><span class='ee-v'>9.223372036854776e+18</span></li><li><span\
-  \ class='ee-k'>min:</span><span class='ee-v'>-9.223372036854776e+18</span></li><li><span\
-  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary>32:\
-  \ int ∈ [10, 255]</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span\
-  \ class='ee-k'>max:</span><span class='ee-v'>255</span></li><li><span class='ee-k'>min:</span><span\
-  \ class='ee-v'>10</span></li><li><span class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary>33:\
-  \ Clusterer.wekaKMeans</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>Clusterer.wekaKMeans</span></li><li><span\
-  \ class='ee-k'>nClusters:</span><span class='ee-v'>2</span></li></ul></details></li><li><details><summary>34:\
-  \ Classifier.smileKNN</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>Classifier.smileKNN</span></li></ul></details></li><li><details><summary>35:\
-  \ [[1, 2], [3, 4]]</summary><ul><li><details><summary>0: [1, 2]</summary><ul><li><span\
+  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>[3, 4]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>4</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>36:</span><span class='ee-v'>[[1, 2], [3, 4]]</span></summary><ul><li><details><summary><span\
+  \ class='ee-k'>0:</span><span class='ee-v'>[1, 2]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary>1: [3, 4]</summary><ul><li><span\
+  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
+  \ class='ee-v'>[3, 4]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>4</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>37:</span><span class='ee-v'>Kernel.gaussian</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Kernel.gaussian</span></li><li><details><summary><span\
+  \ class='ee-k'>center:</span><span class='ee-v'>[3, 3]</span></summary><ul><li><span\
   \ class='ee-k'>0:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>4</span></li></ul></details></li></ul></details></li><li><details><summary>36:\
-  \ [[1, 2], [3, 4]]</summary><ul><li><details><summary>0: [1, 2]</summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary>1: [3, 4]</summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>4</span></li></ul></details></li></ul></details></li><li><details><summary>37:\
-  \ Kernel.gaussian</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>Kernel.gaussian</span></li><li><details><summary>center:\
-  \ [3, 3]</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>3</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>3</span></li></ul></details></li><li><span\
-  \ class='ee-k'>radius:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>weights:</span><span\
-  \ class='ee-v'>\n  [1.9651916124031917E-5, 2.3940934949727E-4, 0.001072958264978661,\
-  \ 0.0017690091140438226, 0.001072958264978661, 2.3940934949727E-4, 1.9651916124031917E-5]\n\
-  \  [2.3940934949727E-4, 0.0029166029543864387, 0.013071307583189414, 0.02155094284826827,\
-  \ 0.013071307583189414, 0.0029166029543864387, 2.3940934949727E-4]\n  [0.001072958264978661,\
-  \ 0.013071307583189414, 0.05858153633060706, 0.09658462501856419, 0.05858153633060706,\
-  \ 0.013071307583189414, 0.001072958264978661]\n  [0.0017690091140438226, 0.02155094284826827,\
-  \ 0.09658462501856419, 0.15924112569070253, 0.09658462501856419, 0.02155094284826827,\
-  \ 0.0017690091140438226]\n  [0.001072958264978661, 0.013071307583189414, 0.05858153633060706,\
-  \ 0.09658462501856419, 0.05858153633060706, 0.013071307583189414, 0.001072958264978661]\n\
-  \  [2.3940934949727E-4, 0.0029166029543864387, 0.013071307583189414, 0.02155094284826827,\
-  \ 0.013071307583189414, 0.0029166029543864387, 2.3940934949727E-4]\n  [1.9651916124031917E-5,\
-  \ 2.3940934949727E-4, 0.001072958264978661, 0.0017690091140438226, 0.001072958264978661,\
-  \ 2.3940934949727E-4, 1.9651916124031917E-5]</span></li></ul></details></li><li><details><summary>38:\
-  \ Projection</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>Projection</span></li><li><span\
-  \ class='ee-k'>crs:</span><span class='ee-v'>EPSG:5070</span></li><li><details><summary>transform:\
-  \ [100, 0, 0, 0, 100, 0]</summary><ul><li><span class='ee-k'>0:</span><span class='ee-v'>100</span></li><li><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>2:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>3:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>4:</span><span class='ee-v'>100</span></li><li><span class='ee-k'>5:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary>39:\
-  \ Reducer.max</summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>Reducer.max</span></li><li><span\
-  \ class='ee-k'>numInputs:</span><span class='ee-v'>5</span></li></ul></details></li></ul></details></li></ul></div></div>"
+  \ class='ee-v'>3</span></li></ul></details></li><li><span class='ee-k'>radius:</span><span\
+  \ class='ee-v'>3</span></li><li><span class='ee-k'>weights:</span><span class='ee-v'>\n\
+  \  [1.9651916124031917E-5, 2.3940934949727E-4, 0.001072958264978661, 0.0017690091140438226,\
+  \ 0.001072958264978661, 2.3940934949727E-4, 1.9651916124031917E-5]\n  [2.3940934949727E-4,\
+  \ 0.0029166029543864387, 0.013071307583189414, 0.02155094284826827, 0.013071307583189414,\
+  \ 0.0029166029543864387, 2.3940934949727E-4]\n  [0.001072958264978661, 0.013071307583189414,\
+  \ 0.05858153633060706, 0.09658462501856419, 0.05858153633060706, 0.013071307583189414,\
+  \ 0.001072958264978661]\n  [0.0017690091140438226, 0.02155094284826827, 0.09658462501856419,\
+  \ 0.15924112569070253, 0.09658462501856419, 0.02155094284826827, 0.0017690091140438226]\n\
+  \  [0.001072958264978661, 0.013071307583189414, 0.05858153633060706, 0.09658462501856419,\
+  \ 0.05858153633060706, 0.013071307583189414, 0.001072958264978661]\n  [2.3940934949727E-4,\
+  \ 0.0029166029543864387, 0.013071307583189414, 0.02155094284826827, 0.013071307583189414,\
+  \ 0.0029166029543864387, 2.3940934949727E-4]\n  [1.9651916124031917E-5, 2.3940934949727E-4,\
+  \ 0.001072958264978661, 0.0017690091140438226, 0.001072958264978661, 2.3940934949727E-4,\
+  \ 1.9651916124031917E-5]</span></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>38:</span><span class='ee-v'>Projection</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Projection</span></li><li><span class='ee-k'>crs:</span><span\
+  \ class='ee-v'>EPSG:5070</span></li><li><details><summary><span class='ee-k'>transform:</span><span\
+  \ class='ee-v'>[100, 0, 0, 0, 100, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span\
+  \ class='ee-v'>100</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li><li><span\
+  \ class='ee-k'>2:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>3:</span><span\
+  \ class='ee-v'>0</span></li><li><span class='ee-k'>4:</span><span class='ee-v'>100</span></li><li><span\
+  \ class='ee-k'>5:</span><span class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary><span\
+  \ class='ee-k'>39:</span><span class='ee-v'>Reducer.max</span></summary><ul><li><span\
+  \ class='ee-k'>type:</span><span class='ee-v'>Reducer.max</span></li><li><span class='ee-k'>numInputs:</span><span\
+  \ class='ee-v'>5</span></li></ul></details></li></ul></details></li></ul></div></div>"

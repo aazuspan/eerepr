@@ -1,4 +1,4 @@
-<li><details><summary>float</summary><ul><li><span class='ee-k'>type:</span><span
+<li><details><summary><span class='ee-v'>float</span></summary><ul><li><span class='ee-k'>type:</span><span
   class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span
   class='ee-v'>float</span></li></ul></details></li>
 ...

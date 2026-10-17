@@ -1,33 +1,41 @@
-'<li><details><summary>ImageCollection (2 elements)</summary><ul><li><span class=''ee-k''>type:</span><span
-  class=''ee-v''>ImageCollection</span></li><li><details><summary>bands: []</summary><ul></ul></details></li><li><details><summary>properties:
-  Object (1 property)</summary><ul><li><span class=''ee-k''>test_prop:</span><span
-  class=''ee-v''>42</span></li></ul></details></li><li><details><summary>features:
-  List (2 elements)</summary><ul><li><details><summary>0: Image (1 band)</summary><ul><li><span
-  class=''ee-k''>type:</span><span class=''ee-v''>Image</span></li><li><details><summary>bands:
-  List (1 element)</summary><ul><li><details><summary>0: "constant", int ∈ [0, 0],
-  EPSG:4326</summary><ul><li><span class=''ee-k''>id:</span><span class=''ee-v''>constant</span></li><li><span
-  class=''ee-k''>crs:</span><span class=''ee-v''>EPSG:4326</span></li><li><details><summary>crs_transform:
-  [1, 0, 0, 0, 1, 0]</summary><ul><li><span class=''ee-k''>0:</span><span class=''ee-v''>1</span></li><li><span
-  class=''ee-k''>1:</span><span class=''ee-v''>0</span></li><li><span class=''ee-k''>2:</span><span
-  class=''ee-v''>0</span></li><li><span class=''ee-k''>3:</span><span class=''ee-v''>0</span></li><li><span
-  class=''ee-k''>4:</span><span class=''ee-v''>1</span></li><li><span class=''ee-k''>5:</span><span
-  class=''ee-v''>0</span></li></ul></details></li><li><details><summary>data_type:
-  int ∈ [0, 0]</summary><ul><li><span class=''ee-k''>type:</span><span class=''ee-v''>PixelType</span></li><li><span
-  class=''ee-k''>max:</span><span class=''ee-v''>0</span></li><li><span class=''ee-k''>min:</span><span
-  class=''ee-v''>0</span></li><li><span class=''ee-k''>precision:</span><span class=''ee-v''>int</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>properties:
-  Object (1 property)</summary><ul><li><span class=''ee-k''>system:index:</span><span
-  class=''ee-v''>0</span></li></ul></details></li></ul></details></li><li><details><summary>1:
-  Image (1 band)</summary><ul><li><span class=''ee-k''>type:</span><span class=''ee-v''>Image</span></li><li><details><summary>bands:
-  List (1 element)</summary><ul><li><details><summary>0: "constant", int ∈ [1, 1],
-  EPSG:4326</summary><ul><li><span class=''ee-k''>id:</span><span class=''ee-v''>constant</span></li><li><span
-  class=''ee-k''>crs:</span><span class=''ee-v''>EPSG:4326</span></li><li><details><summary>crs_transform:
-  [1, 0, 0, 0, 1, 0]</summary><ul><li><span class=''ee-k''>0:</span><span class=''ee-v''>1</span></li><li><span
-  class=''ee-k''>1:</span><span class=''ee-v''>0</span></li><li><span class=''ee-k''>2:</span><span
-  class=''ee-v''>0</span></li><li><span class=''ee-k''>3:</span><span class=''ee-v''>0</span></li><li><span
-  class=''ee-k''>4:</span><span class=''ee-v''>1</span></li><li><span class=''ee-k''>5:</span><span
-  class=''ee-v''>0</span></li></ul></details></li><li><details><summary>data_type:
-  int ∈ [1, 1]</summary><ul><li><span class=''ee-k''>type:</span><span class=''ee-v''>PixelType</span></li><li><span
-  class=''ee-k''>max:</span><span class=''ee-v''>1</span></li><li><span class=''ee-k''>min:</span><span
-  class=''ee-v''>1</span></li><li><span class=''ee-k''>precision:</span><span class=''ee-v''>int</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary>properties:
-  Object (1 property)</summary><ul><li><span class=''ee-k''>system:index:</span><span
-  class=''ee-v''>1</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li>'
+<li><details><summary><span class='ee-v'>ImageCollection (2 elements)</span></summary><ul><li><span
+  class='ee-k'>type:</span><span class='ee-v'>ImageCollection</span></li><li><details><summary><span
+  class='ee-k'>bands:</span><span class='ee-v'>[]</span></summary><ul></ul></details></li><li><details><summary><span
+  class='ee-k'>properties:</span><span class='ee-v'>Object (1 property)</span></summary><ul><li><span
+  class='ee-k'>test_prop:</span><span class='ee-v'>42</span></li></ul></details></li><li><details><summary><span
+  class='ee-k'>features:</span><span class='ee-v'>List (2 elements)</span></summary><ul><li><details><summary><span
+  class='ee-k'>0:</span><span class='ee-v'>Image (1 band)</span></summary><ul><li><span
+  class='ee-k'>type:</span><span class='ee-v'>Image</span></li><li><details><summary><span
+  class='ee-k'>bands:</span><span class='ee-v'>List (1 element)</span></summary><ul><li><details><summary><span
+  class='ee-k'>0:</span><span class='ee-v'>"constant", int ∈ [0, 0], EPSG:4326</span></summary><ul><li><span
+  class='ee-k'>id:</span><span class='ee-v'>constant</span></li><li><span class='ee-k'>crs:</span><span
+  class='ee-v'>EPSG:4326</span></li><li><details><summary><span class='ee-k'>crs_transform:</span><span
+  class='ee-v'>[1, 0, 0, 0, 1, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span
+  class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li><li><span
+  class='ee-k'>2:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>3:</span><span
+  class='ee-v'>0</span></li><li><span class='ee-k'>4:</span><span class='ee-v'>1</span></li><li><span
+  class='ee-k'>5:</span><span class='ee-v'>0</span></li></ul></details></li><li><details><summary><span
+  class='ee-k'>data_type:</span><span class='ee-v'>int ∈ [0, 0]</span></summary><ul><li><span
+  class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span
+  class='ee-v'>0</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span
+  class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span
+  class='ee-k'>properties:</span><span class='ee-v'>Object (1 property)</span></summary><ul><li><span
+  class='ee-k'>system:index:</span><span class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary><span
+  class='ee-k'>1:</span><span class='ee-v'>Image (1 band)</span></summary><ul><li><span
+  class='ee-k'>type:</span><span class='ee-v'>Image</span></li><li><details><summary><span
+  class='ee-k'>bands:</span><span class='ee-v'>List (1 element)</span></summary><ul><li><details><summary><span
+  class='ee-k'>0:</span><span class='ee-v'>"constant", int ∈ [1, 1], EPSG:4326</span></summary><ul><li><span
+  class='ee-k'>id:</span><span class='ee-v'>constant</span></li><li><span class='ee-k'>crs:</span><span
+  class='ee-v'>EPSG:4326</span></li><li><details><summary><span class='ee-k'>crs_transform:</span><span
+  class='ee-v'>[1, 0, 0, 0, 1, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span
+  class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li><li><span
+  class='ee-k'>2:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>3:</span><span
+  class='ee-v'>0</span></li><li><span class='ee-k'>4:</span><span class='ee-v'>1</span></li><li><span
+  class='ee-k'>5:</span><span class='ee-v'>0</span></li></ul></details></li><li><details><summary><span
+  class='ee-k'>data_type:</span><span class='ee-v'>int ∈ [1, 1]</span></summary><ul><li><span
+  class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span
+  class='ee-v'>1</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>1</span></li><li><span
+  class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span
+  class='ee-k'>properties:</span><span class='ee-v'>Object (1 property)</span></summary><ul><li><span
+  class='ee-k'>system:index:</span><span class='ee-v'>1</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li>
+...
