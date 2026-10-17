@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import html
-from collections.abc import Hashable
 from datetime import datetime, timezone
 from functools import lru_cache
 from itertools import chain
@@ -54,66 +53,65 @@ def escape_object(obj: Any) -> Any:
     return obj
 
 
-def convert_to_html(obj: Any, key: Hashable | None = None) -> str:
-    """Converts a Python object (not list or dict) to an HTML <li> element.
+def convert_to_html(obj: str | int | float | bool | dict | list | None) -> str:
+    """Converts a Python object to an HTML <li> element.
 
     Parameters
     ----------
-    obj : Any
+    obj : str | int | float | bool | dict | list | None
         The object to convert to HTML.
-    key : str, optional
-        The key to prepend to the object value, in the case of a dictionary value or
-        list element.
     """
-    if isinstance(obj, list):
-        return list_to_html(obj, key)
-    if isinstance(obj, dict):
-        return dict_to_html(obj, key)
-
-    key_html = f"<span class='ee-k'>{key}:</span>" if key is not None else ""
-    return f"<li>{key_html}<span class='ee-v'>{obj}</span></li>"
+    acc: list[str] = []
+    _write_object(obj, acc, key=None)
+    return f"<li>{''.join(acc)}</li>"
 
 
-def list_to_html(obj: list, key: Hashable | None = None) -> str:
-    """Convert a Python list to an HTML <li> element."""
-    n = len(obj)
-    header = f"{key}: " if key is not None else ""
-
-    # Only stringify the list if it has few enough elements that it might not be
-    # truncated.
-    if n < MAX_LIST_LENGTH and len(contents := str(obj)) < MAX_INLINE_LENGTH:
-        header += contents
+def _write_object(
+    obj: str | int | float | bool | None | dict | list,
+    acc: list[str],
+    key: str | None = None,
+) -> None:
+    if isinstance(obj, (list, dict)):
+        _write_collection(obj, key=key, acc=acc)
     else:
-        header += f"List ({n} {'element' if n == 1 else 'elements'})"
-
-    children = [convert_to_html(item, key=i) for i, item in enumerate(obj)]
-    return _make_collapsible_li(header, children)
+        _write_item(str(obj), key=key, acc=acc)
 
 
-def dict_to_html(obj: dict, key: Hashable | None = None) -> str:
-    """Convert a Python dictionary to an HTML <li> element."""
-    label = _summarize_collection(obj)
-    header = (f"{key}: " if key is not None else "") + label
+def _write_collection(obj: list | dict, acc: list[str], key: str | None = None) -> None:
+    # Create a collapsible <detail> block with a <summary> for the collection
+    acc.append("<details><summary>")
+    if key is not None:
+        acc.append(f"{key}: ")
+    acc.append(_summarize_collection(obj))
+    acc.append("</summary><ul>")
 
-    # Sort properties by priority, then alphabetically
-    sorted_keys = [k for k in PROPERTY_PRIORITY if k in obj] + sorted(
-        [k for k in obj if k not in PROPERTY_PRIORITY]
-    )
+    # Build a list of key, value pairs for the collection's children
+    if isinstance(obj, list):
+        children = list(enumerate(obj))
+    else:
+        sorted_keys = [k for k in PROPERTY_PRIORITY if k in obj] + sorted(
+            [k for k in obj if k not in PROPERTY_PRIORITY]
+        )
+        children = [(k, obj[k]) for k in sorted_keys]
 
-    children = [convert_to_html(obj[key], key=key) for key in sorted_keys]
-    return _make_collapsible_li(header, children)
+    # Add an <li> entry for each child to the detail block
+    for child_key, child_element in children:
+        acc.append("<li>")
+        _write_object(child_element, acc=acc, key=str(child_key))
+        acc.append("</li>")
+
+    acc.append("</ul></details>")
 
 
-def _make_collapsible_li(header: str, children: list) -> str:
-    """Package a header and children into a collapsible list element."""
-    return (
-        "<li>"
-        "<details>"
-        f"<summary>{header}</summary>"
-        f"<ul>{''.join(children)}</ul>"
-        "</details>"
-        "</li>"
-    )
+def _write_item(value: str, key: str | None, acc: list[str]) -> None:
+    """
+    Write a single HTML entry.
+
+    If the item is a child of a collection, it will prepend the optional key.
+    """
+    if key is not None:
+        acc.append(f"<span class='ee-k'>{key}:</span>")
+    acc.append(f"<span class='ee-v'>{value}</span>")
 
 
 def _summarize_image(obj: dict) -> str:
@@ -236,11 +234,19 @@ def _summarize_typed(obj: dict) -> str:
     return f"{obj_type}{id_label}"
 
 
-def _summarize_collection(obj: dict) -> str:
+def _summarize_collection(obj: dict | list) -> str:
     """Generate a summary of a collection.
 
     These labels attempt to be consistent with outputs from the Code Editor.
     """
+    if isinstance(obj, list):
+        n = len(obj)
+        # Only stringify the list if it has few enough elements that it might not be
+        # truncated.
+        if n < MAX_LIST_LENGTH and len(contents := str(obj)) < MAX_INLINE_LENGTH:
+            return contents
+        return f"List ({n} {'element' if n == 1 else 'elements'})"
+
     obj_type = obj.get("type", "")
     if not obj_type:
         if "data_type" in obj and "id" in obj:
