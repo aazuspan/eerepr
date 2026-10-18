@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+
+- Summary elements for collections were missing CSS classes, causing inconsistent text color between node and leaf keys
+
+### Performance
+
+- Decreased output repr HTML size by ~40% by dropping optional elements and removing or replacing custom CSS classes
+- Decreased HTML generation time by ~20% by dropping optional elements, memoizing HTML escaping, and other micro-optimizations
+
 ## [0.1.3] - 2026-09-05
 
 ### Removed
