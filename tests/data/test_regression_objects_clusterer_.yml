@@ -1,4 +1,2 @@
-<li><details><summary><span class='ee-v'>Clusterer.wekaKMeans</span></summary><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>Clusterer.wekaKMeans</span></li><li><span
-  class='ee-k'>nClusters:</span><span class='ee-v'>2</span></li></ul></details></li>
+<li><details><summary>Clusterer.wekaKMeans</summary><ul><li><b>type:</b>Clusterer.wekaKMeans<li><b>nClusters:</b>2</ul></details>
 ...

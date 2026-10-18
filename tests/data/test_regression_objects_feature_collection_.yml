@@ -1,16 +1,7 @@
-<li><details><summary><span class='ee-v'>FeatureCollection (1 element, 2 columns)</span></summary><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>FeatureCollection</span></li><li><details><summary><span
-  class='ee-k'>columns:</span><span class='ee-v'>Object (2 properties)</span></summary><ul><li><span
-  class='ee-k'>foo:</span><span class='ee-v'>String</span></li><li><span class='ee-k'>system:index:</span><span
-  class='ee-v'>String</span></li></ul></details></li><li><details><summary><span class='ee-k'>features:</span><span
-  class='ee-v'>List (1 element)</span></summary><ul><li><details><summary><span class='ee-k'>0:</span><span
-  class='ee-v'>Feature (Point, 1 property)</span></summary><ul><li><span class='ee-k'>type:</span><span
-  class='ee-v'>Feature</span></li><li><span class='ee-k'>id:</span><span class='ee-v'>0</span></li><li><details><summary><span
-  class='ee-k'>geometry:</span><span class='ee-v'>Point (0.00, 0.00)</span></summary><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>Point</span></li><li><details><summary><span
-  class='ee-k'>coordinates:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span
-  class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span
-  class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary><span
-  class='ee-k'>properties:</span><span class='ee-v'>Object (1 property)</span></summary><ul><li><span
-  class='ee-k'>foo:</span><span class='ee-v'>bar</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li>
+<li><details><summary>FeatureCollection (1 element, 2 columns)</summary><ul><li><b>type:</b>FeatureCollection<li><details><summary><b>columns:</b>Object
+  (2 properties)</summary><ul><li><b>foo:</b>String<li><b>system:index:</b>String</ul></details><li><details><summary><b>features:</b>List
+  (1 element)</summary><ul><li><details><summary><b>0:</b>Feature (Point, 1 property)</summary><ul><li><b>type:</b>Feature<li><b>id:</b>0<li><details><summary><b>geometry:</b>Point
+  (0.00, 0.00)</summary><ul><li><b>type:</b>Point<li><details><summary><b>coordinates:</b>[0,
+  0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details></ul></details><li><details><summary><b>properties:</b>Object
+  (1 property)</summary><ul><li><b>foo:</b>bar</ul></details></ul></details></ul></details></ul></details>
 ...

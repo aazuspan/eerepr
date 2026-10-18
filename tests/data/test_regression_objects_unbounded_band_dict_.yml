@@ -1,7 +1,3 @@
-<li><details><summary><span class='ee-v'>&quot;B1&quot;, unsigned int16</span></summary><ul><li><span
-  class='ee-k'>id:</span><span class='ee-v'>B1</span></li><li><details><summary><span
-  class='ee-k'>data_type:</span><span class='ee-v'>unsigned int16</span></summary><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span
-  class='ee-v'>65535</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span
-  class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li></ul></details></li>
+<li><details><summary>"B1", unsigned int16</summary><ul><li><b>id:</b>B1<li><details><summary><b>data_type:</b>unsigned
+  int16</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>65535<li><b>min:</b>0<li><b>precision:</b>int</ul></details></ul></details>
 ...

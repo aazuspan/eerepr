@@ -40,7 +40,8 @@ _TYPE_RANGES = {
 
 @lru_cache(maxsize=8192)
 def _escape_str(s: str) -> str:
-    return html.escape(s)
+    # Quotes only need escaping inside attributes, and we only escape text content
+    return html.escape(s, quote=False)
 
 
 def build_html_repr(obj: str | int | float | bool | dict | list | None) -> str:
@@ -59,7 +60,7 @@ def convert_to_html(obj: str | int | float | bool | dict | list | None) -> str:
     """
     acc: list[str] = []
     _write_object(obj, acc, key=None)
-    return f"<li>{''.join(acc)}</li>"
+    return f"<li>{''.join(acc)}"
 
 
 def _write_object(
@@ -89,11 +90,11 @@ def _write_collection(obj: list | dict, acc: list[str], key: str | None = None) 
         )
         children = [(k, obj[k]) for k in sorted_keys]
 
-    # Add an <li> entry for each child to the detail block
+    # Add an <li> entry for each child to the detail block. Closing </li> tags are
+    # optional in HTML and omitted to reduce repr size.
     for child_key, child_element in children:
         acc.append("<li>")
         _write_object(child_element, acc=acc, key=str(child_key))
-        acc.append("</li>")
 
     acc.append("</ul></details>")
 
@@ -106,10 +107,8 @@ def _write_item(value: str, key: str | None, acc: list[str]) -> None:
     keys are escaped prior to writing.
     """
     if key is not None:
-        escaped_key = _escape_str(key)
-        acc.append(f"<span class='ee-k'>{escaped_key}:</span>")
-    escaped_value = _escape_str(value)
-    acc.append(f"<span class='ee-v'>{escaped_value}</span>")
+        acc.append(f"<b>{_escape_str(key)}:</b>")
+    acc.append(_escape_str(value))
 
 
 def _summarize_image(obj: dict) -> str:

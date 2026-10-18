@@ -1,10 +1,5 @@
-<li><details><summary><span class='ee-v'>Feature (Point, 1 property)</span></summary><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>Feature</span></li><li><details><summary><span
-  class='ee-k'>geometry:</span><span class='ee-v'>Point (0.00, 0.00)</span></summary><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>Point</span></li><li><details><summary><span
-  class='ee-k'>coordinates:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span
-  class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span
-  class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary><span
-  class='ee-k'>properties:</span><span class='ee-v'>Object (1 property)</span></summary><ul><li><span
-  class='ee-k'>foo:</span><span class='ee-v'>bar</span></li></ul></details></li></ul></details></li>
+<li><details><summary>Feature (Point, 1 property)</summary><ul><li><b>type:</b>Feature<li><details><summary><b>geometry:</b>Point
+  (0.00, 0.00)</summary><ul><li><b>type:</b>Point<li><details><summary><b>coordinates:</b>[0,
+  0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details></ul></details><li><details><summary><b>properties:</b>Object
+  (1 property)</summary><ul><li><b>foo:</b>bar</ul></details></ul></details>
 ...

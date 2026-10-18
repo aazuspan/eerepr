@@ -1,9 +1,3 @@
-<li><details><summary><span class='ee-v'>Projection</span></summary><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>Projection</span></li><li><span class='ee-k'>crs:</span><span
-  class='ee-v'>EPSG:5070</span></li><li><details><summary><span class='ee-k'>transform:</span><span
-  class='ee-v'>[100, 0, 0, 0, 100, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span
-  class='ee-v'>100</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li><li><span
-  class='ee-k'>2:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>3:</span><span
-  class='ee-v'>0</span></li><li><span class='ee-k'>4:</span><span class='ee-v'>100</span></li><li><span
-  class='ee-k'>5:</span><span class='ee-v'>0</span></li></ul></details></li></ul></details></li>
+<li><details><summary>Projection</summary><ul><li><b>type:</b>Projection<li><b>crs:</b>EPSG:5070<li><details><summary><b>transform:</b>[100,
+  0, 0, 0, 100, 0]</summary><ul><li><b>0:</b>100<li><b>1:</b>0<li><b>2:</b>0<li><b>3:</b>0<li><b>4:</b>100<li><b>5:</b>0</ul></details></ul></details>
 ...

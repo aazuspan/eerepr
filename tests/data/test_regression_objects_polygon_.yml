@@ -1,14 +1,7 @@
-<li><details><summary><span class='ee-v'>Polygon (4 vertices)</span></summary><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>Polygon</span></li><li><details><summary><span
-  class='ee-k'>coordinates:</span><span class='ee-v'>[[[0, 0], [1, 1], [2, 2], [0,
-  0]]]</span></summary><ul><li><details><summary><span class='ee-k'>0:</span><span
-  class='ee-v'>[[0, 0], [1, 1], [2, 2], [0, 0]]</span></summary><ul><li><details><summary><span
-  class='ee-k'>0:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span
-  class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></details></li><li><details><summary><span
-  class='ee-k'>1:</span><span class='ee-v'>[1, 1]</span></summary><ul><li><span class='ee-k'>0:</span><span
-  class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></details></li><li><details><summary><span
-  class='ee-k'>2:</span><span class='ee-v'>[2, 2]</span></summary><ul><li><span class='ee-k'>0:</span><span
-  class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li><li><details><summary><span
-  class='ee-k'>3:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span
-  class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li>
+<li><details><summary>Polygon (4 vertices)</summary><ul><li><b>type:</b>Polygon<li><details><summary><b>coordinates:</b>[[[0,
+  0], [1, 1], [2, 2], [0, 0]]]</summary><ul><li><details><summary><b>0:</b>[[0, 0],
+  [1, 1], [2, 2], [0, 0]]</summary><ul><li><details><summary><b>0:</b>[0, 0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details><li><details><summary><b>1:</b>[1,
+  1]</summary><ul><li><b>0:</b>1<li><b>1:</b>1</ul></details><li><details><summary><b>2:</b>[2,
+  2]</summary><ul><li><b>0:</b>2<li><b>1:</b>2</ul></details><li><details><summary><b>3:</b>[0,
+  0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details></ul></details></ul></details></ul></details>
 ...

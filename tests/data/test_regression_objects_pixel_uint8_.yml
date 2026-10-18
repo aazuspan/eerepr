@@ -1,5 +1,2 @@
-<li><details><summary><span class='ee-v'>unsigned int8</span></summary><ul><li><span
-  class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span
-  class='ee-v'>255</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span
-  class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li>
+<li><details><summary>unsigned int8</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>255<li><b>min:</b>0<li><b>precision:</b>int</ul></details>
 ...

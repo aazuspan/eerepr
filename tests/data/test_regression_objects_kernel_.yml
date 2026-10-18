@@ -1,9 +1,5 @@
-"<li><details><summary><span class='ee-v'>Kernel.gaussian</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Kernel.gaussian</span></li><li><details><summary><span\
-  \ class='ee-k'>center:</span><span class='ee-v'>[3, 3]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>3</span></li></ul></details></li><li><span class='ee-k'>radius:</span><span\
-  \ class='ee-v'>3</span></li><li><span class='ee-k'>weights:</span><span class='ee-v'>\n\
+"<li><details><summary>Kernel.gaussian</summary><ul><li><b>type:</b>Kernel.gaussian<li><details><summary><b>center:</b>[3,\
+  \ 3]</summary><ul><li><b>0:</b>3<li><b>1:</b>3</ul></details><li><b>radius:</b>3<li><b>weights:</b>\n\
   \  [1.9651916124031917E-5, 2.3940934949727E-4, 0.001072958264978661, 0.0017690091140438226,\
   \ 0.001072958264978661, 2.3940934949727E-4, 1.9651916124031917E-5]\n  [2.3940934949727E-4,\
   \ 0.0029166029543864387, 0.013071307583189414, 0.02155094284826827, 0.013071307583189414,\
@@ -16,4 +12,4 @@
   \ 0.0029166029543864387, 0.013071307583189414, 0.02155094284826827, 0.013071307583189414,\
   \ 0.0029166029543864387, 2.3940934949727E-4]\n  [1.9651916124031917E-5, 2.3940934949727E-4,\
   \ 0.001072958264978661, 0.0017690091140438226, 0.001072958264978661, 2.3940934949727E-4,\
-  \ 1.9651916124031917E-5]</span></li></ul></details></li>"
+  \ 1.9651916124031917E-5]</ul></details>"

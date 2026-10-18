@@ -1,3 +1,2 @@
-<li><details><summary><span class='ee-v'>Foo bar </span></summary><ul><li><span class='ee-k'>type:</span><span
-  class='ee-v'>Foo</span></li><li><span class='ee-k'>id:</span><span class='ee-v'>bar</span></li></ul></details></li>
+<li><details><summary>Foo bar </summary><ul><li><b>type:</b>Foo<li><b>id:</b>bar</ul></details>
 ...

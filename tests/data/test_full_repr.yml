@@ -10,259 +10,92 @@
   \  --background-color-row-odd: #313131;\n}\n\n.eerepr {\n  padding: 1em;\n  line-height:\
   \ 1.5em;\n  min-width: 300px;\n  max-width: 1200px;\n  overflow-y: scroll;\n  max-height:\
   \ 600px;\n  border: 1px solid var(--border-color);\n  font-family: monospace;\n\
-  \  font-size: 14px;\n}\n\n.eerepr li {\n  list-style-type: none;\n  margin: 0;\n\
-  }\n\n.eerepr ul {\n  padding-left: 1.5em !important;\n  margin: 0;\n}\n\n.eerepr\
-  \ > ul {\n  padding-left: 0 !important;\n}\n\n.eerepr summary {\n  color: var(--font-color-secondary);\n\
-  \  cursor: pointer;\n  margin: 0;\n}\n\n.eerepr summary:hover {\n  color: var(--font-color-primary);\n\
-  \  background-color: var(--background-color-row-odd)\n}\n\n.ee-k {\n  color: var(--font-color-accent);\n\
-  \  margin-right: 6px;\n}\n\n.ee-v {\n  color: var(--font-color-primary);\n}\n\n\
-  .eerepr details > summary::before {\n  content: '▼';\n  display: inline-block;\n\
+  \  font-size: 14px;\n  color: var(--font-color-primary);\n}\n\n.eerepr li {\n  list-style-type:\
+  \ none;\n  margin: 0;\n}\n\n.eerepr ul {\n  padding-left: 1.5em !important;\n  margin:\
+  \ 0;\n}\n\n.eerepr > ul {\n  padding-left: 0 !important;\n}\n\n.eerepr summary {\n\
+  \  cursor: pointer;\n  margin: 0;\n}\n\n.eerepr summary:hover {\n  background-color:\
+  \ var(--background-color-row-odd)\n}\n\n.eerepr b {\n  color: var(--font-color-accent);\n\
+  \  margin-right: 6px;\n  font-weight: normal;\n}\n\n.eerepr details > summary::before\
+  \ {\n  content: '▼';\n  color: var(--font-color-secondary);\n  display: inline-block;\n\
   \  margin-right: 6px;\n  transition: transform 0.2s;\n  transform: rotate(-90deg);\n\
-  }\n\n.eerepr details[open] > summary::before {\n  transform: rotate(0deg);\n}\n\n\
-  .eerepr details summary::-webkit-details-marker {\n  display:none;\n}\n\n.eerepr\
-  \ details summary {\n  list-style-type: none;\n}\n</style><div class='eerepr'><ul><li><details><summary><span\
-  \ class='ee-v'>List (40 elements)</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>Image foo (1 band)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Image</span></li><li><span class='ee-k'>id:</span><span\
-  \ class='ee-v'>foo</span></li><li><details><summary><span class='ee-k'>bands:</span><span\
-  \ class='ee-v'>List (1 element)</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>&quot;constant&quot;, int ∈ [0, 0], EPSG:4326</span></summary><ul><li><span\
-  \ class='ee-k'>id:</span><span class='ee-v'>constant</span></li><li><span class='ee-k'>crs:</span><span\
-  \ class='ee-v'>EPSG:4326</span></li><li><details><summary><span class='ee-k'>crs_transform:</span><span\
-  \ class='ee-v'>[1, 0, 0, 0, 1, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>2:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>3:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>4:</span><span class='ee-v'>1</span></li><li><span\
-  \ class='ee-k'>5:</span><span class='ee-v'>0</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>data_type:</span><span class='ee-v'>int ∈ [0, 0]</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>ImageCollection (0 elements)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>ImageCollection</span></li><li><details><summary><span\
-  \ class='ee-k'>bands:</span><span class='ee-v'>[]</span></summary><ul></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>properties:</span><span class='ee-v'>Object (1 property)</span></summary><ul><li><span\
-  \ class='ee-k'>test_prop:</span><span class='ee-v'>42</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>2:</span><span class='ee-v'>Feature (Point, 1 property)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Feature</span></li><li><details><summary><span\
-  \ class='ee-k'>geometry:</span><span class='ee-v'>Point (0.00, 0.00)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Point</span></li><li><details><summary><span\
-  \ class='ee-k'>coordinates:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>properties:</span><span class='ee-v'>Object (1 property)</span></summary><ul><li><span\
-  \ class='ee-k'>foo:</span><span class='ee-v'>bar</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>3:</span><span class='ee-v'>Feature (0 properties)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Feature</span></li><li><span class='ee-k'>geometry:</span><span\
-  \ class='ee-v'>None</span></li><li><details><summary><span class='ee-k'>properties:</span><span\
-  \ class='ee-v'>Object (0 properties)</span></summary><ul></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>4:</span><span class='ee-v'>FeatureCollection (0 elements, 2 columns)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>FeatureCollection</span></li><li><details><summary><span\
-  \ class='ee-k'>columns:</span><span class='ee-v'>Object (2 properties)</span></summary><ul><li><span\
-  \ class='ee-k'>foo:</span><span class='ee-v'>String</span></li><li><span class='ee-k'>system:index:</span><span\
-  \ class='ee-v'>String</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>5:</span><span class='ee-v'>Date (2021-03-27 14:01:07)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Date</span></li><li><span class='ee-k'>value:</span><span\
-  \ class='ee-v'>1616853667000</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>6:</span><span class='ee-v'>Filter.eq</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Filter.eq</span></li><li><span class='ee-k'>leftField:</span><span\
-  \ class='ee-v'>foo</span></li><li><span class='ee-k'>rightValue:</span><span class='ee-v'>bar</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>7:</span><span class='ee-v'>Object (1 property)</span></summary><ul><li><span\
-  \ class='ee-k'>foo:</span><span class='ee-v'>bar</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>8:</span><span class='ee-v'>[1, 2, 3, 4]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li><li><span class='ee-k'>2:</span><span class='ee-v'>3</span></li><li><span\
-  \ class='ee-k'>3:</span><span class='ee-v'>4</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>9:</span><span class='ee-v'>List (21 elements)</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>1</span></li><li><span class='ee-k'>2:</span><span class='ee-v'>2</span></li><li><span\
-  \ class='ee-k'>3:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>4:</span><span\
-  \ class='ee-v'>4</span></li><li><span class='ee-k'>5:</span><span class='ee-v'>5</span></li><li><span\
-  \ class='ee-k'>6:</span><span class='ee-v'>6</span></li><li><span class='ee-k'>7:</span><span\
-  \ class='ee-v'>7</span></li><li><span class='ee-k'>8:</span><span class='ee-v'>8</span></li><li><span\
-  \ class='ee-k'>9:</span><span class='ee-v'>9</span></li><li><span class='ee-k'>10:</span><span\
-  \ class='ee-v'>10</span></li><li><span class='ee-k'>11:</span><span class='ee-v'>11</span></li><li><span\
-  \ class='ee-k'>12:</span><span class='ee-v'>12</span></li><li><span class='ee-k'>13:</span><span\
-  \ class='ee-v'>13</span></li><li><span class='ee-k'>14:</span><span class='ee-v'>14</span></li><li><span\
-  \ class='ee-k'>15:</span><span class='ee-v'>15</span></li><li><span class='ee-k'>16:</span><span\
-  \ class='ee-v'>16</span></li><li><span class='ee-k'>17:</span><span class='ee-v'>17</span></li><li><span\
-  \ class='ee-k'>18:</span><span class='ee-v'>18</span></li><li><span class='ee-k'>19:</span><span\
-  \ class='ee-v'>19</span></li><li><span class='ee-k'>20:</span><span class='ee-v'>20</span></li></ul></details></li><li><span\
-  \ class='ee-k'>10:</span><span class='ee-v'>13th Warrior is an underrated movie</span></li><li><span\
-  \ class='ee-k'>11:</span><span class='ee-v'>42</span></li><li><details><summary><span\
-  \ class='ee-k'>12:</span><span class='ee-v'>Point (1.11, 2.00)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Point</span></li><li><details><summary><span\
-  \ class='ee-k'>coordinates:</span><span class='ee-v'>[1.112312, 2]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1.112312</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>13:</span><span class='ee-v'>MultiPoint (2 vertices)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>MultiPoint</span></li><li><details><summary><span\
-  \ class='ee-k'>coordinates:</span><span class='ee-v'>[[1, 1], [2, 2]]</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>[1, 1]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>1</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>[2, 2]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>14:</span><span class='ee-v'>LineString (3 vertices)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>LineString</span></li><li><details><summary><span\
-  \ class='ee-k'>coordinates:</span><span class='ee-v'>[[1, 1], [2, 2], [3, 3]]</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>[1, 1]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>1</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>[2, 2]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>2:</span><span class='ee-v'>[3, 3]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>3</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>15:</span><span class='ee-v'>MultiLineString</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>MultiLineString</span></li><li><details><summary><span\
-  \ class='ee-k'>coordinates:</span><span class='ee-v'>[[[0, 0], [1, 1]]]</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>[[0, 0], [1, 1]]</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>[1, 1]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>16:</span><span class='ee-v'>Polygon (4 vertices)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Polygon</span></li><li><details><summary><span\
-  \ class='ee-k'>coordinates:</span><span class='ee-v'>[[[0, 0], [1, 1], [2, 2], [0,\
-  \ 0]]]</span></summary><ul><li><details><summary><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>[[0, 0], [1, 1], [2, 2], [0, 0]]</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>[1, 1]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>2:</span><span class='ee-v'>[2, 2]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>3:</span><span\
-  \ class='ee-v'>[0, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>17:</span><span class='ee-v'>MultiPolygon (8 vertices)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>MultiPolygon</span></li><li><details><summary><span\
-  \ class='ee-k'>coordinates:</span><span class='ee-v'>List (1 element)</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>List (2 elements)</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>[[0, 0], [1, 1], [2, 2], [0, 0]]</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>[1, 1]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>2:</span><span class='ee-v'>[2, 2]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>3:</span><span\
-  \ class='ee-v'>[0, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>[[4, 6], [3, 2], [1, 2], [4, 6]]</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>[4, 6]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>4</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>6</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>[3, 2]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>2:</span><span class='ee-v'>[1, 2]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>3:</span><span\
-  \ class='ee-v'>[4, 6]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>4</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>6</span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>18:</span><span class='ee-v'>LinearRing (4 vertices)</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>LinearRing</span></li><li><details><summary><span\
-  \ class='ee-k'>coordinates:</span><span class='ee-v'>[[0, 0], [1, 1], [2, 2], [0,\
-  \ 0]]</span></summary><ul><li><details><summary><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>[0, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>1:</span><span class='ee-v'>[1, 1]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>1</span></li></ul></details></li><li><details><summary><span class='ee-k'>2:</span><span\
-  \ class='ee-v'>[2, 2]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>2</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>2</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>3:</span><span class='ee-v'>[0, 0]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>0</span></li></ul></details></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>19:</span><span class='ee-v'>DateRange [2020-01-01 21:01:10, 2022-03-01\
-  \ 14:32:11]</span></summary><ul><li><span class='ee-k'>type:</span><span class='ee-v'>DateRange</span></li><li><details><summary><span\
-  \ class='ee-k'>dates:</span><span class='ee-v'>[1577912470000, 1646145131000]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1577912470000</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>1646145131000</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>20:</span><span class='ee-v'>Foo bar </span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Foo</span></li><li><span class='ee-k'>id:</span><span\
-  \ class='ee-v'>bar</span></li></ul></details></li><li><details><summary><span class='ee-k'>21:</span><span\
-  \ class='ee-v'>&quot;B1&quot;, unsigned int16, EPSG:32610, 1830x1830 px</span></summary><ul><li><span\
-  \ class='ee-k'>id:</span><span class='ee-v'>B1</span></li><li><span class='ee-k'>crs:</span><span\
-  \ class='ee-v'>EPSG:32610</span></li><li><details><summary><span class='ee-k'>data_type:</span><span\
-  \ class='ee-v'>unsigned int16</span></summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>65535</span></li><li><span\
-  \ class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>precision:</span><span\
-  \ class='ee-v'>int</span></li></ul></details></li><li><details><summary><span class='ee-k'>dimensions:</span><span\
-  \ class='ee-v'>[1830, 1830]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>1830</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>1830</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>22:</span><span class='ee-v'>&quot;B1&quot;, unsigned int16</span></summary><ul><li><span\
-  \ class='ee-k'>id:</span><span class='ee-v'>B1</span></li><li><details><summary><span\
-  \ class='ee-k'>data_type:</span><span class='ee-v'>unsigned int16</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
-  \ class='ee-v'>65535</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>23:</span><span class='ee-v'>float</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span\
-  \ class='ee-v'>float</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>24:</span><span class='ee-v'>double</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span\
-  \ class='ee-v'>double</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>25:</span><span class='ee-v'>signed int8</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
-  \ class='ee-v'>127</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>-128</span></li><li><span\
-  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>26:</span><span class='ee-v'>unsigned int8</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
-  \ class='ee-v'>255</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>27:</span><span class='ee-v'>signed int16</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
-  \ class='ee-v'>32767</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>-32768</span></li><li><span\
-  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>28:</span><span class='ee-v'>unsigned int16</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
-  \ class='ee-v'>65535</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>29:</span><span class='ee-v'>signed int32</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
-  \ class='ee-v'>2147483647</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>-2147483648</span></li><li><span\
-  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>30:</span><span class='ee-v'>unsigned int32</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
-  \ class='ee-v'>4294967295</span></li><li><span class='ee-k'>min:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>precision:</span><span class='ee-v'>int</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>31:</span><span class='ee-v'>signed int64</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span\
-  \ class='ee-v'>9.223372036854776e+18</span></li><li><span class='ee-k'>min:</span><span\
-  \ class='ee-v'>-9.223372036854776e+18</span></li><li><span class='ee-k'>precision:</span><span\
-  \ class='ee-v'>int</span></li></ul></details></li><li><details><summary><span class='ee-k'>32:</span><span\
-  \ class='ee-v'>int ∈ [10, 255]</span></summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>PixelType</span></li><li><span class='ee-k'>max:</span><span class='ee-v'>255</span></li><li><span\
-  \ class='ee-k'>min:</span><span class='ee-v'>10</span></li><li><span class='ee-k'>precision:</span><span\
-  \ class='ee-v'>int</span></li></ul></details></li><li><details><summary><span class='ee-k'>33:</span><span\
-  \ class='ee-v'>Clusterer.wekaKMeans</span></summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>Clusterer.wekaKMeans</span></li><li><span class='ee-k'>nClusters:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>34:</span><span\
-  \ class='ee-v'>Classifier.smileKNN</span></summary><ul><li><span class='ee-k'>type:</span><span\
-  \ class='ee-v'>Classifier.smileKNN</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>35:</span><span class='ee-v'>[[1, 2], [3, 4]]</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>[1, 2]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>[3, 4]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>4</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>36:</span><span class='ee-v'>[[1, 2], [3, 4]]</span></summary><ul><li><details><summary><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>[1, 2]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>1</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>2</span></li></ul></details></li><li><details><summary><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>[3, 4]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>4</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>37:</span><span class='ee-v'>Kernel.gaussian</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Kernel.gaussian</span></li><li><details><summary><span\
-  \ class='ee-k'>center:</span><span class='ee-v'>[3, 3]</span></summary><ul><li><span\
-  \ class='ee-k'>0:</span><span class='ee-v'>3</span></li><li><span class='ee-k'>1:</span><span\
-  \ class='ee-v'>3</span></li></ul></details></li><li><span class='ee-k'>radius:</span><span\
-  \ class='ee-v'>3</span></li><li><span class='ee-k'>weights:</span><span class='ee-v'>\n\
+  }\n\n.eerepr summary:hover::before {\n  color: var(--font-color-primary);\n}\n\n\
+  .eerepr details[open] > summary::before {\n  transform: rotate(0deg);\n}\n\n.eerepr\
+  \ details summary::-webkit-details-marker {\n  display:none;\n}\n\n.eerepr details\
+  \ summary {\n  list-style-type: none;\n}\n</style><div class='eerepr'><ul><li><details><summary>List\
+  \ (40 elements)</summary><ul><li><details><summary><b>0:</b>Image foo (1 band)</summary><ul><li><b>type:</b>Image<li><b>id:</b>foo<li><details><summary><b>bands:</b>List\
+  \ (1 element)</summary><ul><li><details><summary><b>0:</b>\"constant\", int ∈ [0,\
+  \ 0], EPSG:4326</summary><ul><li><b>id:</b>constant<li><b>crs:</b>EPSG:4326<li><details><summary><b>crs_transform:</b>[1,\
+  \ 0, 0, 0, 1, 0]</summary><ul><li><b>0:</b>1<li><b>1:</b>0<li><b>2:</b>0<li><b>3:</b>0<li><b>4:</b>1<li><b>5:</b>0</ul></details><li><details><summary><b>data_type:</b>int\
+  \ ∈ [0, 0]</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>0<li><b>min:</b>0<li><b>precision:</b>int</ul></details></ul></details></ul></details></ul></details><li><details><summary><b>1:</b>ImageCollection\
+  \ (0 elements)</summary><ul><li><b>type:</b>ImageCollection<li><details><summary><b>bands:</b>[]</summary><ul></ul></details><li><details><summary><b>properties:</b>Object\
+  \ (1 property)</summary><ul><li><b>test_prop:</b>42</ul></details></ul></details><li><details><summary><b>2:</b>Feature\
+  \ (Point, 1 property)</summary><ul><li><b>type:</b>Feature<li><details><summary><b>geometry:</b>Point\
+  \ (0.00, 0.00)</summary><ul><li><b>type:</b>Point<li><details><summary><b>coordinates:</b>[0,\
+  \ 0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details></ul></details><li><details><summary><b>properties:</b>Object\
+  \ (1 property)</summary><ul><li><b>foo:</b>bar</ul></details></ul></details><li><details><summary><b>3:</b>Feature\
+  \ (0 properties)</summary><ul><li><b>type:</b>Feature<li><b>geometry:</b>None<li><details><summary><b>properties:</b>Object\
+  \ (0 properties)</summary><ul></ul></details></ul></details><li><details><summary><b>4:</b>FeatureCollection\
+  \ (0 elements, 2 columns)</summary><ul><li><b>type:</b>FeatureCollection<li><details><summary><b>columns:</b>Object\
+  \ (2 properties)</summary><ul><li><b>foo:</b>String<li><b>system:index:</b>String</ul></details></ul></details><li><details><summary><b>5:</b>Date\
+  \ (2021-03-27 14:01:07)</summary><ul><li><b>type:</b>Date<li><b>value:</b>1616853667000</ul></details><li><details><summary><b>6:</b>Filter.eq</summary><ul><li><b>type:</b>Filter.eq<li><b>leftField:</b>foo<li><b>rightValue:</b>bar</ul></details><li><details><summary><b>7:</b>Object\
+  \ (1 property)</summary><ul><li><b>foo:</b>bar</ul></details><li><details><summary><b>8:</b>[1,\
+  \ 2, 3, 4]</summary><ul><li><b>0:</b>1<li><b>1:</b>2<li><b>2:</b>3<li><b>3:</b>4</ul></details><li><details><summary><b>9:</b>List\
+  \ (21 elements)</summary><ul><li><b>0:</b>0<li><b>1:</b>1<li><b>2:</b>2<li><b>3:</b>3<li><b>4:</b>4<li><b>5:</b>5<li><b>6:</b>6<li><b>7:</b>7<li><b>8:</b>8<li><b>9:</b>9<li><b>10:</b>10<li><b>11:</b>11<li><b>12:</b>12<li><b>13:</b>13<li><b>14:</b>14<li><b>15:</b>15<li><b>16:</b>16<li><b>17:</b>17<li><b>18:</b>18<li><b>19:</b>19<li><b>20:</b>20</ul></details><li><b>10:</b>13th\
+  \ Warrior is an underrated movie<li><b>11:</b>42<li><details><summary><b>12:</b>Point\
+  \ (1.11, 2.00)</summary><ul><li><b>type:</b>Point<li><details><summary><b>coordinates:</b>[1.112312,\
+  \ 2]</summary><ul><li><b>0:</b>1.112312<li><b>1:</b>2</ul></details></ul></details><li><details><summary><b>13:</b>MultiPoint\
+  \ (2 vertices)</summary><ul><li><b>type:</b>MultiPoint<li><details><summary><b>coordinates:</b>[[1,\
+  \ 1], [2, 2]]</summary><ul><li><details><summary><b>0:</b>[1, 1]</summary><ul><li><b>0:</b>1<li><b>1:</b>1</ul></details><li><details><summary><b>1:</b>[2,\
+  \ 2]</summary><ul><li><b>0:</b>2<li><b>1:</b>2</ul></details></ul></details></ul></details><li><details><summary><b>14:</b>LineString\
+  \ (3 vertices)</summary><ul><li><b>type:</b>LineString<li><details><summary><b>coordinates:</b>[[1,\
+  \ 1], [2, 2], [3, 3]]</summary><ul><li><details><summary><b>0:</b>[1, 1]</summary><ul><li><b>0:</b>1<li><b>1:</b>1</ul></details><li><details><summary><b>1:</b>[2,\
+  \ 2]</summary><ul><li><b>0:</b>2<li><b>1:</b>2</ul></details><li><details><summary><b>2:</b>[3,\
+  \ 3]</summary><ul><li><b>0:</b>3<li><b>1:</b>3</ul></details></ul></details></ul></details><li><details><summary><b>15:</b>MultiLineString</summary><ul><li><b>type:</b>MultiLineString<li><details><summary><b>coordinates:</b>[[[0,\
+  \ 0], [1, 1]]]</summary><ul><li><details><summary><b>0:</b>[[0, 0], [1, 1]]</summary><ul><li><details><summary><b>0:</b>[0,\
+  \ 0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details><li><details><summary><b>1:</b>[1,\
+  \ 1]</summary><ul><li><b>0:</b>1<li><b>1:</b>1</ul></details></ul></details></ul></details></ul></details><li><details><summary><b>16:</b>Polygon\
+  \ (4 vertices)</summary><ul><li><b>type:</b>Polygon<li><details><summary><b>coordinates:</b>[[[0,\
+  \ 0], [1, 1], [2, 2], [0, 0]]]</summary><ul><li><details><summary><b>0:</b>[[0,\
+  \ 0], [1, 1], [2, 2], [0, 0]]</summary><ul><li><details><summary><b>0:</b>[0, 0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details><li><details><summary><b>1:</b>[1,\
+  \ 1]</summary><ul><li><b>0:</b>1<li><b>1:</b>1</ul></details><li><details><summary><b>2:</b>[2,\
+  \ 2]</summary><ul><li><b>0:</b>2<li><b>1:</b>2</ul></details><li><details><summary><b>3:</b>[0,\
+  \ 0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details></ul></details></ul></details></ul></details><li><details><summary><b>17:</b>MultiPolygon\
+  \ (8 vertices)</summary><ul><li><b>type:</b>MultiPolygon<li><details><summary><b>coordinates:</b>List\
+  \ (1 element)</summary><ul><li><details><summary><b>0:</b>List (2 elements)</summary><ul><li><details><summary><b>0:</b>[[0,\
+  \ 0], [1, 1], [2, 2], [0, 0]]</summary><ul><li><details><summary><b>0:</b>[0, 0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details><li><details><summary><b>1:</b>[1,\
+  \ 1]</summary><ul><li><b>0:</b>1<li><b>1:</b>1</ul></details><li><details><summary><b>2:</b>[2,\
+  \ 2]</summary><ul><li><b>0:</b>2<li><b>1:</b>2</ul></details><li><details><summary><b>3:</b>[0,\
+  \ 0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details></ul></details><li><details><summary><b>1:</b>[[4,\
+  \ 6], [3, 2], [1, 2], [4, 6]]</summary><ul><li><details><summary><b>0:</b>[4, 6]</summary><ul><li><b>0:</b>4<li><b>1:</b>6</ul></details><li><details><summary><b>1:</b>[3,\
+  \ 2]</summary><ul><li><b>0:</b>3<li><b>1:</b>2</ul></details><li><details><summary><b>2:</b>[1,\
+  \ 2]</summary><ul><li><b>0:</b>1<li><b>1:</b>2</ul></details><li><details><summary><b>3:</b>[4,\
+  \ 6]</summary><ul><li><b>0:</b>4<li><b>1:</b>6</ul></details></ul></details></ul></details></ul></details></ul></details><li><details><summary><b>18:</b>LinearRing\
+  \ (4 vertices)</summary><ul><li><b>type:</b>LinearRing<li><details><summary><b>coordinates:</b>[[0,\
+  \ 0], [1, 1], [2, 2], [0, 0]]</summary><ul><li><details><summary><b>0:</b>[0, 0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details><li><details><summary><b>1:</b>[1,\
+  \ 1]</summary><ul><li><b>0:</b>1<li><b>1:</b>1</ul></details><li><details><summary><b>2:</b>[2,\
+  \ 2]</summary><ul><li><b>0:</b>2<li><b>1:</b>2</ul></details><li><details><summary><b>3:</b>[0,\
+  \ 0]</summary><ul><li><b>0:</b>0<li><b>1:</b>0</ul></details></ul></details></ul></details><li><details><summary><b>19:</b>DateRange\
+  \ [2020-01-01 21:01:10, 2022-03-01 14:32:11]</summary><ul><li><b>type:</b>DateRange<li><details><summary><b>dates:</b>[1577912470000,\
+  \ 1646145131000]</summary><ul><li><b>0:</b>1577912470000<li><b>1:</b>1646145131000</ul></details></ul></details><li><details><summary><b>20:</b>Foo\
+  \ bar </summary><ul><li><b>type:</b>Foo<li><b>id:</b>bar</ul></details><li><details><summary><b>21:</b>\"\
+  B1\", unsigned int16, EPSG:32610, 1830x1830 px</summary><ul><li><b>id:</b>B1<li><b>crs:</b>EPSG:32610<li><details><summary><b>data_type:</b>unsigned\
+  \ int16</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>65535<li><b>min:</b>0<li><b>precision:</b>int</ul></details><li><details><summary><b>dimensions:</b>[1830,\
+  \ 1830]</summary><ul><li><b>0:</b>1830<li><b>1:</b>1830</ul></details></ul></details><li><details><summary><b>22:</b>\"\
+  B1\", unsigned int16</summary><ul><li><b>id:</b>B1<li><details><summary><b>data_type:</b>unsigned\
+  \ int16</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>65535<li><b>min:</b>0<li><b>precision:</b>int</ul></details></ul></details><li><details><summary><b>23:</b>float</summary><ul><li><b>type:</b>PixelType<li><b>precision:</b>float</ul></details><li><details><summary><b>24:</b>double</summary><ul><li><b>type:</b>PixelType<li><b>precision:</b>double</ul></details><li><details><summary><b>25:</b>signed\
+  \ int8</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>127<li><b>min:</b>-128<li><b>precision:</b>int</ul></details><li><details><summary><b>26:</b>unsigned\
+  \ int8</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>255<li><b>min:</b>0<li><b>precision:</b>int</ul></details><li><details><summary><b>27:</b>signed\
+  \ int16</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>32767<li><b>min:</b>-32768<li><b>precision:</b>int</ul></details><li><details><summary><b>28:</b>unsigned\
+  \ int16</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>65535<li><b>min:</b>0<li><b>precision:</b>int</ul></details><li><details><summary><b>29:</b>signed\
+  \ int32</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>2147483647<li><b>min:</b>-2147483648<li><b>precision:</b>int</ul></details><li><details><summary><b>30:</b>unsigned\
+  \ int32</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>4294967295<li><b>min:</b>0<li><b>precision:</b>int</ul></details><li><details><summary><b>31:</b>signed\
+  \ int64</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>9.223372036854776e+18<li><b>min:</b>-9.223372036854776e+18<li><b>precision:</b>int</ul></details><li><details><summary><b>32:</b>int\
+  \ ∈ [10, 255]</summary><ul><li><b>type:</b>PixelType<li><b>max:</b>255<li><b>min:</b>10<li><b>precision:</b>int</ul></details><li><details><summary><b>33:</b>Clusterer.wekaKMeans</summary><ul><li><b>type:</b>Clusterer.wekaKMeans<li><b>nClusters:</b>2</ul></details><li><details><summary><b>34:</b>Classifier.smileKNN</summary><ul><li><b>type:</b>Classifier.smileKNN</ul></details><li><details><summary><b>35:</b>[[1,\
+  \ 2], [3, 4]]</summary><ul><li><details><summary><b>0:</b>[1, 2]</summary><ul><li><b>0:</b>1<li><b>1:</b>2</ul></details><li><details><summary><b>1:</b>[3,\
+  \ 4]</summary><ul><li><b>0:</b>3<li><b>1:</b>4</ul></details></ul></details><li><details><summary><b>36:</b>[[1,\
+  \ 2], [3, 4]]</summary><ul><li><details><summary><b>0:</b>[1, 2]</summary><ul><li><b>0:</b>1<li><b>1:</b>2</ul></details><li><details><summary><b>1:</b>[3,\
+  \ 4]</summary><ul><li><b>0:</b>3<li><b>1:</b>4</ul></details></ul></details><li><details><summary><b>37:</b>Kernel.gaussian</summary><ul><li><b>type:</b>Kernel.gaussian<li><details><summary><b>center:</b>[3,\
+  \ 3]</summary><ul><li><b>0:</b>3<li><b>1:</b>3</ul></details><li><b>radius:</b>3<li><b>weights:</b>\n\
   \  [1.9651916124031917E-5, 2.3940934949727E-4, 0.001072958264978661, 0.0017690091140438226,\
   \ 0.001072958264978661, 2.3940934949727E-4, 1.9651916124031917E-5]\n  [2.3940934949727E-4,\
   \ 0.0029166029543864387, 0.013071307583189414, 0.02155094284826827, 0.013071307583189414,\
@@ -275,15 +108,5 @@
   \ 0.0029166029543864387, 0.013071307583189414, 0.02155094284826827, 0.013071307583189414,\
   \ 0.0029166029543864387, 2.3940934949727E-4]\n  [1.9651916124031917E-5, 2.3940934949727E-4,\
   \ 0.001072958264978661, 0.0017690091140438226, 0.001072958264978661, 2.3940934949727E-4,\
-  \ 1.9651916124031917E-5]</span></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>38:</span><span class='ee-v'>Projection</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Projection</span></li><li><span class='ee-k'>crs:</span><span\
-  \ class='ee-v'>EPSG:5070</span></li><li><details><summary><span class='ee-k'>transform:</span><span\
-  \ class='ee-v'>[100, 0, 0, 0, 100, 0]</span></summary><ul><li><span class='ee-k'>0:</span><span\
-  \ class='ee-v'>100</span></li><li><span class='ee-k'>1:</span><span class='ee-v'>0</span></li><li><span\
-  \ class='ee-k'>2:</span><span class='ee-v'>0</span></li><li><span class='ee-k'>3:</span><span\
-  \ class='ee-v'>0</span></li><li><span class='ee-k'>4:</span><span class='ee-v'>100</span></li><li><span\
-  \ class='ee-k'>5:</span><span class='ee-v'>0</span></li></ul></details></li></ul></details></li><li><details><summary><span\
-  \ class='ee-k'>39:</span><span class='ee-v'>Reducer.max</span></summary><ul><li><span\
-  \ class='ee-k'>type:</span><span class='ee-v'>Reducer.max</span></li><li><span class='ee-k'>numInputs:</span><span\
-  \ class='ee-v'>5</span></li></ul></details></li></ul></details></li></ul></div></div>"
+  \ 1.9651916124031917E-5]</ul></details><li><details><summary><b>38:</b>Projection</summary><ul><li><b>type:</b>Projection<li><b>crs:</b>EPSG:5070<li><details><summary><b>transform:</b>[100,\
+  \ 0, 0, 0, 100, 0]</summary><ul><li><b>0:</b>100<li><b>1:</b>0<li><b>2:</b>0<li><b>3:</b>0<li><b>4:</b>100<li><b>5:</b>0</ul></details></ul></details><li><details><summary><b>39:</b>Reducer.max</summary><ul><li><b>type:</b>Reducer.max<li><b>numInputs:</b>5</ul></details></ul></details></ul></div></div>"

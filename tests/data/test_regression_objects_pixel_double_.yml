@@ -1,4 +1,2 @@
-<li><details><summary><span class='ee-v'>double</span></summary><ul><li><span class='ee-k'>type:</span><span
-  class='ee-v'>PixelType</span></li><li><span class='ee-k'>precision:</span><span
-  class='ee-v'>double</span></li></ul></details></li>
+<li><details><summary>double</summary><ul><li><b>type:</b>PixelType<li><b>precision:</b>double</ul></details>
 ...

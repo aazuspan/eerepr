@@ -30,6 +30,7 @@ body.vscode-dark {
   border: 1px solid var(--border-color);
   font-family: monospace;
   font-size: 14px;
+  color: var(--font-color-primary);
 }
 
 .eerepr li {
@@ -47,31 +48,31 @@ body.vscode-dark {
 }
 
 .eerepr summary {
-  color: var(--font-color-secondary);
   cursor: pointer;
   margin: 0;
 }
 
 .eerepr summary:hover {
-  color: var(--font-color-primary);
   background-color: var(--background-color-row-odd)
 }
 
-.ee-k {
+.eerepr b {
   color: var(--font-color-accent);
   margin-right: 6px;
-}
-
-.ee-v {
-  color: var(--font-color-primary);
+  font-weight: normal;
 }
 
 .eerepr details > summary::before {
   content: '▼';
+  color: var(--font-color-secondary);
   display: inline-block;
   margin-right: 6px;
   transition: transform 0.2s;
   transform: rotate(-90deg);
+}
+
+.eerepr summary:hover::before {
+  color: var(--font-color-primary);
 }
 
 .eerepr details[open] > summary::before {
