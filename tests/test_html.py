@@ -1,7 +1,9 @@
 import ee
 import pytest
 
-from eerepr.html import convert_to_html
+from eerepr.html import _summarize_pixeltype, convert_to_html
+
+from . import factory
 
 
 def get_test_objects() -> list:
@@ -74,8 +76,12 @@ def get_test_objects() -> list:
         "pixel_int32": ee.PixelType.int32(),
         "pixel_uint32": ee.PixelType.uint32(),
         "pixel_int64": ee.PixelType.int64(),
-        "pixel_custom": ee.Dictionary(
-            dict(type="PixelType", min=10, max=255, precision="int")
+        "pixel_custom": ee.PixelType(precision="int", minValue=10, maxValue=255),
+        "pixel_1_dimension": ee.PixelType(
+            precision="int", minValue=0, maxValue=255, dimensions=1
+        ),
+        "pixel_3_dimensions": ee.PixelType(
+            precision="int", minValue=0, maxValue=10, dimensions=3
         ),
         "clusterer": ee.Clusterer.wekaKMeans(2),
         "classifier": ee.Classifier.smileKNN(),
@@ -91,3 +97,52 @@ def get_test_objects() -> list:
 def test_regression_objects(key_val, data_regression):
     """Test the HTML repr of various EE objects."""
     data_regression.check(convert_to_html(key_val[1].getInfo()))
+
+
+@pytest.mark.parametrize("precision", ["double", "float"])
+def test_summarize_float_pixel_types_return_range(precision: str):
+    """'float' and 'double' used to just return precision in the Code Editor, but now
+    return their range also.
+    """
+    pixel_type = factory.PixelType(precision=precision, max=255, min=0)
+    assert _summarize_pixeltype(pixel_type) == f"{precision} ∈ [0, 255]"
+
+
+@pytest.mark.parametrize("precision", ["int", "double", "float"])
+@pytest.mark.parametrize("drop", ["min", "max"])
+def test_summarize_pixel_type_missing_min_or_max_returns_precision(
+    drop: str, precision: str
+):
+    pixel_type = factory.PixelType(precision=precision, min=0, max=255)
+    del pixel_type[drop]
+    assert _summarize_pixeltype(pixel_type) == precision
+
+
+@pytest.mark.parametrize("precision", ["int", "double", "float"])
+@pytest.mark.parametrize("dimensions", [0, None])
+def test_summarize_pixel_type_with_0_dimensions(precision: str, dimensions: int | None):
+    """dimensions=0 or None drop the dimension suffix"""
+    pixel_type = factory.PixelType(precision=precision, dimensions=dimensions)
+    assert _summarize_pixeltype(pixel_type) == precision
+
+
+@pytest.mark.parametrize("precision", ["int", "double", "float"])
+def test_summarize_pixel_type_with_1_dimension(precision: str):
+    pixel_type = factory.PixelType(precision=precision, dimensions=1)
+    assert _summarize_pixeltype(pixel_type) == f"{precision}, 1 dimension"
+
+
+@pytest.mark.parametrize("precision", ["int", "double", "float"])
+def test_summarize_pixel_type_with_n_dimensions(precision: str):
+    pixel_type = factory.PixelType(precision=precision, dimensions=3)
+    assert _summarize_pixeltype(pixel_type) == f"{precision}, 3 dimensions"
+
+
+@pytest.mark.parametrize("precision", ["int", "double", "float"])
+@pytest.mark.parametrize("dimensions", ["foo", [1, 2, 3], {"a": 0, "b": 1, "c": 2}])
+def test_summarize_pixel_type_with_sized_dimensions(
+    precision: str, dimensions: str | list
+):
+    """A pixel type with non-numeric dimensions use the length, if available."""
+    pixel_type = factory.PixelType(precision=precision, dimensions=dimensions)
+    assert _summarize_pixeltype(pixel_type) == f"{precision}, 3 dimensions"

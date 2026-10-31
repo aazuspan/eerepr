@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+
+- `float` and `double` pixel types now return their range, e.g. `float ∈ [0.0, 42.0]` when available
+- A pixel type missing a minimum or maximum value no longer reports a range
+- A pixel type now reports its `dimensions`
+
 ## [0.1.4] - 2026-10-31
 
 ### Fixed

@@ -26,15 +26,15 @@ PROPERTY_PRIORITY = [
 # Format for ee.Date and ee.DateRange
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
-# Mapping of numeric ranges to type names
-_TYPE_RANGES = {
-    "[-128, 127]": "signed int8",
-    "[0, 255]": "unsigned int8",
-    "[-32768, 32767]": "signed int16",
-    "[0, 65535]": "unsigned int16",
-    "[-2147483648, 2147483647]": "signed int32",
-    "[0, 4294967295]": "unsigned int32",
-    "[-9.223372036854776e+18, 9.223372036854776e+18]": "signed int64",
+# Mapping of numeric ranges to type names for PixelType with precision 'int'
+_INT_TYPE_RANGES: dict[tuple[object, object], str] = {
+    (-128, 127): "signed int8",
+    (0, 255): "unsigned int8",
+    (-32768, 32767): "signed int16",
+    (0, 65535): "unsigned int16",
+    (-2147483648, 2147483647): "signed int32",
+    (0, 4294967295): "unsigned int32",
+    (-9.223372036854776e18, 9.223372036854776e18): "signed int64",
 }
 
 
@@ -185,14 +185,28 @@ def _summarize_multipoint(obj: dict) -> str:
 
 def _summarize_pixeltype(obj: dict) -> str:
     prec = obj.get("precision", "")
-    if prec in ["double", "float"]:
-        return prec
+    minimum = obj.get("min")
+    maximum = obj.get("max")
 
-    minimum = str(obj.get("min", ""))
-    maximum = str(obj.get("max", ""))
-    val_range = f"[{minimum}, {maximum}]"
+    # Match pre-defined int types, e.g. (precision=int, min=0, max=255) -> unsigned int8
+    if prec == "int" and (dtype := _INT_TYPE_RANGES.get((minimum, maximum))):
+        summary = dtype
+    # Drop range if either is missing, e.g. (precision=float, min=0) -> float
+    elif minimum is None or maximum is None:
+        summary = prec
+    # Include precision and range, e.g. (precision=int, min=0, max=0) -> int ∈ [0, 0]
+    else:
+        summary = f"{prec} ∈ {f'[{minimum}, {maximum}]'}"
 
-    return _TYPE_RANGES.get(val_range, f"{prec} ∈ {val_range}")
+    # Append a suffix if 'dimensions' are defined. The Code Editor converts sized
+    # dimensions like strings and arrays to their length.
+    dims = obj.get("dimensions") or 0
+    if hasattr(dims, "__len__"):
+        dims = len(dims)
+    s = "" if dims == 1 else "s"
+    dimensions = "" if dims == 0 else f", {dims} dimension{s}"
+
+    return f"{summary}{dimensions}"
 
 
 def _summarize_band(obj: dict) -> str:
