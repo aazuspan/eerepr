@@ -11,18 +11,18 @@
   \ 1.5em;\n  min-width: 300px;\n  max-width: 1200px;\n  overflow-y: scroll;\n  max-height:\
   \ 600px;\n  border: 1px solid var(--border-color);\n  font-family: monospace;\n\
   \  font-size: 14px;\n  color: var(--font-color-primary);\n}\n\n.eerepr li {\n  list-style-type:\
-  \ none;\n  margin: 0;\n}\n\n.eerepr ul {\n  padding-left: 1.5em !important;\n  margin:\
-  \ 0;\n}\n\n.eerepr > ul {\n  padding-left: 0 !important;\n}\n\n.eerepr summary {\n\
-  \  cursor: pointer;\n  margin: 0;\n}\n\n.eerepr summary:hover {\n  background-color:\
-  \ var(--background-color-row-odd)\n}\n\n.eerepr b {\n  color: var(--font-color-accent);\n\
-  \  margin-right: 6px;\n  font-weight: normal;\n}\n\n.eerepr details > summary::before\
-  \ {\n  content: '▼';\n  color: var(--font-color-secondary);\n  display: inline-block;\n\
-  \  margin-right: 6px;\n  transition: transform 0.2s;\n  transform: rotate(-90deg);\n\
-  }\n\n.eerepr summary:hover::before {\n  color: var(--font-color-primary);\n}\n\n\
-  .eerepr details[open] > summary::before {\n  transform: rotate(0deg);\n}\n\n.eerepr\
-  \ details summary::-webkit-details-marker {\n  display:none;\n}\n\n.eerepr details\
-  \ summary {\n  list-style-type: none;\n}\n</style><div class='eerepr'><ul><li><details><summary>List\
-  \ (42 elements)</summary><ul><li><details><summary><b>0:</b>Image foo (1 band)</summary><ul><li><b>type:</b>Image<li><b>id:</b>foo<li><details><summary><b>bands:</b>List\
+  \ none;\n  margin: 0;\n  white-space: pre;\n}\n\n.eerepr ul {\n  padding-left: 1.5em\
+  \ !important;\n  margin: 0;\n}\n\n.eerepr > ul {\n  padding-left: 0 !important;\n\
+  }\n\n.eerepr summary {\n  cursor: pointer;\n  margin: 0;\n}\n\n.eerepr summary:hover\
+  \ {\n  background-color: var(--background-color-row-odd)\n}\n\n.eerepr b {\n  color:\
+  \ var(--font-color-accent);\n  margin-right: 6px;\n  font-weight: normal;\n}\n\n\
+  .eerepr details > summary::before {\n  content: '▼';\n  color: var(--font-color-secondary);\n\
+  \  display: inline-block;\n  margin-right: 6px;\n  transition: transform 0.2s;\n\
+  \  transform: rotate(-90deg);\n}\n\n.eerepr summary:hover::before {\n  color: var(--font-color-primary);\n\
+  }\n\n.eerepr details[open] > summary::before {\n  transform: rotate(0deg);\n}\n\n\
+  .eerepr details summary::-webkit-details-marker {\n  display:none;\n}\n\n.eerepr\
+  \ details summary {\n  list-style-type: none;\n}\n</style><div class='eerepr'><ul><li><details><summary>List\
+  \ (43 elements)</summary><ul><li><details><summary><b>0:</b>Image foo (1 band)</summary><ul><li><b>type:</b>Image<li><b>id:</b>foo<li><details><summary><b>bands:</b>List\
   \ (1 element)</summary><ul><li><details><summary><b>0:</b>\"constant\", int ∈ [0,\
   \ 0], EPSG:4326</summary><ul><li><b>id:</b>constant<li><b>crs:</b>EPSG:4326<li><details><summary><b>crs_transform:</b>[1,\
   \ 0, 0, 0, 1, 0]</summary><ul><li><b>0:</b>1<li><b>1:</b>0<li><b>2:</b>0<li><b>3:</b>0<li><b>4:</b>1<li><b>5:</b>0</ul></details><li><details><summary><b>data_type:</b>int\
@@ -111,4 +111,9 @@
   \ 0.0029166029543864387, 2.3940934949727E-4]\n  [1.9651916124031917E-5, 2.3940934949727E-4,\
   \ 0.001072958264978661, 0.0017690091140438226, 0.001072958264978661, 2.3940934949727E-4,\
   \ 1.9651916124031917E-5]</ul></details><li><details><summary><b>40:</b>Projection</summary><ul><li><b>type:</b>Projection<li><b>crs:</b>EPSG:5070<li><details><summary><b>transform:</b>[100,\
-  \ 0, 0, 0, 100, 0]</summary><ul><li><b>0:</b>100<li><b>1:</b>0<li><b>2:</b>0<li><b>3:</b>0<li><b>4:</b>100<li><b>5:</b>0</ul></details></ul></details><li><details><summary><b>41:</b>Reducer.max</summary><ul><li><b>type:</b>Reducer.max<li><b>numInputs:</b>5</ul></details></ul></details></ul></div></div>"
+  \ 0, 0, 0, 100, 0]</summary><ul><li><b>0:</b>100<li><b>1:</b>0<li><b>2:</b>0<li><b>3:</b>0<li><b>4:</b>100<li><b>5:</b>0</ul></details></ul></details><li><b>41:</b>GEOGCS[\"\
+  WGS 84\", \n  DATUM[\"World Geodetic System 1984\", \n    SPHEROID[\"WGS 84\", 6378137.0,\
+  \ 298.257223563, AUTHORITY[\"EPSG\",\"7030\"]], \n    AUTHORITY[\"EPSG\",\"6326\"\
+  ]], \n  PRIMEM[\"Greenwich\", 0.0, AUTHORITY[\"EPSG\",\"8901\"]], \n  UNIT[\"degree\"\
+  , 0.017453292519943295], \n  AXIS[\"Geodetic longitude\", EAST], \n  AXIS[\"Geodetic\
+  \ latitude\", NORTH], \n  AUTHORITY[\"EPSG\",\"4326\"]]<li><details><summary><b>42:</b>Reducer.max</summary><ul><li><b>type:</b>Reducer.max<li><b>numInputs:</b>5</ul></details></ul></details></ul></div></div>"

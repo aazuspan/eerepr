@@ -36,6 +36,7 @@ body.vscode-dark {
 .eerepr li {
   list-style-type: none;
   margin: 0;
+  white-space: pre;
 }
 
 .eerepr ul {

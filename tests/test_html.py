@@ -89,6 +89,8 @@ def get_test_objects() -> list:
         "confusion_matrix": ee.ConfusionMatrix(ee.Array([[1, 2], [3, 4]])),
         "kernel": ee.Kernel.gaussian(3),
         "projection": ee.Projection("EPSG:5070").atScale(100),
+        # A WKT string includes whitespace that should be preserved in a leaf element
+        "wkt_string": ee.Projection("EPSG:4326").wkt(),
         "reducer": ee.Reducer.max(5),
     }
 
