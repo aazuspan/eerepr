@@ -12,6 +12,8 @@ MAX_INLINE_LENGTH = 50
 # Max elements in a list without definitely truncating, i.e. a list where each element
 # takes 1 character plus brackets and delimiters.
 MAX_LIST_LENGTH = MAX_INLINE_LENGTH // 3
+# Object summaries over this length are truncated
+MAX_SUMMARY_LENGTH = 140
 
 # Sorting priority for Earth Engine properties
 PROPERTY_PRIORITY = [
@@ -78,6 +80,11 @@ def _write_collection(obj: list | dict, acc: list[str], key: str | None = None) 
     # Create a collapsible <detail> block with a <summary> for the collection
     acc.append("<details><summary>")
     summary = _summarize_collection(obj)
+
+    # Truncate summaries that are too long.
+    if len(summary) > MAX_SUMMARY_LENGTH:
+        summary = summary[: MAX_SUMMARY_LENGTH - 1] + "…"
+
     _write_item(summary, key=key, acc=acc)
     acc.append("</summary><ul>")
 

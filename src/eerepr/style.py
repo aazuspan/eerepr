@@ -51,6 +51,10 @@ body.vscode-dark {
 .eerepr summary {
   cursor: pointer;
   margin: 0;
+  white-space: collapse;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap-mode: nowrap;
 }
 
 .eerepr summary:hover {

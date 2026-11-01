@@ -10,6 +10,11 @@ All notable changes to this project will be documented in this file.
 - A pixel type missing a minimum or maximum value no longer reports a range
 - A pixel type now reports its `dimensions`
 - Whitespace is now preserved in leaf elements, e.g. WKT strings
+- Summaries are now truncated to 140 characters and overflow is hidden to match the Code Editor
+
+### Performance
+
+- Small increase in repr speed and reduction in repr size for image bands with long WKT string CRS's
 
 ## [0.1.4] - 2026-10-31
 

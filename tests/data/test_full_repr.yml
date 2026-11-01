@@ -13,10 +13,11 @@
   \  font-size: 14px;\n  color: var(--font-color-primary);\n}\n\n.eerepr li {\n  list-style-type:\
   \ none;\n  margin: 0;\n  white-space: pre;\n}\n\n.eerepr ul {\n  padding-left: 1.5em\
   \ !important;\n  margin: 0;\n}\n\n.eerepr > ul {\n  padding-left: 0 !important;\n\
-  }\n\n.eerepr summary {\n  cursor: pointer;\n  margin: 0;\n}\n\n.eerepr summary:hover\
-  \ {\n  background-color: var(--background-color-row-odd)\n}\n\n.eerepr b {\n  color:\
-  \ var(--font-color-accent);\n  margin-right: 6px;\n  font-weight: normal;\n}\n\n\
-  .eerepr details > summary::before {\n  content: '▼';\n  color: var(--font-color-secondary);\n\
+  }\n\n.eerepr summary {\n  cursor: pointer;\n  margin: 0;\n  white-space: collapse;\n\
+  \  overflow: hidden;\n  text-overflow: ellipsis;\n  text-wrap-mode: nowrap;\n}\n\
+  \n.eerepr summary:hover {\n  background-color: var(--background-color-row-odd)\n\
+  }\n\n.eerepr b {\n  color: var(--font-color-accent);\n  margin-right: 6px;\n  font-weight:\
+  \ normal;\n}\n\n.eerepr details > summary::before {\n  content: '▼';\n  color: var(--font-color-secondary);\n\
   \  display: inline-block;\n  margin-right: 6px;\n  transition: transform 0.2s;\n\
   \  transform: rotate(-90deg);\n}\n\n.eerepr summary:hover::before {\n  color: var(--font-color-primary);\n\
   }\n\n.eerepr details[open] > summary::before {\n  transform: rotate(0deg);\n}\n\n\

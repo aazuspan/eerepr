@@ -148,3 +148,15 @@ def test_summarize_pixel_type_with_sized_dimensions(
     """A pixel type with non-numeric dimensions use the length, if available."""
     pixel_type = factory.PixelType(precision=precision, dimensions=dimensions)
     assert _summarize_pixeltype(pixel_type) == f"{precision}, 3 dimensions"
+
+
+def test_summarize_does_not_truncate_short_summaries():
+    obj = {"type": "a" * 140}
+    assert "aaa…" not in convert_to_html(obj), "accidentally truncated short summary"
+
+
+@pytest.mark.parametrize("obj", [{"type": "a" * 141}, {"type": "a" * 139, "id": "foo"}])
+def test_summarize_truncates_long_summaries(obj: dict):
+    # A typed object includes both its `type` and `id` in its summary, and should
+    # truncate based on their combined length.
+    assert "aaa…" in convert_to_html(obj), "failed to truncate long summary"
